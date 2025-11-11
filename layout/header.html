@@ -93,25 +93,49 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
+    }
+
+    .topbar-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .topbar-info img {
+      width: 40px;
+      height: auto;
+      vertical-align: middle;
     }
 
     .topbar-info h4 {
       font-size: 0.9rem;
       margin-bottom: 0.125rem;
       font-weight: 700;
+      vertical-align: middle;
     }
 
     .topbar-info p {
       font-size: 0.8rem;
       opacity: 0.9;
+      vertical-align: middle;
     }
 
     .topbar-right {
       display: none;
       gap: 1.5rem;
       font-size: 0.85rem;
+    }
+
+    .topbar-right-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .topbar-right-item i {
+      font-size: 1rem;
+      color: #ff6f61;
+      vertical-align: middle;
     }
 
     @media (min-width: 768px) {
@@ -153,6 +177,9 @@
       border-radius: var(--radius);
       transition: var(--transition);
       position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
     }
 
     .nav-items a:hover {
@@ -174,6 +201,44 @@
 
     .nav-items a:hover::after {
       transform: scaleX(1);
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background: var(--card);
+      min-width: 200px;
+      box-shadow: var(--shadow-md);
+      border-radius: var(--radius);
+      z-index: 100;
+      top: calc(100% + 2px);
+      left: 0;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .dropdown-content a {
+      color: var(--text);
+      padding: 0.75rem 1rem;
+      text-decoration: none;
+      display: block;
+      font-weight: 500;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .dropdown-content a:hover {
+      background: var(--bg-light);
+      color: var(--primary);
     }
 
     .nav-actions {
@@ -259,16 +324,24 @@
   <div class="topbar">
     <div class="container topbar-content">
       <div class="topbar-left">
-        <div class="topbar-logo">DI</div>
+        <div class="topbar-logo">
+          <img src="images/logo-bms.png" alt="Logo Banyumas" width="40" height="40">
+        </div>
         <div class="topbar-info">
           <h4>Dinas Komunikasi dan Informatika</h4>
           <p>Pemerintah Kabupaten Banyumas</p>
         </div>
       </div>
       <div class="topbar-right">
-        <span>Jl. Masjid No. 8 Purwokerto</span>
+        <div class="topbar-right-item">
+          <i class="fas fa-map-marker-alt" style="color: #ff6f61;"></i>
+          <span>Jl. Masjid No. 8 Purwokerto</span>
+        </div>
         <span>|</span>
-        <span>Telp: (0281) 632338</span>
+        <div class="topbar-right-item">
+          <i class="fas fa-phone" style="color: #6b48ff;"></i>
+          <span>Telp: (0281) 632338</span>
+        </div>
       </div>
     </div>
   </div>
@@ -277,8 +350,18 @@
   <nav>
     <div class="container nav-content">
       <div class="nav-items">
-        <a href="#beranda">Beranda</a>
-        <a href="#profil">Profil</a>
+        <a href="../index.html">Beranda</a>
+        <div class="dropdown">
+          <a href="#profil" class="dropbtn">Profil</a>
+          <div class="dropdown-content">
+            <a href="profil/visi-misi.html">Visi Dan Misi</a>
+            <a href="profil/tugas-fungsi.html">Tugas Dan Fungsi</a>
+            <a href="profil/struktur-organisasi.html">Struktur Organisasi</a>
+            <a href="profil/sejarah-dinkominfo.html">Sejarah Dinkominfo Kabupaten Banyumas</a>
+            <a href="profil/alamat-kontak.html">Alamat Dan Kontak</a>
+            <a href="profil/indikator-kinerja.html">Indikator Kinerja Utama</a>
+          </div>
+        </div>
         <a href="#ppid">PPID</a>
         <a href="#layanan">Layanan</a>
         <a href="#berita">Berita</a>
@@ -292,7 +375,7 @@
       </div>
     </div>
     <div class="mobile-nav" id="mobileNav">
-      <a href="#beranda">Beranda</a>
+      <a href="../index.html">Beranda</a>
       <a href="#profil">Profil</a>
       <a href="#ppid">PPID</a>
       <a href="#layanan">Layanan</a>
@@ -320,10 +403,12 @@
       }
     }
 
-    window.addEventListener('load', () => {
-      const icon = document.querySelector('.theme-toggle i');
-      if (document.body.getAttribute('data-theme') === 'dark') {
-        icon.classList.replace('fa-moon', 'fa-sun');
-      }
+    // Pastikan link mobile nav berfungsi
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('mobileNav').classList.remove('active');
+      });
     });
   </script>
+</body>
+</html>
