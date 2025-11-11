@@ -1,0 +1,243 @@
+  <!-- SURVEY BANNER -->
+  <div class="survey-banner" id="surveyBanner">
+    <div class="survey-toggle" onclick="toggleSurvey()">
+      <i class="fas fa-comment-dots"></i>
+    </div>
+    <div class="survey-title">Survey Kepuasan</div>
+    <form class="survey-form">
+      <select required>
+        <option value="">Pilih Layanan</option>
+        <option>LPSE</option>
+        <option>SIAP</option>
+        <option>Sipanjimas</option>
+      </select>
+      <select required>
+        <option value="">Nilai Kepuasan</option>
+        <option>Sangat Puas</option>
+        <option>Puas</option>
+        <option>Cukup</option>
+        <option>Tidak Puas</option>
+      </select>
+      <textarea placeholder="Saran (opsional)" rows="3"></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Tentang Kami</h3>
+          <p>Dinas Komunikasi dan Informatika Kabupaten Banyumas — Membangun pemerintahan digital yang inklusif dan responsif.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Menu</h3>
+          <a href="#">Beranda</a>
+          <a href="#">Profil</a>
+          <a href="#">PPID</a>
+          <a href="#">Layanan</a>
+          <a href="#">Kontak</a>
+        </div>
+        <div class="footer-section">
+          <h3>Layanan</h3>
+          <a href="#">LPSE</a>
+          <a href="#">SIAP</a>
+          <a href="#">Sipanjimas</a>
+          <a href="#">BNP2 TKI</a>
+        </div>
+        <div class="footer-section">
+          <h3>Hubungi Kami</h3>
+          <div class="contact-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <p>Jl. Masjid No. 8 Purwokerto - 53115</p>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-phone"></i>
+            <p>(0281) 632338</p>
+          </div>
+          <div class="contact-info">
+            <i class="fas fa-envelope"></i>
+            <p>info@banyumaskab.go.id</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Dinkominfo Banyumas. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privasi</a>
+          <a href="#">Syarat</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleSurvey() {
+      document.getElementById('surveyBanner').classList.toggle('open');
+    }
+  </script>
+
+  <style>
+    /* Footer Styles */
+    footer {
+      background: var(--text);
+      color: rgba(255, 255, 255, 0.8);
+      padding: 3.5rem 0 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .footer-section h3 {
+      color: white;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+    }
+
+    .footer-section a, .footer-section p {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.75rem;
+      transition: var(--transition);
+      font-weight: 500;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .contact-info {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      margin-bottom: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    @media (min-width: 640px) {
+      .footer-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 1rem;
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      color: white;
+    }
+
+    /* Survey Banner */
+    .survey-banner {
+      position: fixed;
+      left: -300px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 320px;
+      background: var(--card);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      box-shadow: var(--shadow-md);
+      padding: 1.75rem;
+      z-index: 1000;
+      transition: left 0.4s ease;
+      border: 1px solid var(--border);
+    }
+
+    .survey-banner.open {
+      left: 0;
+    }
+
+    .survey-toggle {
+      position: absolute;
+      right: -50px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--primary);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      font-weight: 700;
+    }
+
+    .survey-toggle:hover {
+      background: var(--primary-light);
+    }
+
+    .survey-title {
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: var(--text);
+      font-size: 0.95rem;
+      font-family: 'Sora', sans-serif;
+    }
+
+    .survey-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .survey-form select,
+    .survey-form textarea {
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 0.4rem;
+      font-size: 0.875rem;
+      background: var(--bg-light);
+      color: var(--text);
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+    }
+
+    .survey-form button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.75rem;
+      border-radius: 0.4rem;
+      cursor: pointer;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+
+    .survey-form button:hover {
+      background: var(--primary-light);
+    }
+  </style>
+</body>
+</html>
