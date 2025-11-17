@@ -4,188 +4,71 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tugas dan Fungsi - Dinkominfo Banyumas</title>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    :root {
-      --primary: #003d99;
-      --primary-light: #0052cc;
-      --accent: #0066ff;
-      --text: #1a1a1a;
-      --text-light: #666666;
-      --bg: #ffffff;
-      --bg-light: #f8f9fb;
-      --card: #ffffff;
-      --border: #e0e0e0;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-      --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
-      --radius: 0.75rem;
-      --transition: all 0.3s ease;
-    }
-
-    [data-theme="dark"] {
-      --text: #f5f5f5;
-      --text-light: #b0b0b0;
-      --bg: #0f1117;
-      --bg-light: #161b22;
-      --card: #1c2128;
-      --border: #30363d;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: var(--transition);
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .container { padding: 0 1rem; }
-    }
-
-    /* Content Styles */
-    .content {
-      padding: 4rem 0;
-      background: var(--bg-light);
-    }
-
-    .section-title {
-      color: var(--primary);
-      font-size: 2.5rem;
-      margin-bottom: 2.5rem;
-      text-align: center;
-      position: relative;
-      padding-bottom: 1rem;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-
-    .task-function-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .task-function-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: var(--shadow-sm);
-      transition: var(--transition);
-      height: 100%;
-    }
-
-    .task-function-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-
-    .card-title {
-      color: var(--primary);
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .card-title i {
-      color: var(--accent);
-    }
-
-    .card-list {
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .card-list li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--text);
-      font-size: 1rem;
-    }
-
-    .card-list li::before {
-      content: '✔';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-    }
-
-    @media (max-width: 768px) {
-      .section-title { font-size: 2rem; }
-      .task-function-card { padding: 1.5rem; }
-      .card-title { font-size: 1.25rem; }
-      .card-list li { font-size: 0.95rem; }
-    }
-  </style>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <!-- Load Header -->
-  <script>
-    fetch('../layout/header.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Header not found: ' + response.status);
-        return response.text();
-      })
-      .then(data => document.body.insertAdjacentHTML('afterbegin', data))
-      .catch(error => console.error('Error loading header:', error));
-  </script>
 
-  <!-- Main Content -->
-  <div class="content">
-    <div class="container">
-      <h1 class="section-title">Tugas</h1>
-      <div class="task-function-grid">
-        <div class="task-function-card">
-          <h2 class="card-title"><i class="fas fa-tasks"></i> Tugas Utama</h2>
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <h1 class="hero-title">TUGAS DAN FUNGSI</h1>
+          <p class="hero-subtitle">
+            Menjelajahi tugas dan fungsi Dinas Komunikasi dan Informatika Kabupaten Banyumas dalam melayani masyarakat.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Tugas</h2>
           <ul class="card-list">
             <li>Menyelenggarakan urusan pemerintahan yang menjadi kewenangan Daerah dan tugas pembantuan dalam bidang komunikasi dan informatika.</li>
             <li>Melaksanakan koordinasi, sinkronisasi, dan penyusunan kebijakan teknis di bidang komunikasi dan informatika.</li>
             <li>Melaksanakan pelayanan administrasi dan teknis di bidang komunikasi dan informatika.</li>
             <li>Melaksanakan evaluasi dan pelaporan pelaksanaan tugas dan wewenang di bidang komunikasi dan informatika.</li>
           </ul>
-        </div>
-      </div>
-
-      <h1 class="section-title">Fungsi</h1>
-      <div class="task-function-grid">
-        <div class="task-function-card">
-          <h2 class="card-title"><i class="fas fa-cogs"></i> Fungsi Utama</h2>
+          
+          <h2 class="card-title" style="margin-top: 2rem;">Fungsi</h2>
           <ul class="card-list">
             <li>Perumusan kebijakan teknis di bidang komunikasi dan informatika.</li>
             <li>Pelaksanaan kebijakan teknis di bidang komunikasi dan informatika.</li>
@@ -197,27 +80,68 @@
           </ul>
         </div>
       </div>
-    </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
   </div>
 
-  <!-- Load Footer -->
+  <!-- SCRIPT -->
   <script>
-    fetch('../layout/footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Footer not found: ' + response.status);
-        return response.text();
-      })
-      .then(data => document.body.insertAdjacentHTML('beforeend', data))
-      .catch(error => {
-        console.error('Error loading footer:', error);
-        document.body.insertAdjacentHTML('beforeend', `
-          <footer style="background: var(--primary); color: white; padding: 2rem 0; font-family: 'Poppins', sans-serif;">
-            <div class="container">
-              <p style="text-align: center; font-size: 0.85rem;">© 2025 Dinkominfo Banyumas. All rights reserved.</p>
-            </div>
-          </footer>
-        `);
+    // AKSESIBILITAS & HEADER/FOOTER
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
       });
+    });
+
+    // Load Header and Footer
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the body content from header.html
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(d, 'text/html');
+        document.getElementById('header-placeholder').outerHTML = doc.body.innerHTML;
+      })
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the body content from footer.html
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(d, 'text/html');
+        document.getElementById('footer-placeholder').outerHTML = doc.body.innerHTML;
+      })
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
   </script>
 </body>
 </html>

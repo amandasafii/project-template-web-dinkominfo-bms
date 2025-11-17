@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Permohonan Informasi - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Additional CSS for this page -->
+  <style>
+    /* FORM STYLING */
+    .form-section {
+      margin-bottom: 2rem;
+    }
+
+    .form-section-title {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 700;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .form-section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.8rem;
+      font-size: 1rem;
+      background: #f9f9f9;
+      transition: var(--transition);
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(0,102,255,0.2);
+    }
+
+    .radio-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .radio-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.8rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .radio-item:hover {
+      background: var(--bg-light);
+    }
+
+    .radio-item input[type="radio"] {
+      margin-right: 0.5rem;
+    }
+
+    .radio-item.selected {
+      background: var(--bg-light);
+      border-color: var(--accent);
+    }
+
+    .form-actions {
+      display: flex;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .download-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+    }
+
+    .download-link a {
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: var(--transition);
+    }
+
+    .download-link a:hover {
+      color: var(--primary);
+    }
+
+    .download-link i {
+      font-size: 1.2rem;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: linear-gradient(135deg, #fff8e1, #fff0c2);
+      border: 1px solid #ffcc00;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-box i {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .info-box p {
+      font-size: 1rem;
+      color: #5d4037;
+      margin: 0;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h1 class="hero-title">PERMOHONAN INFORMASI</h1>
+          <p class="hero-subtitle">
+            Ajukan permohonan informasi publik secara online atau unduh formulir
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Form Permohonan Informasi</h2>
+          
+          <div class="download-link">
+            <a href="../files/FORMULIR PERMOHONAN INFORMASI.pdf" download>
+              <i class="fas fa-download"></i> Download Formulir Permohonan Informasi
+            </a>
+          </div>
+
+          <p style="margin-bottom: 1.5rem; text-align: center; color: var(--text-light);">
+            Anda dapat <strong>download Formulir Permohonan Informasi</strong> atau kirim permohonan informasi online di bawah ini:
+          </p>
+
+          <form id="info-form">
+            <div class="form-section">
+              <h3 class="form-section-title">Data Pemohon</h3>
+              
+              <div class="form-group">
+                <label class="form-label" for="nama">Nama Lengkap</label>
+                <input type="text" id="nama" class="form-input" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="alamat">Alamat</label>
+                <textarea id="alamat" class="form-textarea" rows="3" required></textarea>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="pekerjaan">Pekerjaan</label>
+                <input type="text" id="pekerjaan" class="form-input" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="telp">Nomor Telp/HP</label>
+                <input type="tel" id="telp" class="form-input" required />
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="email">E-Mail</label>
+                <input type="email" id="email" class="form-input" required />
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title">Cara Mendapatkan Salinan Informasi</h3>
+              
+              <div class="radio-group">
+                <label class="radio-item">
+                  <input type="radio" name="cara" value="langsung" checked />
+                  Mengambil Langsung
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="cara" value="kurir" />
+                  Kurir
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="cara" value="pos" />
+                  POS
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="cara" value="faksimile" />
+                  Faksimile
+                </label>
+                <label class="radio-item">
+                  <input type="radio" name="cara" value="email" />
+                  E-Mail
+                </label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3 class="form-section-title">Rincian Informasi yang Diminta</h3>
+              
+              <div class="form-group">
+                <label class="form-label" for="informasi">Informasi yang Diminta</label>
+                <textarea id="informasi" class="form-textarea" rows="5" placeholder="Jelaskan informasi yang Anda butuhkan secara rinci..." required></textarea>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                <i class="fas fa-paper-plane"></i> Kirim Permohonan
+              </button>
+            </div>
+          </form>
+
+          <div class="info-box">
+            <i class="fas fa-info-circle"></i>
+            <p>Permohonan informasi akan diproses sesuai dengan peraturan yang berlaku. Anda akan menerima informasi mengenai biaya dan waktu penyelesaian dalam waktu maksimal 14 hari kerja.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // Form Submit
+    document.getElementById('info-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Show success message
+      const successMessage = document.createElement('div');
+      successMessage.className = 'info-box';
+      successMessage.style.background = 'linear-gradient(135deg, #d4edda, #c3e6cb)';
+      successMessage.style.borderColor = '#28a745';
+      successMessage.innerHTML = `
+        <i class="fas fa-check-circle" style="color: #28a745;"></i>
+        <p style="color: #155724;">Permohonan informasi Anda telah dikirim! Kami akan memproses permohonan Anda dan menghubungi Anda dalam waktu maksimal 14 hari kerja.</p>
+      `;
+      
+      // Insert success message after form
+      this.parentNode.insertBefore(successMessage, this.nextSibling);
+      
+      // Reset form
+      this.reset();
+      
+      // Scroll to success message
+      successMessage.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Radio button selection
+    document.querySelectorAll('input[name="cara"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        // Remove selected class from all radio items
+        document.querySelectorAll('.radio-item').forEach(item => {
+          item.classList.remove('selected');
+        });
+        
+        // Add selected class to the parent of the checked radio
+        if (this.checked) {
+          this.parentElement.classList.add('selected');
+        }
+      });
+    });
+
+    // AKSESIBILITAS & HEADER/FOOTER
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // Load Header and Footer - PERBAIKAN
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+  </script>
+</body>
+</html>

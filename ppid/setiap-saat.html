@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Informasi Setiap Saat - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Additional CSS for this page -->
+  <style>
+    /* TABEL */
+    .ses-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .ses-table th {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .ses-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .ses-table tr:hover {
+      background: var(--bg-light);
+    }
+
+    .ses-table .no {
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary);
+      width: 50px;
+    }
+
+    .ses-table .judul {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .ses-table .ringkasan {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .ses-table .link {
+      word-break: break-all;
+    }
+
+    .ses-table a {
+      color: var(--accent);
+      text-decoration: underline;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .ses-table a:hover {
+      color: var(--primary);
+    }
+
+    .ses-table .peraturan-list {
+      padding-left: 1.2rem;
+      margin: 0.8rem 0;
+    }
+
+    .ses-table .peraturan-list li {
+      margin-bottom: 0.6rem;
+      position: relative;
+      padding-left: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .ses-table .peraturan-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: linear-gradient(135deg, #fff8e1, #fff0c2);
+      border: 1px solid #ffcc00;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-box i {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .info-box p {
+      font-size: 1rem;
+      color: #5d4037;
+      margin: 0;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h1 class="hero-title">SETIAP SAAT</h1>
+          <p class="hero-subtitle">
+            Informasi yang wajib tersedia setiap saat sesuai UU Keterbukaan Informasi Publik
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Daftar Informasi Setiap Saat</h2>
+
+          <table class="ses-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Informasi</th>
+                <th>Ringkasan Isi</th>
+                <th>Jenis Media / Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="no">1</td>
+                <td class="judul">Informasi tentang Organisasi, Administrasi Kepegawaian</td>
+                <td class="ringkasan">Berisi tentang organisasi, administrasi kepegawaian Dinas Komunikasi dan Informatika Kabupaten Banyumas</td>
+                <td class="link">
+                  <a href="http://dinkominfo.banyumaskab.go.id/page/24770/data-pegawai#.YWOHGdUzbIU" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Lihat di Website Resmi
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="no">2</td>
+                <td class="judul">Rencana Strategis</td>
+                <td class="ringkasan">Berisi tentang Rencana Strategis Dinas Komunikasi dan Informatika Kabupaten Banyumas</td>
+                <td class="link">
+                  <a href="http://dinkominfo.banyumaskab.go.id/page/25438/download#.W1rK3VAzaM8" target="_blank">
+                    <i class="fas fa-external-link-alt"></i> Lihat di Website Resmi
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="no">3</td>
+                <td class="judul">Rencana Kerja Tahunan</td>
+                <td class="ringkasan">Berisi tentang Rencana Kerja Tahunan Dinas Komunikasi dan Informatika Kabupaten Banyumas</td>
+                <td class="link">
+                  <a href="https://drive.google.com/file/d/1lb29tqL1WSs_lHTlT8hQXKDzToCblqas/view" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Lihat di Google Drive
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="no">4</td>
+                <td class="judul">Peraturan / Keputusan yang Telah Diterbitkan</td>
+                <td class="ringkasan">Berisi daftar peraturan dan keputusan yang diterbitkan oleh Dinas Komunikasi dan Informatika</td>
+                <td class="link">
+                  <strong>PERATURAN DAERAH</strong>
+                  <ul class="peraturan-list">
+                    <li>Peraturan Daerah Kab. Banyumas No 4 Tahun 2012 tentang Rencana Induk E-Government</li>
+                    <li>Peraturan Daerah Kab. Banyumas No 4 Tahun 2016 tentang Perubahan Perda No 1 Tahun 2013</li>
+                  </ul>
+                  <strong>PERATURAN BUPATI</strong>
+                  <ul class="peraturan-list">
+                    <li>Perbup No 44 Tahun 2018 tentang Pelayanan Pengaduan Masyarakat</li>
+                    <li>Perbup No 80 Tahun 2018 tentang Pengelolaan Informasi Publik</li>
+                    <li>Perbup No 18 Tahun 2018 tentang Tata Kelola Perangkat Lunak</li>
+                    <li>Perbup No 40 Tahun 2019 tentang Pengelolaan Domain</li>
+                    <li>Perbup No 33 Tahun 2017 tentang Pembangunan Menara</li>
+                    <li>Perbup No 32 Tahun 2017 tentang Retribusi Menara</li>
+                    <li>Perbup No 14 Tahun 2021 tentang Satu Data Kabupaten</li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="info-box">
+            <i class="fas fa-info-circle"></i>
+            <p>Informasi di atas wajib tersedia <strong>setiap saat</strong> sesuai amanat <strong>UU No. 14 Tahun 2008 tentang Keterbukaan Informasi Publik</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // AKSESIBILITAS & HEADER/FOOTER
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // Load Header and Footer - PERBAIKAN
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+  </script>
+</body>
+</html>

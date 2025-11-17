@@ -4,8 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Dinkominfo Banyumas</title>
+
+  <!-- PENTING: Base URL dari root folder -->
+  <base href="/">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
   <style>
     :root {
       --primary: #003d99;
@@ -93,39 +98,38 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
+      overflow: hidden;
+    }
+
+    .topbar-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
 
     .topbar-info {
       display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .topbar-info img {
-      width: 40px;
-      height: auto;
-      vertical-align: middle;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .topbar-info h4 {
       font-size: 0.9rem;
-      margin-bottom: 0.125rem;
+      margin: 0;
       font-weight: 700;
-      vertical-align: middle;
     }
 
     .topbar-info p {
       font-size: 0.8rem;
       opacity: 0.9;
-      vertical-align: middle;
+      margin: 0;
     }
 
     .topbar-right {
       display: none;
       gap: 1.5rem;
       font-size: 0.85rem;
+      align-items: center;
     }
 
     .topbar-right-item {
@@ -136,7 +140,6 @@
 
     .topbar-right-item i {
       font-size: 1rem;
-      color: #ff6f61;
       vertical-align: middle;
     }
 
@@ -205,7 +208,7 @@
       transform: scaleX(1);
     }
 
-    /* Dropdown Styles */
+    /* Dropdown */
     .dropdown {
       position: relative;
     }
@@ -214,7 +217,7 @@
       display: none;
       position: absolute;
       background: var(--card);
-      min-width: 200px;
+      min-width: 220px;
       box-shadow: var(--shadow-md);
       border-radius: var(--radius);
       z-index: 100;
@@ -258,6 +261,7 @@
       color: var(--text);
       transition: var(--transition);
       font-weight: 600;
+      font-size: 1.1rem;
     }
 
     .btn-icon:hover {
@@ -289,7 +293,6 @@
       padding: 0.875rem 1.5rem;
       color: var(--text);
       text-decoration: none;
-      border-radius: 0;
       transition: var(--transition);
       font-weight: 600;
     }
@@ -321,74 +324,96 @@
   </style>
 </head>
 <body>
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div class="topbar-left">
-        <div class="topbar-logo">
-          <img src="../images/logo-bms.png" alt="Logo Banyumas" width="40" height="40">
-        </div>
-        <div class="topbar-info">
-          <h4>Dinas Komunikasi dan Informatika</h4>
-          <p>Pemerintah Kabupaten Banyumas</p>
-        </div>
+
+  <!-- layout/header.html -->
+<div class="topbar">
+  <div class="container topbar-content">
+    <div class="topbar-left">
+      <div class="topbar-logo">
+        <img src="/images/logo-bms.png" alt="Logo Banyumas">
       </div>
-      <div class="topbar-right">
-        <div class="topbar-right-item">
-          <i class="fas fa-map-marker-alt" style="color: #ff6f61;"></i>
-          <span>Jl. Masjid No. 8 Purwokerto</span>
-        </div>
-        <span>|</span>
-        <div class="topbar-right-item">
-          <i class="fas fa-phone" style="color: #6b48ff;"></i>
-          <span>Telp: (0281) 632338</span>
-        </div>
+      <div class="topbar-info">
+        <h4>Dinas Komunikasi dan Informatika</h4>
+        <p>Pemerintah Kabupaten Banyumas</p>
+      </div>
+    </div>
+    <div class="topbar-right">
+      <div class="topbar-right-item">
+        <i class="fas fa-map-marker-alt" style="color: #ff6f61;"></i>
+        <span>Jl. Masjid No. 8 Purwokerto</span>
+      </div>
+      <span>|</span>
+      <div class="topbar-right-item">
+        <i class="fas fa-phone" style="color: #6b48ff;"></i>
+        <span>Telp: (0281) 632338</span>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="container nav-content">
-      <div class="nav-items">
-        <a href="../index.html">Beranda</a>
-        <div class="dropdown">
-          <a href="#" class="dropbtn">Profil</a>
-          <div class="dropdown-content">
-            <a href="./visi-misi.html">Visi Dan Misi</a>
-            <a href="./tugas-fungsi.html">Tugas Dan Fungsi</a>
-            <a href="./struktur-organisasi.html">Struktur Organisasi</a>
-            <a href="./sejarah-dinkominfo.html">Sejarah Dinkominfo Kabupaten Banyumas</a>
-            <a href="./alamat-kontak.html">Alamat Dan Kontak</a>
-            <a href="./indikator-kinerja.html">Indikator Kinerja Utama</a>
-          </div>
+<nav>
+  <div class="container nav-content">
+    <div class="nav-items">
+      <a href="/index.html">Beranda</a>
+
+      <div class="dropdown">
+        <a href="#">Profil</a>
+        <div class="dropdown-content">
+          <a href="/profil/visi-misi.html">Visi Dan Misi</a>
+          <a href="/profil/tugas-fungsi.html">Tugas Dan Fungsi</a>
+          <a href="/profil/struktur-organisasi.html">Struktur Organisasi</a>
+          <a href="/profil/sejarah-dinkominfo.html">Sejarah Dinkominfo Kabupaten Banyumas</a>
+          <a href="/profil/alamat-kontak.html">Alamat Dan Kontak</a>
+          <a href="/profil/indikator-kinerja.html">Indikator Kinerja Utama</a>
         </div>
-        <a href="../ppid.html">PPID</a>
-        <a href="../layanan.html">Layanan</a>
-        <a href="../berita.html">Berita</a>
-        <a href="../kontak.html">Kontak</a>
       </div>
-      <div class="nav-actions">
-        <button class="btn-icon theme-toggle" onclick="toggleTheme()" aria-label="Ganti tema">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button class="btn-icon menu-toggle" onclick="toggleMobileMenu()">Menu</button>
+      
+      <a href="/menu-publik.html">Menu Publik</a>
+      <a href="/pegawai.html">Data Pegawai</a>
+      <a href="/download.html">Download</a>
+      <a href="/faq.html">F.A.Q</a>
+      <a href="/kontak.html">Kontak</a>
+      
+      <div class="dropdown">
+        <a href="#">PPID</a>
+        <div class="dropdown-content">
+          <a href="/ppid/sk-dip.html">SK DIP DIKECUALIKAN</a>
+          <a href="/ppid/berkala.html">Berkala</a>
+          <a href="/ppid/setiap-saat.html">Setiap Saat</a>
+          <a href="/ppid/serta-merta.html">Serta Merta</a>
+          <a href="/ppid/struktur-ppid.html">Struktur PPID</a>
+          <a href="/ppid/maklumat-pelayanan.html">Maklumat Pelayanan</a>
+          <a href="/ppid/laporan-tahunan.html">Laporan Tahunan</a>
+          <a href="/ppid/sk-ppid.html">SK PPID</a>
+          <a href="/ppid/sk-penetapan-dip.html">SK Penetapan DIP</a>
+          <a href="/ppid/permohonan-informasi.html">Permohonan Informasi</a>
+          <a href="/ppid/form-keberatan.html">Form Keberatan</a>
+          <a href="/ppid/sop.html">SOP</a>
+        </div>
       </div>
     </div>
-    <div class="mobile-nav" id="mobileNav">
-      <a href="../index.html">Beranda</a>
-      <a href="./visi-misi.html">Visi Dan Misi</a>
-      <a href="./tugas-fungsi.html">Tugas Dan Fungsi</a>
-      <a href="./struktur-organisasi.html">Struktur Organisasi</a>
-      <a href="./sejarah-dinkominfo.html">Sejarah Dinkominfo Kabupaten Banyumas</a>
-      <a href="./alamat-kontak.html">Alamat Dan Kontak</a>
-      <a href="./indikator-kinerja.html">Indikator Kinerja Utama</a>
-      <a href="../ppid.html">PPID</a>
-      <a href="../layanan.html">Layanan</a>
-      <a href="../berita.html">Berita</a>
-      <a href="../kontak.html">Kontak</a>
+
+    <div class="nav-actions">
+      <button class="btn-icon theme-toggle" onclick="toggleTheme()" aria-label="Ganti tema">
+        <i class="fas fa-moon"></i>
+      </button>
+      <button class="btn-icon menu-toggle" onclick="toggleMobileMenu()">
+        <i class="fas fa-bars"></i>
+      </button>
     </div>
-  </nav>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="/index.html" onclick="toggleMobileMenu()">Beranda</a>
+    <a href="/profil/visi-misi.html" onclick="toggleMobileMenu()">Profil</a>
+    <a href="/menu-publik.html" onclick="toggleMobileMenu()">Menu Publik</a>
+    <a href="/pegawai.html" onclick="toggleMobileMenu()">Data Pegawai</a>
+    <a href="/download.html" onclick="toggleMobileMenu()">Download</a>
+    <a href="/faq.html" onclick="toggleMobileMenu()">F.A.Q</a>
+    <a href="/kontak.html" onclick="toggleMobileMenu()">Kontak</a>
+    <a href="/ppid/berkala.html" onclick="toggleMobileMenu()">PPID</a>
+  </div>
+</nav>
 
   <script>
     function toggleMobileMenu() {
@@ -409,6 +434,7 @@
       }
     }
 
+    // Tutup mobile menu saat klik link
     document.querySelectorAll('.mobile-nav a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('mobileNav').classList.remove('active');

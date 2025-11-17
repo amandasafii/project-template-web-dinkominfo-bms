@@ -4,222 +4,139 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Visi dan Misi - Dinkominfo Banyumas</title>
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <style>
-
-    
-    :root {
-      --primary: #003d99;
-      --primary-light: #0052cc;
-      --accent: #0066ff;
-      --text: #1a1a1a;
-      --text-light: #666666;
-      --bg: #ffffff;
-      --bg-light: #f8f9fb;
-      --card: #ffffff;
-      --border: #e0e0e0;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-      --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
-      --radius: 0.75rem;
-      --transition: all 0.3s ease;
-    }
-
-    [data-theme="dark"] {
-      --text: #f5f5f5;
-      --text-light: #b0b0b0;
-      --bg: #0f1117;
-      --bg-light: #161b22;
-      --card: #1c2128;
-      --border: #30363d;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: var(--transition);
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .container { padding: 0 1rem; }
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
-      color: white;
-      text-align: center;
-      padding: 5rem 1rem;
-      min-height: 50vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-      animation: pulse 10s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(0.5); opacity: 0.5; }
-      100% { transform: scale(1.5); opacity: 0; }
-    }
-
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      z-index: 1;
-    }
-
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2rem; }
-    }
-
-    .hero p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-      z-index: 1;
-    }
-
-    /* Content Section */
-    .content-section {
-      padding: 4rem 0;
-      background: var(--bg-light);
-    }
-
-    .vision-mission {
-      max-width: 800px;
-      margin: 0 auto;
-      text-align: center;
-    }
-
-    .vision-mission h2 {
-      font-size: 2.5rem;
-      color: var(--primary);
-      margin-bottom: 2rem;
-      position: relative;
-    }
-
-    .vision-mission h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-
-    .vision-mission p {
-      font-size: 1.1rem;
-      color: var(--text);
-      line-height: 1.8;
-      padding: 1.5rem;
-      background: var(--card);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-sm);
-      margin-bottom: 2rem;
-      transition: var(--transition);
-    }
-
-    .vision-mission p:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-md);
-    }
-
-    @media (max-width: 768px) {
-      .vision-mission h2 { font-size: 2rem; }
-      .vision-mission p { font-size: 1rem; padding: 1rem; }
-    }
-  </style>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
-  <!-- Load Header -->
-  <script>
-    fetch('../layout/header.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Header not found: ' + response.status);
-        return response.text();
-      })
-      .then(data => document.body.insertAdjacentHTML('afterbegin', data))
-      .catch(error => console.error('Error loading header:', error));
-  </script>
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container">
-      <h1>Visi dan Misi</h1>
-      <p>Menjelajahi panduan strategis Dinas Komunikasi dan Informatika Kabupaten Banyumas untuk masa depan yang lebih baik.</p>
-    </div>
-  </section>
-
-  <!-- Content Section -->
-  <section class="content-section">
-    <div class="container">
-      <div class="vision-mission">
-        <h2>Visi</h2>
-        <p>"Terwujudnya Kabupaten Banyumas yang cerdas, transparan, dan inklusif melalui pemanfaatan teknologi informasi dan komunikasi yang berkelanjutan pada tahun 2027."</p>
-        <h2>Misi</h2>
-        <p>1. Meningkatkan kualitas pelayanan publik berbasis teknologi informasi dan komunikasi.<br>
-           2. Membangun infrastruktur teknologi informasi dan komunikasi yang handal dan merata.<br>
-           3. Mengembangkan sumber daya manusia di bidang teknologi informasi dan komunikasi.<br>
-           4. Mendorong transparansi dan akuntabilitas pemerintahan melalui sistem informasi yang terintegrasi.<br>
-           5. Meningkatkan partisipasi masyarakat dalam pembangunan melalui pemanfaatan teknologi informasi.</p>
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Load Footer -->
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h1 class="hero-title">VISI DAN MISI</h1>
+          <p class="hero-subtitle">
+            Menjelajahi panduan strategis Dinas Komunikasi dan Informatika Kabupaten Banyumas untuk masa depan yang lebih baik.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Visi</h2>
+          <p style="font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem; text-align: justify;">
+            "Terwujudnya Kabupaten Banyumas yang cerdas, transparan, dan inklusif melalui pemanfaatan teknologi informasi dan komunikasi yang berkelanjutan pada tahun 2027."
+          </p>
+          
+          <h2 class="card-title" style="margin-top: 2rem;">Misi</h2>
+          <ol style="font-size: 1.1rem; line-height: 1.7; padding-left: 1.5rem;">
+            <li style="margin-bottom: 1rem;">Meningkatkan kualitas pelayanan publik berbasis teknologi informasi dan komunikasi.</li>
+            <li style="margin-bottom: 1rem;">Membangun infrastruktur teknologi informasi dan komunikasi yang handal dan merata.</li>
+            <li style="margin-bottom: 1rem;">Mengembangkan sumber daya manusia di bidang teknologi informasi dan komunikasi.</li>
+            <li style="margin-bottom: 1rem;">Mendorong transparansi dan akuntabilitas pemerintahan melalui sistem informasi yang terintegrasi.</li>
+            <li style="margin-bottom: 1rem;">Meningkatkan partisipasi masyarakat dalam pembangunan melalui pemanfaatan teknologi informasi.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT -->
   <script>
-    fetch('../layout/footer.html')
-      .then(response => {
-        if (!response.ok) throw new Error('Footer not found: ' + response.status);
-        return response.text();
-      })
-      .then(data => document.body.insertAdjacentHTML('beforeend', data))
-      .catch(error => {
-        console.error('Error loading footer:', error);
-        document.body.insertAdjacentHTML('beforeend', `
-          <footer style="background: var(--primary); color: white; padding: 2rem 0; font-family: 'Poppins', sans-serif;">
-            <div class="container">
-              <p style="text-align: center; font-size: 0.85rem;">© 2025 Dinkominfo Banyumas. All rights reserved.</p>
-            </div>
-          </footer>
-        `);
+    // AKSESIBILITAS & HEADER/FOOTER
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
       });
+    });
+
+    // Load Header and Footer
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the body content from header.html
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(d, 'text/html');
+        document.getElementById('header-placeholder').outerHTML = doc.body.innerHTML;
+      })
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the body content from footer.html
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(d, 'text/html');
+        document.getElementById('footer-placeholder').outerHTML = doc.body.innerHTML;
+      })
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
   </script>
 </body>
 </html>

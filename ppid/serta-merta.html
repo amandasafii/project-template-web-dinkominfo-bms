@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Informasi Serta Merta - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Additional CSS for this page -->
+  <style>
+    /* TABEL */
+    .sm-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .sm-table th {
+      background: var(--primary);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sm-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .sm-table tr:hover {
+      background: var(--bg-light);
+    }
+
+    .sm-table .no {
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary);
+      width: 50px;
+    }
+
+    .sm-table .judul {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .sm-table .ringkasan {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    .sm-table .link {
+      word-break: break-all;
+    }
+
+    .sm-table a {
+      color: var(--accent);
+      text-decoration: underline;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .sm-table a:hover {
+      color: var(--primary);
+    }
+
+    /* FAQ */
+    .faq-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .faq-title {
+      font-size: 1.4rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .faq-answer {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .faq-answer ul {
+      margin: 0.8rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .faq-answer li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* HOTLINE */
+    .hotline-box {
+      background: linear-gradient(135deg, var(--primary-light), var(--accent));
+      border: 2px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hotline-title {
+      font-size: 1.3rem;
+      color: white;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hotline-numbers {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .hotline-number {
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.8rem 1.5rem;
+      border-radius: 2rem;
+      display: inline-block;
+      transition: var(--transition);
+    }
+
+    .hotline-number:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .hotline-number a {
+      color: white;
+      font-size: 1.1rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .hotline-number i {
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h1 class="hero-title">SERTA MERTA</h1>
+          <p class="hero-subtitle">
+            Informasi yang wajib diumumkan seketika (serta merta) sesuai UU Keterbukaan Informasi Publik
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Daftar Informasi Serta Merta</h2>
+
+          <table class="sm-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Informasi</th>
+                <th>Ringkasan Isi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="no">1</td>
+                <td class="judul">Informasi tentang Bencana Alam</td>
+                <td class="ringkasan">Berisi tentang informasi bencana alam seperti kebakaran hutan karena faktor alam, hama penyakit tanaman, epidemi, wabah, kejadian luar biasa.</td>
+              </tr>
+              <tr>
+                <td class="no">2</td>
+                <td class="judul">Informasi tentang Kejadian Luar Biasa</td>
+                <td class="ringkasan">Berisi tentang informasi kejadian luar biasa pada Dinas Komunikasi dan Informatika Kabupaten Banyumas</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- FAQ COVID-19 -->
+          <div class="faq-section">
+            <h3 class="faq-title">Tanya Jawab: Novel Coronavirus (COVID-19)</h3>
+            
+            <div class="faq-item">
+              <div class="faq-question">Apakah Novel Coronavirus (2019-nCoV)?</div>
+              <div class="faq-answer">Novel coronavirus (2019-nCoV) adalah jenis baru coronavirus yang belum pernah diidentifikasi sebelumnya pada manusia. Coronavirus merupakan keluarga besar virus yang menyebabkan penyakit mulai flu biasa hingga penyakit serius seperti MERS dan SARS.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apa saja gejala Novel Coronavirus?</div>
+              <div class="faq-answer">Gejala umum: demam ≥38°C, batuk, pilek, nyeri tenggorokan. Jika pernah ke China (khususnya Wuhan) atau kontak dengan penderita, segera periksa ke dokter.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Bagaimana penularannya?</div>
+              <div class="faq-answer">Belum diketahui pasti. Penularan antar manusia terjadi dalam kontak erat dan petugas kesehatan. Sumber hewan belum diketahui.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apakah ada vaksin atau obat?</div>
+              <div class="faq-answer">Belum ada vaksin atau obat spesifik. Pengobatan suportif berdasarkan kondisi klinis pasien.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apakah petugas kesehatan berisiko?</div>
+              <div class="faq-answer">Ya, karena sering kontak dengan pasien. Wajib gunakan APD lengkap.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apakah sama dengan SARS?</div>
+              <div class="faq-answer">Sama keluarga virus, tapi SARS lebih berat. Gejala mirip.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Amankah ke China?</div>
+              <div class="faq-answer">WHO tetapkan PHEIC (30 Jan 2020). Tidak ada larangan resmi, tapi disarankan tunda perjalanan, terutama bawa anak.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Siapa yang lebih rentan?</div>
+              <div class="faq-answer">Tidak ada batas usia, tapi lansia dan penderita penyakit kronis (asma, diabetes, jantung) lebih rentan sakit parah.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Upaya Pemerintah Indonesia?</div>
+              <div class="faq-answer">
+                <ul>
+                  <li>Surat Edaran Dirjen P2P & Pelayanan Kesehatan</li>
+                  <li>Pedoman kesiapsagaan nCoV</li>
+                  <li>Press release, webinar, edukasi masyarakat</li>
+                  <li>Laboratorium siap periksa spesimen</li>
+                  <li>Thermal scanner + HAC di 19 pelabuhan</li>
+                  <li>Rapat koordinasi lintas sektor</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Sistem pelaporan?</div>
+              <div class="faq-answer">
+                <ul>
+                  <li>Lapor ke fasyankes → PHEOC Kemenkes</li>
+                  <li>Koordinasi dengan EOC</li>
+                  <li>Lintas sektor: Perhubungan, Hukum, Luar Negeri</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Info resmi di mana?</div>
+              <div class="faq-answer">
+                <ul>
+                  <li>Hotline EOC: (021) 5210411 / 081212123119</li>
+                  <li>Twitter: @KemenkesRI</li>
+                  <li>Instagram: @kemenkes_ri</li>
+                  <li>Web: infeksiemerging.kemkes.go.id</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Cara mencegah penularan?</div>
+              <div class="faq-answer">
+                <ul>
+                  <li>Jaga kesehatan & imunitas</li>
+                  <li>Cuci tangan pakai sabun</li>
+                  <li>Tutup mulut saat batuk/bersin</li>
+                  <li>Pakai masker di tempat umum</li>
+                  <li>Hindari hewan liar & daging mentah</li>
+                  <li>Tunda perjalanan ke China</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HOTLINE BANYUMAS -->
+          <div class="hotline-box">
+            <h3 class="hotline-title">HOTLINE DARURAT KAB. BANYUMAS</h3>
+            <div class="hotline-numbers">
+              <div class="hotline-number">
+                <a href="tel:119"><i class="fas fa-phone"></i> 119</a>
+              </div>
+              <div class="hotline-number">
+                <a href="tel:02817772119"><i class="fas fa-phone"></i> (0281) 7772 119</a>
+              </div>
+              <div class="hotline-number">
+                <a href="tel:08112762119"><i class="fas fa-mobile-alt"></i> 0811 2762 119</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // AKSESIBILITAS & HEADER/FOOTER
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // Load Header and Footer - PERBAIKAN
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+  </script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Struktur PPID - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- Additional CSS for this page -->
+  <style>
+    /* Image Modal Styles */
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 99999;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      overflow: auto;
+    }
+
+    .image-modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: var(--radius);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .modal-img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      width: 48px;
+      height: 48px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+      transition: var(--transition);
+    }
+
+    .close-modal:hover {
+      background: var(--primary);
+      transform: scale(1.1);
+    }
+
+    /* Image Container */
+    .image-container {
+      text-align: center;
+      margin: 2rem 0;
+    }
+
+    .struktur-img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .struktur-img:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .img-caption {
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-light);
+      margin-top: 0.8rem;
+      font-style: italic;
+    }
+
+    /* Info Box */
+    .info-box {
+      background: linear-gradient(135deg, #fff8e1, #fff0c2);
+      border: 1px solid #ffcc00;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-box i {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .info-box p {
+      font-size: 1rem;
+      color: #5d4037;
+      margin: 0;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL ZOOM GAMBAR -->
+  <div id="image-modal" class="image-modal">
+    <div class="modal-content">
+      <button class="close-modal" id="close-modal">
+        <i class="fas fa-times"></i>
+      </button>
+      <img src="../images/struktur_ppid.jpg" alt="Struktur PPID" class="modal-img" />
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-sitemap"></i>
+          </div>
+          <h1 class="hero-title">STRUKTUR PPID</h1>
+          <p class="hero-subtitle">
+            Bagian Tim Pengelola Layanan Informasi dan Dokumentasi (PPID)
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Struktur Organisasi PPID</h2>
+          
+          <div class="image-container">
+            <img 
+              src="../images/struktur_ppid.jpg" 
+              alt="Struktur PPID Dinas Komunikasi dan Informatika Kabupaten Banyumas" 
+              class="struktur-img"
+              id="zoom-image"
+            />
+            
+            <p class="img-caption">
+              <i class="fas fa-info-circle"></i> 
+              Klik gambar untuk memperbesar
+            </p>
+          </div>
+
+          <div class="info-box">
+            <i class="fas fa-info-circle"></i>
+            <p>Struktur organisasi PPID Dinas Komunikasi dan Informatika Kabupaten Banyumas dirancang untuk memastikan kelancaran pelayanan informasi publik sesuai dengan peraturan perundang-undangan yang berlaku.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // AKSESIBILITAS & HEADER/FOOTER
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // ZOOM GAMBAR
+    const zoomImg = document.getElementById('zoom-image');
+    const modal = document.getElementById('image-modal');
+    const closeModal = document.getElementById('close-modal');
+
+    zoomImg.addEventListener('click', () => {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeModal.addEventListener('click', () => {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    });
+
+    // Load Header and Footer - PERBAIKAN
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+  </script>
+</body>
+</html>

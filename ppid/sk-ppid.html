@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SK PPID - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  
+  <!-- PDF.js CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  
+  <!-- Additional CSS for this page -->
+  <style>
+    /* SK LIST */
+    .sk-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+
+    .sk-item {
+      background: var(--bg-light);
+      border-left: 5px solid var(--red-line);
+      padding: 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      transition: var(--transition);
+    }
+
+    .sk-item:hover {
+      background: #e0eaff;
+      transform: translateX(8px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .sk-year {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .sk-desc {
+      font-size: 1rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .sk-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.8rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-preview {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-preview:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-download {
+      background: #28a745;
+      color: white;
+    }
+
+    .btn-download:hover {
+      background: #218838;
+      transform: translateY(-2px);
+    }
+
+    .btn-disabled {
+      background: #6c757d;
+      color: white;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .btn-disabled:hover {
+      background: #5a6268;
+      transform: none;
+    }
+
+    /* PDF MODAL */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.9);
+      z-index: 99999;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      overflow: auto;
+    }
+
+    .pdf-modal.active {
+      display: flex;
+    }
+
+    .pdf-modal-content {
+      width: 90%;
+      max-width: 900px;
+      background: white;
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .pdf-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+    }
+
+    .close-pdf {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .pdf-container {
+      height: 80vh;
+      overflow-y: auto;
+      background: #f8f9fa;
+    }
+
+    .pdf-canvas {
+      width: 100%;
+      display: block;
+      border-bottom: 1px solid #eee;
+    }
+
+    .pdf-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      background: #f8f9fa;
+      border-top: 1px solid #dee2e6;
+    }
+
+    .pdf-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 0.8rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .pdf-btn:hover {
+      background: var(--primary-light);
+    }
+
+    .pdf-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .page-info {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PDF MODAL -->
+  <div id="pdf-modal" class="pdf-modal">
+    <div class="pdf-modal-content">
+      <div class="pdf-header">
+        <span id="pdf-title">Preview SK PPID</span>
+        <button class="close-pdf" id="close-pdf">×</button>
+      </div>
+      <div class="pdf-container">
+        <div id="pdf-viewer">
+          <div class="loading">Memuat dokumen PDF...</div>
+        </div>
+      </div>
+      <div class="pdf-controls">
+        <button id="prev-page" class="pdf-btn">Sebelumnya</button>
+        <span class="page-info">Halaman <span id="page-num">1</span> dari <span id="page-count">?</span></span>
+        <button id="next-page" class="pdf-btn">Berikutnya</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-file-contract"></i>
+          </div>
+          <h1 class="hero-title">SK PPID</h1>
+          <p class="hero-subtitle">
+            Surat Keputusan Pejabat Pengelola Informasi dan Dokumentasi Tahun 2021–2024
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Daftar SK PPID</h2>
+          
+          <div class="sk-list">
+            <!-- SK 2021 -->
+            <div class="sk-item">
+              <div class="sk-year">SK PPID Tahun 2021</div>
+              <div class="sk-desc">Surat Keputusan pembentukan PPID Pelaksana Tahun 2021.</div>
+              <div class="sk-actions">
+                <button class="btn btn-preview btn-disabled">
+                  Preview (Belum Tersedia)
+                </button>
+                <button class="btn btn-download btn-disabled">
+                  Unduh PDF (Belum Tersedia)
+                </button>
+              </div>
+            </div>
+
+            <!-- SK 2022 -->
+            <div class="sk-item">
+              <div class="sk-year">SK PPID Tahun 2022</div>
+              <div class="sk-desc">Surat Keputusan pembentukan PPID Pelaksana Tahun 2022.</div>
+              <div class="sk-actions">
+                <button class="btn btn-preview btn-disabled">
+                  Preview (Belum Tersedia)
+                </button>
+                <button class="btn btn-download btn-disabled">
+                  Unduh PDF (Belum Tersedia)
+                </button>
+              </div>
+            </div>
+
+            <!-- SK 2023 -->
+            <div class="sk-item">
+              <div class="sk-year">SK PPID Tahun 2023</div>
+              <div class="sk-desc">Surat Keputusan pembentukan PPID Pelaksana Tahun 2023.</div>
+              <div class="sk-actions">
+                <button class="btn btn-preview" onclick="openPDFPreview('../files/SK PPID Dinkominfo 2023.pdf', 'SK PPID Tahun 2023')">
+                  Preview
+                </button>
+                <a href="../files/SK PPID Dinkominfo 2023.pdf" class="btn btn-download" download>
+                  Unduh PDF
+                </a>
+              </div>
+            </div>
+
+            <!-- SK 2024 -->
+            <div class="sk-item">
+              <div class="sk-year">SK PPID Tahun 2024</div>
+              <div class="sk-desc">Surat Keputusan pembentukan PPID Pelaksana Tahun 2024.</div>
+              <div class="sk-actions">
+                <button class="btn btn-preview" onclick="openPDFPreview('../files/SK PPID Kominfo 2024023.pdf', 'SK PPID Tahun 2024')">
+                  Preview
+                </button>
+                <a href="../files/SK PPID Kominfo 2024023.pdf" class="btn btn-download" download>
+                  Unduh PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 2rem; padding: 1rem; background: #d1ecf1; border-radius: var(--radius); color: #0c5460; border: 1px solid #bee5eb;">
+            <i class="fas fa-check-circle"></i> 
+            <strong>Update:</strong> SK PPID Tahun 2023 dan 2024 telah tersedia untuk diunduh dan dipreview.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // PDF.js Worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+    // PDF Viewer in Modal
+    let currentPdfDoc = null;
+    let currentPageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+    const scale = 1.5;
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    const viewer = document.getElementById('pdf-viewer');
+
+    function renderPage(num) {
+      pageRendering = true;
+      currentPdfDoc.getPage(num).then(page => {
+        const viewport = page.getViewport({ scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+
+        const renderContext = { canvasContext: ctx, viewport: viewport };
+        const renderTask = page.render(renderContext);
+        renderTask.promise.then(() => {
+          pageRendering = false;
+          if (pageNumPending !== null) {
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
+        });
+      });
+
+      document.getElementById('page-num').textContent = num;
+    }
+
+    function queueRenderPage(num) {
+      if (pageRendering) {
+        pageNumPending = num;
+      } else {
+        renderPage(num);
+      }
+    }
+
+    function onPrevPage() {
+      if (currentPageNum <= 1) return;
+      currentPageNum--;
+      queueRenderPage(currentPageNum);
+    }
+
+    function onNextPage() {
+      if (currentPageNum >= currentPdfDoc.numPages) return;
+      currentPageNum++;
+      queueRenderPage(currentPageNum);
+    }
+
+    function openPDFPreview(url, title) {
+      document.getElementById('pdf-title').textContent = title;
+      viewer.innerHTML = '<div class="loading">Memuat dokumen PDF...</div>';
+      document.getElementById('pdf-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+
+      pdfjsLib.getDocument(url).promise.then(pdf => {
+        currentPdfDoc = pdf;
+        currentPageNum = 1;
+        document.getElementById('page-count').textContent = pdf.numPages;
+        viewer.innerHTML = '';
+        viewer.appendChild(canvas);
+        renderPage(currentPageNum);
+      }).catch(err => {
+        viewer.innerHTML = `<p style="color:red; text-align:center;">Gagal memuat PDF: ${err.message}</p>`;
+      });
+    }
+
+    // Close Modal
+    document.getElementById('close-pdf').addEventListener('click', () => {
+      document.getElementById('pdf-modal').classList.remove('active');
+      document.body.style.overflow = 'auto';
+    });
+
+    document.getElementById('prev-page').addEventListener('click', onPrevPage);
+    document.getElementById('next-page').addEventListener('click', onNextPage);
+
+    // AKSESIBILITAS & HEADER/FOOTER
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // Load Header and Footer - PERBAIKAN
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => {
+        // Extract only the content inside body tags
+        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
+        if (bodyContent && bodyContent[1]) {
+          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
+        } else {
+          // Fallback if regex doesn't work
+          const tempDiv = document.createElement('div');
+          tempDiv.innerHTML = d;
+          const bodyElement = tempDiv.querySelector('body');
+          if (bodyElement) {
+            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
+          }
+        }
+      })
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+  </script>
+</body>
+</html>
