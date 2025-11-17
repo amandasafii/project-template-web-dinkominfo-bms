@@ -2,13 +2,11 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Visi dan Misi - Dinkominfo Banyumas</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Indikator Kinerja Utama - Dinkominfo Banyumas</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-
-    
     :root {
       --primary: #003d99;
       --primary-light: #0052cc;
@@ -117,56 +115,106 @@
       background: var(--bg-light);
     }
 
-    .vision-mission {
-      max-width: 800px;
+    .performance-content {
+      max-width: 700px;
       margin: 0 auto;
-      text-align: center;
+      text-align: left;
     }
 
-    .vision-mission h2 {
-      font-size: 2.5rem;
+    .performance-content h2 {
+      font-size: 2rem;
       color: var(--primary);
       margin-bottom: 2rem;
       position: relative;
+      padding-bottom: 0.5rem;
     }
 
-    .vision-mission h2::after {
+    .performance-content h2::after {
       content: '';
       position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
+      bottom: 0;
+      left: 0;
       width: 50px;
       height: 4px;
       background: var(--accent);
       border-radius: 2px;
     }
 
-    .vision-mission p {
-      font-size: 1.1rem;
-      color: var(--text);
-      line-height: 1.8;
-      padding: 1.5rem;
+    .performance-content p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      padding: 1rem;
       background: var(--card);
+      border-left: 4px solid var(--accent);
       border-radius: var(--radius);
       box-shadow: var(--shadow-sm);
-      margin-bottom: 2rem;
       transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
 
-    .vision-mission p:hover {
-      transform: translateY(-5px);
+    .performance-content p:hover {
+      transform: translateX(5px);
       box-shadow: var(--shadow-md);
     }
 
+    .performance-content p i {
+      margin-right: 1rem;
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+
+    .download-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .download-btn:hover {
+      background: var(--primary);
+      transform: scale(1.05);
+    }
+
+    .download-btn i {
+      color: #ffffff !important; /* Memastikan warna putih dengan prioritas tinggi */
+    }
+
+    .performance-image {
+      max-width: 100%;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .performance-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+
+    .performance-image img:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md), 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
     @media (max-width: 768px) {
-      .vision-mission h2 { font-size: 2rem; }
-      .vision-mission p { font-size: 1rem; padding: 1rem; }
+      .performance-content h2 { font-size: 1.75rem; }
+      .performance-content p { font-size: 1rem; padding: 0.75rem; }
+      .performance-image img { max-width: 90%; }
     }
   </style>
 </head>
 <body>
-
   <!-- Load Header -->
   <script>
     fetch('../layout/header.html')
@@ -181,24 +229,21 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <h1>Visi dan Misi</h1>
-      <p>Menjelajahi panduan strategis Dinas Komunikasi dan Informatika Kabupaten Banyumas untuk masa depan yang lebih baik.</p>
+      <h1>Indikator Kinerja Utama</h1>
+      <p>Jelajahi capaian kinerja Dinas Komunikasi dan Informatika Banyumas.</p>
     </div>
   </section>
 
   <!-- Content Section -->
   <section class="content-section">
     <div class="container">
-      <div class="vision-mission">
-        <h2>Visi</h2>
-        <p>"Terwujudnya Kabupaten Banyumas yang cerdas, transparan, dan inklusif melalui pemanfaatan teknologi informasi dan komunikasi yang berkelanjutan pada tahun 2027."</p>
-        <h2>Misi</h2>
-        <p>1. Meningkatkan kualitas pelayanan publik berbasis teknologi informasi dan komunikasi.<br>
-           2. Membangun infrastruktur teknologi informasi dan komunikasi yang handal dan merata.<br>
-           3. Mengembangkan sumber daya manusia di bidang teknologi informasi dan komunikasi.<br>
-           4. Mendorong transparansi dan akuntabilitas pemerintahan melalui sistem informasi yang terintegrasi.<br>
-           5. Meningkatkan partisipasi masyarakat dalam pembangunan melalui pemanfaatan teknologi informasi.</p>
+      <div class="performance-content">
+        <h2>Indikator Kinerja Utama (IKU)</h2>
+        <p><i class="fas fa-chart-line"></i> Indikator Kinerja Utama Kominfo Tahun 2021 bisa download disini <button class="download-btn" onclick="downloadPDF()"><i class="fas fa-file-pdf"></i> <i class="fas fa-download"></i> Download PDF</button></p>
       </div>
+      <!-- <div class="performance-image">
+        <img src="../images/STOK-Dinkominfo-2024.jpg" alt="Gambar Indikator Kinerja Dinkominfo Banyumas" />
+      </div> -->
     </div>
   </section>
 
@@ -220,6 +265,18 @@
           </footer>
         `);
       });
+  </script>
+
+  <!-- JavaScript untuk Download PDF -->
+  <script>
+    function downloadPDF() {
+      const link = document.createElement('a');
+      link.href = '../files/IKU-Dinkominfo-Banyumas-2021.pdf';
+      link.download = 'IKU-Dinkominfo-Banyumas-2021.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
   </script>
 </body>
 </html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sejarah Dinkominfo - Dinkominfo Banyumas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary: #003d99;
+      --primary-light: #0052cc;
+      --accent: #0066ff;
+      --text: #1a1a1a;
+      --text-light: #666666;
+      --bg: #ffffff;
+      --bg-light: #f8f9fb;
+      --card: #ffffff;
+      --border: #e0e0e0;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
+      --radius: 0.75rem;
+      --transition: all 0.3s ease;
+    }
+
+    [data-theme="dark"] {
+      --text: #f5f5f5;
+      --text-light: #b0b0b0;
+      --bg: #0f1117;
+      --bg-light: #161b22;
+      --card: #1c2128;
+      --border: #30363d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      transition: var(--transition);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 1rem; }
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      animation: pulse 10s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.5); opacity: 0.5; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      z-index: 1;
+    }
+
+    /* Content Section */
+    .content-section {
+      padding: 4rem 0;
+      background: var(--bg-light);
+    }
+
+    .history-content {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: justify;
+    }
+
+    .history-content h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .history-content h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 4px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .history-content p {
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .history-content p:hover {
+      transform: translateX(5px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .history-content p i {
+      margin-right: 0.5rem;
+      color: var(--accent);
+    }
+
+    .history-image {
+      max-width: 100%;
+      margin: 2rem auto;
+      text-align: center;
+    }
+
+    .history-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
+    }
+
+    .history-image img:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md), 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+
+    @media (max-width: 768px) {
+      .history-content h2 { font-size: 1.75rem; }
+      .history-content p { font-size: 1rem; padding: 0.75rem; }
+      .history-image img { max-width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Load Header -->
+  <script>
+    fetch('../layout/header.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Header not found: ' + response.status);
+        return response.text();
+      })
+      .then(data => document.body.insertAdjacentHTML('afterbegin', data))
+      .catch(error => console.error('Error loading header:', error));
+  </script>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Sejarah Dinkominfo</h1>
+      <p>Jelajahi perjalanan panjang Dinas Komunikasi dan Informatika Kabupaten Banyumas.</p>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="history-content">
+        <h2>Sejarah Dinkominfo Kabupaten Banyumas</h2>
+        <p><i class="fas fa-book"></i> PERUBAHAN Struktur dan Fungsi Organisasi Dinas Komunikasi dan Informatika di Kabupaten Banyumas saat ini tentu tak lepas dari sejarah awal berdirinya Departemen Penerangan, sebagai cikal bakal fungsi Komunikasi dan informasi pemerintah di Indonesia.</p>
+        <p><i class="fas fa-newspaper"></i> Saat Orde Lama dan Orde Baru, Departemen Penerangan banyak mengatur dan membina pers, media massa, televisi, film, radio, grafika, percetakan, dan penerangan umum. Departemen Penerangan sendiri terdiri atas Direktorat Jenderal Penerangan Umum, Direktorat Jenderal Radio, Televisi, Film, Direktorat Jenderal Urusan Penyiaran dan Media Massa, Direktorat Jenderal Pembinaan Pers dan Grafika, serta memiliki instansi vertikal (Kantor Wilayah dan Kantor Dinas) sampai daerah dan juga memegang kendali TVRI, RRI, dan Kantor Berita Antara.</p>
+        <!-- <div class="history-image">
+          <img src="../images/STOK-Dinkominfo-2024.jpg" alt="Gambar Sejarah Dinkominfo Banyumas" />
+        </div> -->
+        <p><i class="fas fa-ban"></i> Ketika Bapak Abdurrahman Wahid menjadi Presiden RI pada tahun 1999, Departemen Penerangan dan Departemen Sosial dibubarkan. Pembubaran itu dilakukan semata-mata untuk efisiensi dan perampingan kabinet pemerintahan, sekaligus dalam rangka implementasi sepenuhnya UU No. 22/1999 tentang otonomi daerah.</p>
+        <p><i class="fas fa-exchange-alt"></i> Seiring dengan Perubahan Struktur organisasi pemerintahan pusat berdampak pada daerah kabupaten/kota di Indonesia, khususnya di Kabupaten Banyumas. Melalui Peraturan Daerah Kabupaten Banyumas Nomor 23 Tahun 2000 Tentang Pembentukan Susunan Organisasi dan Tata Kerja Daerah Kabupaten Banyumas, Fungsi Departemen Penerangan digabung dengan Kantor Pengelolaan Data Elektronik (KPDE) menjadi Kantor Data Informasi dan Komunikasi (KDIK). Perubahan nomenklatur struktur organisasi dan tata tugas KDIK tak lama kemudian berubah menjadi Badan Arsip Informasi dan Kehumasan (BAIK).</p>
+        <p><i class="fas fa-calendar-check"></i> Kemudian Pada Tanggal 31 Mei 2004 ditetapkan Peraturan Daerah Nomor 9 Tahun 2004 tentang Pembentukan Susunan Organisasi dan Tata Kerja Badan Penelitian Pengembangan, Telematika dan Arsip Daerah (BALITBANGTELARDA) Kabupaten Banyumas. Perubahan Struktur Organisasi kembali mengalami perubahan menjadi Dinas Perhubungan, Komunikasi dan Informatika (DINHUBKOMINFO) yang diatur dalam Peraturan Daerah Nomor 26 Tahun 2009.</p>
+        <p><i class="fas fa-sitemap"></i> Selanjutnya Perubahan struktur Organisasi Perangkat Daerah sampai dengan saat ini berubah Menjadi Dinas Komunikasi dan Informatika (DINKOMINFO) Kabupaten Banyumas yang diatur melalui Peraturan Daerah Kabupaten Banyumas Nomor 16 Tahun 2016 tentang Pembentukan dan Susunan Organisasi Perangkat Daerah Kabupaten Banyumas, Juncto Peraturan Bupati Nomor 68 Tahun 2016 tentang Kedudukan, Susunan Organisasi, Tugas dan Fungsi serta Tata Kerja Dinas Komunikasi dan Informatika Kabupaten Banyumas.</p>
+        <p><i class="fas fa-tasks"></i> Dinkominfo Kabupaten Banyumas saat ini mempunyai tugas membantu Bupati dalam melaksanakan urusan pemerintahan bidang Komunikasi dan Informatika, bidang informasi dan komunikasi publik, bidang e-Government, bidang sandi, teknologi informasi dan komunikasi yang merupakan kewenangan Daerah dan tugas pembantuan yang diberikan kepada Daerah.</p>
+        <p><i class="fas fa-cogs"></i> Dalam perkembangannya, sistem pelayanan informasi dan komunikasi tentulah harus menyesuaikan dengan tuntutan zaman, yakni harus berbasis teknologi informasi. Hal-hal yang mendasar yang harus diperhatikan untuk keberhasilan penerapan teknologi informasi dalam penyelenggaraan pemerintahan atau e-government adalah terkait dengan sumber daya manusia, tata kelola, aplikasi dan database serta infrastruktur jaringan.</p>
+        <p><i class="fas fa-hands-helping"></i> Bermodalkan niat positif untuk memajukan Kabupaten Banyumas yang lebih baik, Dinkominfo Kabupaten Banyumas terus berupaya semaksimal mungkin untuk membangun dan meningkatkan pelayanan prima yang berkaitan dengan urusan wajib komunikasi dan Informatika kepada masyarakat di Kabupaten Banyumas. (S-Ros)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Load Footer -->
+  <script>
+    fetch('../layout/footer.html')
+      .then(response => {
+        if (!response.ok) throw new Error('Footer not found: ' + response.status);
+        return response.text();
+      })
+      .then(data => document.body.insertAdjacentHTML('beforeend', data))
+      .catch(error => {
+        console.error('Error loading footer:', error);
+        document.body.insertAdjacentHTML('beforeend', `
+          <footer style="background: var(--primary); color: white; padding: 2rem 0; font-family: 'Poppins', sans-serif;">
+            <div class="container">
+              <p style="text-align: center; font-size: 0.85rem;">© 2025 Dinkominfo Banyumas. All rights reserved.</p>
+            </div>
+          </footer>
+        `);
+      });
+  </script>
+</body>
+</html>

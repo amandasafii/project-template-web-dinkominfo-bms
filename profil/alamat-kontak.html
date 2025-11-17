@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tugas dan Fungsi - Dinkominfo Banyumas</title>
+  <title>Alamat dan Kontak - Dinkominfo Banyumas</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
@@ -62,95 +62,131 @@
       .container { padding: 0 1rem; }
     }
 
-    /* Content Styles */
-    .content {
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+      animation: pulse 10s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.5); opacity: 0.5; }
+      100% { transform: scale(1.5); opacity: 0; }
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      z-index: 1;
+    }
+
+    /* Content Section */
+    .content-section {
       padding: 4rem 0;
       background: var(--bg-light);
     }
 
-    .section-title {
-      color: var(--primary);
-      font-size: 2.5rem;
-      margin-bottom: 2.5rem;
-      text-align: center;
-      position: relative;
-      padding-bottom: 1rem;
+    .contact-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
     }
 
-    .section-title::after {
+    .contact-content h2 {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+
+    .contact-content h2::after {
       content: '';
       position: absolute;
       bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60px;
+      left: 0;
+      width: 50px;
       height: 4px;
       background: var(--accent);
       border-radius: 2px;
     }
 
-    .task-function-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .task-function-card {
+    .contact-content p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
       background: var(--card);
-      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
       border-radius: var(--radius);
-      padding: 2rem;
       box-shadow: var(--shadow-sm);
       transition: var(--transition);
-      height: 100%;
+      display: flex;
+      align-items: center;
     }
 
-    .task-function-card:hover {
-      transform: translateY(-5px);
+    .contact-content p:hover {
+      transform: translateX(5px);
       box-shadow: var(--shadow-md);
     }
 
-    .card-title {
-      color: var(--primary);
+    .contact-content p i {
+      margin-right: 1rem;
+      color: var(--accent);
       font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
     }
 
-    .card-title i {
-      color: var(--accent);
+    .contact-image {
+      max-width: 100%;
+      margin: 2rem auto;
+      text-align: center;
     }
 
-    .card-list {
-      list-style: none;
-      padding-left: 0;
+    .contact-image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-md);
+      transition: var(--transition);
     }
 
-    .card-list li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--text);
-      font-size: 1rem;
-    }
-
-    .card-list li::before {
-      content: '✔';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
+    .contact-image img:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow-md), 0 0 15px rgba(0, 0, 0, 0.1);
     }
 
     @media (max-width: 768px) {
-      .section-title { font-size: 2rem; }
-      .task-function-card { padding: 1.5rem; }
-      .card-title { font-size: 1.25rem; }
-      .card-list li { font-size: 0.95rem; }
+      .contact-content h2 { font-size: 1.75rem; }
+      .contact-content p { font-size: 1rem; padding: 0.75rem; }
+      .contact-image img { max-width: 90%; }
     }
   </style>
 </head>
@@ -166,39 +202,29 @@
       .catch(error => console.error('Error loading header:', error));
   </script>
 
-  <!-- Main Content -->
-  <div class="content">
+  <!-- Hero Section -->
+  <section class="hero">
     <div class="container">
-      <h1 class="section-title">Tugas</h1>
-      <div class="task-function-grid">
-        <div class="task-function-card">
-          <h2 class="card-title"><i class="fas fa-tasks"></i> Tugas Utama</h2>
-          <ul class="card-list">
-            <li>Menyelenggarakan urusan pemerintahan yang menjadi kewenangan Daerah dan tugas pembantuan dalam bidang komunikasi dan informatika.</li>
-            <li>Melaksanakan koordinasi, sinkronisasi, dan penyusunan kebijakan teknis di bidang komunikasi dan informatika.</li>
-            <li>Melaksanakan pelayanan administrasi dan teknis di bidang komunikasi dan informatika.</li>
-            <li>Melaksanakan evaluasi dan pelaporan pelaksanaan tugas dan wewenang di bidang komunikasi dan informatika.</li>
-          </ul>
-        </div>
-      </div>
-
-      <h1 class="section-title">Fungsi</h1>
-      <div class="task-function-grid">
-        <div class="task-function-card">
-          <h2 class="card-title"><i class="fas fa-cogs"></i> Fungsi Utama</h2>
-          <ul class="card-list">
-            <li>Perumusan kebijakan teknis di bidang komunikasi dan informatika.</li>
-            <li>Pelaksanaan kebijakan teknis di bidang komunikasi dan informatika.</li>
-            <li>Pelaksanaan evaluasi pelaksanaan kebijakan teknis di bidang komunikasi dan informatika.</li>
-            <li>Pelaksanaan fungsi pengawasan di bidang komunikasi dan informatika.</li>
-            <li>Pelaksanaan fungsi pembinaan dan supervisi di bidang komunikasi dan informatika.</li>
-            <li>Pelaksanaan fungsi pelayanan administrasi dan teknis di bidang komunikasi dan informatika.</li>
-            <li>Pelaksanaan fungsi pelaporan di bidang komunikasi dan informatika.</li>
-          </ul>
-        </div>
-      </div>
+      <h1>Alamat dan Kontak</h1>
+      <p>Temukan lokasi dan cara menghubungi Dinas Komunikasi dan Informatika Banyumas.</p>
     </div>
-  </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="content-section">
+    <div class="container">
+      <div class="contact-content">
+        <h2>Alamat Kontak</h2>
+        <p><i class="fas fa-map-marker-alt"></i> Alamat Kantor: Jalan Masjid No.8 Purwokerto 53115</p>
+        <p><i class="fas fa-phone"></i> No. Telp: (0281) 632338</p>
+        <p><i class="fas fa-fax"></i> No. Fax: (0281) 632338</p>
+        <p><i class="fas fa-envelope"></i> Email: dinkominfo@banyumaskab.go.id</p>
+      </div>
+      <!-- <div class="contact-image">
+        <img src="../images/STOK-Dinkominfo-2024.jpg" alt="Gambar Kantor Dinkominfo Banyumas" />
+      </div> -->
+    </div>
+  </section>
 
   <!-- Load Footer -->
   <script>
