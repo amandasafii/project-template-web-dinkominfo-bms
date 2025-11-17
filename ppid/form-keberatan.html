@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Keberatan Informasi - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  
+  <base href="/">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary: #003d99;
+      --primary-light: #0052cc;
+      --accent: #0066ff;
+      --gold: #ffcc00;
+      --text: #1a1a1a;
+      --text-light: #555555;
+      --bg: #f8fbff;
+      --bg-light: #eef4ff;
+      --card: #ffffff;
+      --border: #d0e0ff;
+      --shadow-sm: 0 4px 12px rgba(0, 61, 153, 0.08);
+      --shadow-md: 0 12px 32px rgba(0, 61, 153, 0.15);
+      --shadow-lg: 0 16px 48px rgba(0, 61, 153, 0.25);
+      --radius: 1.5rem;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --red-line: #e63946;
+    }
+
+    .high-contrast {
+      --text: #ffffff; --text-light: #cccccc; --bg: #000; --bg-light: #111; --card: #000; --border: #444; --primary: #00ccff; --accent: #00ff59;
+    }
+    .dark-mode {
+      --text: #e0e0e0; --text-light: #aaa; --bg: #121212; --bg-light: #1e1e1e; --card: #1f1f1f; --border: #333;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: var(--transition);
+      position: relative;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 1.5rem; }
+    }
+
+    /* HERO */
+    .hero-section {
+      background: linear-gradient(135deg, rgba(0,61,153,0.9), rgba(0,102,255,0.7)), url('images/galeri4.jpg') center/cover;
+      color: white;
+      padding: 3rem 0 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      position: relative;
+    }
+
+    .hero-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -15px;
+      width: 60px;
+      height: 4px;
+      background: var(--red-line);
+      border-radius: 2px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .objection-icon {
+      width: 80px;
+      height: 80px;
+      background: #e63946;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 0 25px rgba(230, 57, 70, 0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 25px rgba(230, 57, 70, 0.6); }
+      50% { box-shadow: 0 0 40px rgba(230, 57, 70, 0.9); }
+      100% { box-shadow: 0 0 25px rgba(230, 57, 70, 0.6); }
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      padding: 2.5rem 0 5rem;
+      flex: 1;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #e63946, #ff6b6b);
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: #e63946;
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      color: #e63946;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 800;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .form-input, .form-textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 0.8rem;
+      font-size: 1rem;
+      background: #f9f9f9;
+      transition: var(--transition);
+    }
+
+    .form-input:focus, .form-textarea:focus {
+      outline: none;
+      border-color: #e63946;
+      box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .checkbox-item input {
+      margin-top: 0.2rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 0.8rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-danger {
+      background: #e63946;
+      color: white;
+    }
+
+    .btn-danger:hover {
+      background: #d00000;
+      transform: translateY(-2px);
+    }
+
+    .btn-download {
+      background: #28a745;
+      color: white;
+      margin-top: 1rem;
+    }
+
+    .btn-download:hover {
+      background: #218838;
+      transform: translateY(-2px);
+    }
+
+    .contact-card {
+      background: var(--bg-light);
+      border-left: 5px solid var(--red-line);
+      padding: 1.5rem;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin-top: 2rem;
+    }
+
+    .contact-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #e63946;
+      margin-bottom: 1rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .contact-item i {
+      color: #e63946;
+      font-size: 1.1rem;
+      width: 20px;
+      text-align: center;
+      margin-top: 0.2rem;
+    }
+
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .toggle-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+
+    .toggle-btn {
+      width: 56px;
+      height: 56px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+    }
+
+    .toggle-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    .accessibility-panel {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 240px;
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 40px rgba(0, FFFFFF0, 0, 0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      z-index: 10000;
+    }
+
+    .accessibility-panel.active {
+      display: flex;
+    }
+
+    .acc-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      transition: var(--transition);
+      border-bottom: 1px solid #eee;
+    }
+
+    .acc-item:last-child { border-bottom: none; }
+    .acc-item:hover { background: #f0f4ff; color: var(--primary); }
+    .acc-item i { 
+      width: 36px; height: 36px; background: var(--primary); color: white; 
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; 
+    }
+    .acc-item.active { background: var(--accent); color: white; }
+    .acc-item.active i { background: white; color: var(--accent); }
+
+    .cursor-highlight {
+      position: fixed;
+      width: 120px;
+      height: 40px;
+      background: rgba(255, 255, 0, 0.4);
+      border-radius: 20px;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: all 0.1s ease;
+      display: none;
+    }
+
+    .cursor-highlight.active { display: block; }
+
+    #header-placeholder, #footer-placeholder {
+      min-height: 60px;
+      background: #f0f4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="objection-icon">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+          <h1 class="hero-title">KEBERATAN INFORMASI</h1>
+          <p class="hero-subtitle">
+            Ajukan keberatan atas penolakan atau pelayanan informasi publik
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Form Keberatan</h2>
+          
+          <p style="margin-bottom: 1.5rem; text-align: center; color: var(--text-light);">
+            Anda dapat mengajukan keberatan secara online di bawah ini. Pastikan data yang diisi benar.
+          </p>
+
+          <form id="objection-form">
+            <div class="form-group">
+              <label class="form-label" for="keberatan">Keberatan Atas Informasi</label>
+              <textarea id="keberatan" class="form-textarea" rows="3" placeholder="Jelaskan informasi yang menjadi objek keberatan..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="tujuan">Tujuan Penggunaan Informasi</label>
+              <textarea id="tujuan" class="form-textarea" rows="3" placeholder="Untuk keperluan apa informasi tersebut dibutuhkan..." required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="nama">Nama Lengkap Anda</label>
+              <input type="text" id="nama" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="alamat">Alamat</label>
+              <textarea id="alamat" class="form-textarea" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="pekerjaan">Pekerjaan</label>
+              <input type="text" id="pekerjaan" class="form-input" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="telp">Nomor Telp/HP</label>
+              <input type="tel" id="telp" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">E-Mail</label>
+              <input type="email" id="email" class="form-input" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Alasan Keberatan</label>
+              <div class="checkbox-group">
+                <label class="checkbox-item">
+                  <input type="checkbox" name="alasan" value="ditolak" />
+                  Permohonan informasi ditolak
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="alasan" value="berkala" />
+                  Informasi Berkala tidak disediakan
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="alasan" value="tidak-dianggap" />
+                  Permintaan informasi tidak dianggapi
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="alasan" value="tidak-sesuai" />
+                  Permintaan informasi ditanggapi tidak sebagaimana yang diminta
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="alasan" value="tidak-dipenuhi" />
+                  Permintaan informasi tidak dipenuhi
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="alasan" value="biaya-tidak-wajar" />
+                  Biaya yang dikenakan tidak wajar
+                </label>
+                <label class="checkbox-item">
+                  <input type="checkbox" name="alasan" value="melebihi-waktu" />
+                  Informasi disampaikan melebihi jangka waktu yang ditentukan
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="kasus">Kasus Posisi</label>
+              <textarea id="kasus" class="form-textarea" rows="5" placeholder="Jelaskan kronologi kejadian secara lengkap..." required></textarea>
+            </div>
+
+            <div style="text-align: center; margin: 2rem 0;">
+              <button type="submit" class="btn btn-danger">
+                <i class="fas fa-paper-plane"></i> Kirim Keberatan
+              </button>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // Form Submit (contoh alert)
+    document.getElementById('objection-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Keberatan Anda telah dikirim! Kami akan segera menindaklanjuti.');
+      this.reset();
+    });
+
+    // AKSESIBILITAS
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    // STABILO
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // LOAD HEADER & FOOTER
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d)
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d)
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+  </script>
+</body>
+</html>

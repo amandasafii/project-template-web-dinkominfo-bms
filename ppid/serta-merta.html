@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Informasi Serta Merta - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary: #003d99;
+      --primary-light: #0052cc;
+      --accent: #0066ff;
+      --gold: #ffcc00;
+      --text: #1a1a1a;
+      --text-light: #555555;
+      --bg: #f8fbff;
+      --bg-light: #eef4ff;
+      --card: #ffffff;
+      --border: #d0e0ff;
+      --shadow-sm: 0 4px 12px rgba(0, 61, 153, 0.08);
+      --shadow-md: 0 12px 32px rgba(0, 61, 153, 0.15);
+      --shadow-lg: 0 16px 48px rgba(0, 61, 153, 0.25);
+      --radius: 1.5rem;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --alert: #0066ff; /* BIRU ALERT */
+      --alert-light: #e0f0ff;
+      --alert-border: #a5d8ff;
+    }
+
+    .high-contrast {
+      --text: #ffffff; --text-light: #cccccc; --bg: #000; --bg-light: #111; --card: #000; --border: #444; --primary: #00ccff; --accent: #00ff59;
+    }
+    .dark-mode {
+      --text: #e0e0e0; --text-light: #aaa; --bg: #121212; --bg-light: #1e1e1e; --card: #1f1f1f; --border: #333;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: var(--transition);
+      position: relative;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 0 1.5rem; }
+    }
+
+    /* HERO */
+    .hero-section {
+      background: linear-gradient(135deg, rgba(0,61,153,0.9), rgba(0,102,255,0.7)), url('images/galeri4.jpg') center/cover;
+      color: white;
+      padding: 3rem 0 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .sm-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--alert);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 0 25px rgba(0,102,255,0.6);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 25px rgba(0,102,255,0.6); }
+      50% { box-shadow: 0 0 40px rgba(0,102,255,0.9); }
+      100% { box-shadow: 0 0 25px rgba(0,102,255,0.6); }
+    }
+
+    /* MAIN CONTENT */
+    .main-content {
+      padding: 2.5rem 0 5rem;
+      flex: 1;
+    }
+
+    .info-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+      position: relative;
+    }
+
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--alert));
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--alert);
+    }
+
+    .card-title {
+      font-size: 1.8rem;
+      color: var(--alert);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      font-weight: 800;
+      position: relative;
+    }
+
+    /* TABEL */
+    .sm-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .sm-table th {
+      background: var(--alert);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .sm-table td {
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .sm-table tr:hover {
+      background: var(--alert-light);
+    }
+
+    .sm-table .no {
+      text-align: center;
+      font-weight: 600;
+      color: var(--alert);
+      width: 50px;
+    }
+
+    .sm-table .judul {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .sm-table .ringkasan {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* FAQ */
+    .faq-section {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      background: var(--alert-light);
+      border: 1px solid var(--alert-border);
+      border-radius: var(--radius);
+    }
+
+    .faq-title {
+      font-size: 1.4rem;
+      color: var(--alert);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed var(--alert-border);
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+
+    .faq-question {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .faq-answer {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .faq-answer ul {
+      margin: 0.8rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .faq-answer li {
+      margin-bottom: 0.5rem;
+    }
+
+    /* HOTLINE */
+    .hotline-box {
+      background: linear-gradient(135deg, #e0f0ff, #cce5ff);
+      border: 2px solid var(--alert);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hotline-title {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hotline-number {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--alert);
+      margin: 0.6rem 0;
+    }
+
+    .hotline-number a {
+      color: var(--alert);
+      text-decoration: none;
+    }
+
+    .hotline-number a:hover {
+      text-decoration: underline;
+    }
+
+    /* INFO BOX */
+    .info-box {
+      background: linear-gradient(135deg, #fff8e1, #fff0c2);
+      border: 1px solid #ffcc00;
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      text-align: center;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .info-box i {
+      font-size: 2rem;
+      color: var(--gold);
+      margin-bottom: 0.6rem;
+    }
+
+    .info-box p {
+      font-size: 1rem;
+      color: #5d4037;
+      margin: 0;
+      font-weight: 500;
+    }
+
+    /* PAGE WRAPPER */
+    .page-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* AKSESIBILITAS */
+    .toggle-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 9999;
+    }
+
+    .toggle-btn {
+      width: 56px;
+      height: 56px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      transition: var(--transition);
+    }
+
+    .toggle-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    .accessibility-panel {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 240px;
+      background: white;
+      border-radius: 1.5rem;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      z-index: 10000;
+    }
+
+    .accessibility-panel.active {
+      display: flex;
+    }
+
+    .acc-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #333;
+      cursor: pointer;
+      transition: var(--transition);
+      border-bottom: 1px solid #eee;
+    }
+
+    .acc-item:last-child { border-bottom: none; }
+    .acc-item:hover { background: #f0f4ff; color: var(--primary); }
+    .acc-item i { 
+      width: 36px; height: 36px; background: var(--primary); color: white; 
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; 
+    }
+    .acc-item.active { background: var(--alert); color: white; }
+    .acc-item.active i { background: white; color: var(--alert); }
+
+    /* STABILO */
+    .cursor-highlight {
+      position: fixed;
+      width: 120px;
+      height: 40px;
+      background: rgba(255, 255, 0, 0.4);
+      border-radius: 20px;
+      pointer-events: none;
+      z-index: 99998;
+      transform: translate(-50%, -50%);
+      transition: all 0.1s ease;
+      display: none;
+    }
+
+    .cursor-highlight.active { display: block; }
+
+    /* PLACEHOLDER */
+    #header-placeholder, #footer-placeholder {
+      min-height: 60px;
+      background: #f0f4ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast"><i class="fas fa-adjust"></i> Kontras</div>
+        <div class="acc-item" data-mode="dark"><i class="fas fa-moon"></i> Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight"><i class="fas fa-highlighter"></i> Stabilo</div>
+        <div class="acc-item" data-mode="guideline"><i class="fas fa-ruler"></i> Garis Panduan</div>
+        <div class="acc-item" data-mode="reset"><i class="fas fa-undo"></i> Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="sm-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h1 class="hero-title">Serta Merta</h1>
+          <p class="hero-subtitle">
+            Informasi yang wajib diumumkan seketika sesuai UU Keterbukaan Informasi Publik
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Daftar Informasi Serta Merta</h2>
+
+          <table class="sm-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Judul Informasi</th>
+                <th>Ringkasan Isi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="no">1</td>
+                <td class="judul">Informasi tentang Bencana Alam</td>
+                <td class="ringkasan">Berisi tentang informasi bencana alam seperti kekeringan, kebakaran hutan karena faktor alam, hama penyakit tanaman, epidemik, wabah, kejadian luar biasa.</td>
+              </tr>
+              <tr>
+                <td class="no">2</td>
+                <td class="judul">Informasi tentang Kejadian Luar Biasa</td>
+                <td class="ringkasan">Berisi tentang informasi kejadian luar biasa pada Dinas Komunikasi dan Informatika Kabupaten Banyumas</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- FAQ COVID-19 -->
+          <div class="faq-section">
+            <h3 class="faq-title">Tanya Jawab: Novel Coronavirus (COVID-19)</h3>
+            
+            <div class="faq-item">
+              <div class="faq-question">Apakah Novel Coronavirus (2019-nCoV)?</div>
+              <div class="faq-answer">Novel coronavirus (2019-nCoV) adalah jenis baru coronavirus yang belum pernah diidentifikasi sebelumnya pada manusia. Coronavirus merupakan keluarga besar virus yang menyebabkan penyakit mulai flu biasa hingga penyakit serius seperti MERS dan SARS.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apa saja gejala Novel Coronavirus?</div>
+              <div class="faq-answer">Gejala umum: demam ≥38°C, batuk, pilek, nyeri tenggorokan, sesak napas. Jika pernah ke China (khususnya Wuhan) atau kontak dengan penderita, segera periksa ke dokter.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Bagaimana penularannya?</div>
+              <div class="faq-answer">Belum diketahui pasti. Penularan antar manusia terjadi dalam kontak erat dan petugas kesehatan. Sumber hewan belum diketahui.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apakah ada vaksin atau obat?</div>
+              <div class="faq-answer">Belum ada vaksin atau obat spesifik. Pengobatan suportif berdasarkan kondisi klinis pasien.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apakah antibiotik efektif?</div>
+              <div class="faq-answer">Tidak. Antibiotik hanya untuk bakteri, bukan virus. Namun bisa diberikan jika ada infeksi sekunder.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apakah petugas kesehatan berisiko?</div>
+              <div class="faq-answer">Ya, karena sering kontak dengan pasien. Wajib gunakan APD lengkap.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Apakah sama dengan SARS?</div>
+              <div class="faq-answer">Sama keluarga virus, tapi SARS lebih berat. Gejala mirip.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Amankah ke China?</div>
+              <div class="faq-answer">WHO tetapkan PHEIC (30 Jan 2020). Tidak ada larangan resmi, tapi disarankan tunda perjalanan, terutama bawa anak.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Siapa yang lebih rentan?</div>
+              <div class="faq-answer">Tidak ada batas usia, tapi lansia dan penderita penyakit kronis (asma, diabetes, jantung) lebih rentan sakit parah.</div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Upaya Pemerintah Indonesia?</div>
+              <div class="faq-answer">
+                <ul>
+                  <li>Surat Edaran Dirjen P2P & Pelayanan Kesehatan</li>
+                  <li>Pedoman kesiapsiagaan nCoV</li>
+                  <li>Press release, webinar, edukasi masyarakat</li>
+                  <li>Laboratorium siap periksa spesimen</li>
+                  <li>Thermal scanner + HAC di 19 pelabuhan</li>
+                  <li>Rapat koordinasi lintas sektor</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Cara mencegah penularan?</div>
+              <div class="faq-answer">
+                <ul>
+                  <li>Jaga kesehatan & imunitas</li>
+                  <li>Cuci tangan pakai sabun</li>
+                  <li>Tutup mulut saat batuk/bersin</li>
+                  <li>Pakai masker di tempat umum</li>
+                  <li>Hindari hewan liar & daging mentah</li>
+                  <li>Tunda perjalanan ke China</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Sistem pelaporan?</div>
+              <div class="faq-answer">
+                <ul>
+                  <li>Lapor ke fasyankes → PHEOC Kemenkes</li>
+                  <li>Koordinasi dengan EOC</li>
+                  <li>Lintas sektor: Perhubungan, Hukum, Luar Negeri</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">Info resmi di mana?</div>
+              <div class="faq-answer">
+                <ul>
+                  <li>Hotline EOC: (021) 5210411 / 081212123119</li>
+                  <li>Twitter: @KemenkesRI</li>
+                  <li>Instagram: @kemenkes_ri</li>
+                  <li>Web: infeksiemerging.kemkes.go.id</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- HOTLINE BANYUMAS -->
+          <div class="hotline-box">
+            <h3 class="hotline-title">HOTLINE DARURAT KAB. BANYUMAS</h3>
+            <div class="hotline-number">
+              <a href="tel:119"><i class="fas fa-phone"></i> 119</a>
+            </div>
+            <div class="hotline-number">
+              <a href="tel:02817772119"><i class="fas fa-phone"></i> (0281) 7772 119</a>
+            </div>
+            <div class="hotline-number">
+              <a href="tel:08112762119"><i class="fas fa-mobile-alt"></i> 0811 2762 119</a>
+            </div>
+          </div>
+
+          <!-- INFO BOX -->
+          <!-- <div class="info-box">
+            <i class="fas fa-bolt"></i>
+            <p>Informasi di atas wajib diumumkan <strong>seketika (serta merta)</strong> sesuai <strong>UU No. 14 Tahun 2008</strong> tentang Keterbukaan Informasi Publik.</p>
+          </div> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // AKSESIBILITAS
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    // STABILO
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // LOAD HEADER & FOOTER
+    fetch('../layout/header.html')
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d)
+      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+
+    fetch('../layout/footer.html')
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d)
+      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+  </script>
+</body>
+</html>
