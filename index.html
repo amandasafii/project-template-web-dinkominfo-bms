@@ -1245,15 +1245,14 @@
     });
 
     // LOAD HEADER & FOOTER
-    fetch('layout/header.html')
-      .then(r => r.text())
-      .then(d => document.getElementById('header-placeholder').outerHTML = d)
-      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red;">Gagal load header</p>');
+    
+fetch('layout/header.html?v=' + Date.now())
+  .then(r => r.text())
+  .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('layout/footer.html')
-      .then(r => r.text())
-      .then(d => document.getElementById('footer-placeholder').outerHTML = d)
-      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red;">Gagal load footer</p>');
+fetch('layout/footer.html?v=' + Date.now())
+  .then(r => r.text())
+  .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>
 </body>
 </html>

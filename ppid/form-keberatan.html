@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Keberatan Informasi - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  <base href="/project-template-web-dinkominfo-bms/">
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -12,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   
   <!-- Additional CSS for this page -->
   <style>
@@ -79,84 +80,50 @@
       font-weight: 800;
     }
 
-    .complaint-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .complaint-item {
-      background: var(--bg-light);
+    /* SUCCESS MESSAGE - Muncul tepat di bawah form */
+    #success-message {
+      background: linear-gradient(135deg, #d4edda, #c3e6cb);
+      border: 1px solid #28a745;
       border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: var(--transition);
+      padding: 1.8rem;
+      margin-top: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      opacity: 0;
+      transform: translateY(-20px);
+      transition: all 0.4s ease;
+      pointer-events: none;
+      display: none;
     }
 
-    .complaint-item:hover {
-      transform: translateX(8px);
-      box-shadow: var(--shadow-md);
+    #success-message.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      display: block;
     }
 
-    .complaint-header {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-
-    .complaint-icon {
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
+    .success-icon {
+      width: 70px;
+      height: 70px;
+      background: #28a745;
       color: white;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 2rem;
+      margin: 0 auto 1rem;
     }
 
-    .complaint-info {
-      flex: 1;
-    }
-
-    .complaint-meta {
-      font-size: 0.85rem;
-      color: var(--text-light);
-      margin-bottom: 0.5rem;
-    }
-
-    .complaint-subject {
+    .success-text {
+      font-size: 1.1rem;
+      color: #155724;
       font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.5rem;
+      line-height: 1.6;
     }
 
-    .complaint-status {
-      display: inline-block;
-      padding: 0.3rem 0.8rem;
-      border-radius: 2rem;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-left: auto;
-    }
-
-    .status-diproses {
-      background: #ffc107;
-      color: #333;
-    }
-
-    .status-selesai {
-      background: #28a745;
-      color: white;
-    }
-
-    .status-ditolak {
-      background: #dc3545;
-      color: white;
-    }
-
-    /* CONTACT INFO */
+    /* CONTACT INFO & RESPONSIVE */
     .contact-info {
       background: linear-gradient(135deg, #e8f5e8, #d4edda);
       border: 1px solid #c3e6cb;
@@ -165,87 +132,12 @@
       margin-top: 2rem;
     }
 
-    .contact-title {
-      font-size: 1.5rem;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
     .contact-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1.5rem;
     }
 
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .contact-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--primary);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-    }
-
-    .contact-text {
-      flex: 1;
-    }
-
-    .contact-label {
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 0.3rem;
-    }
-
-    .contact-value {
-      color: var(--text-light);
-    }
-
-    /* SUCCESS MESSAGE */
-    .success-message {
-      background: linear-gradient(135deg, #d4edda, #c3e6cb);
-      border: 1px solid #c3e6cb;
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      margin: 2rem 0;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-      display: none;
-    }
-
-    .success-message.active {
-      display: block;
-    }
-
-    .success-icon {
-      width: 60px;
-      height: 60px;
-      background: #28a745;
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin: 0 auto 1rem;
-    }
-
-    .success-text {
-      font-size: 1.1rem;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* RESPONSIVE */
     @media (max-width: 768px) {
       .contact-grid {
         grid-template-columns: 1fr;
@@ -271,16 +163,6 @@
         <div class="acc-item" data-mode="guideline">Garis Panduan</div>
         <div class="acc-item" data-mode="reset">Reset</div>
       </div>
-    </div>
-  </div>
-
-  <!-- SUCCESS MESSAGE -->
-  <div id="success-message" class="success-message">
-    <div class="success-icon">
-      <i class="fas fa-check"></i>
-    </div>
-    <div class="success-text">
-      Keberatan Anda telah berhasil dikirim! Kami akan segera menindaklaninya.
     </div>
   </div>
 
@@ -341,99 +223,14 @@
             </div>
           </form>
 
-          <div class="complaint-list">
-            <h3 class="card-title">Daftar Keberatan</h3>
-            
-            <div class="complaint-item">
-              <div class="complaint-header">
-                <div class="complaint-icon">
-                  <i class="fas fa-bug"></i>
-                </div>
-                <div class="complaint-info">
-                  <div class="complaint-meta">
-                    <span class="complaint-status status-diproses">Diproses</span>
-                  <span>20 Mei 2023</span>
-                  </div>
-                  <div class="complaint-subject">Website tidak dapat diakses</div>
-                </div>
-              </div>
+          <!-- SUCCESS MESSAGE - TEPAT DI BAWAH FORM -->
+          <div id="success-message">
+            <div class="success-icon">
+              <i class="fas fa-check"></i>
             </div>
-            </div>
-
-            <div class="complaint-item">
-              <div class="complaint-header">
-                <div class="complaint-icon">
-                  <i class="fas fa-wifi"></i>
-                </div>
-                <div class="complaint-info">
-                  <div class="complaint-meta">
-                    <span class="complaint-status status-selesai">Selesai</span>
-                    <span>15 Mei 2023</span>
-                  </div>
-                  <div class="complaint-subject">Koneksi internet lambat</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="complaint-item">
-              <div class="complaint-header">
-                <div class="complaint-icon">
-                  <i class="fas fa-envelope"></i>
-                </div>
-                <div class="complaint-info">
-                  <div class="complaint-meta">
-                    <span class="complaint-status status-selesai">Selesai</span>
-                    <span>10 Mei 2023</span>
-                  </div>
-                  <div class="complaint-subject">Email tidak terkirim</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="contact-info">
-          <h3 class="contact-title">Informasi Kontak</h3>
-          
-          <div class="contact-grid">
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-map-marker-alt"></i>
-              </div>
-              <div class="contact-text">
-                <div class="contact-label">Alamat</div>
-                <div class="contact-value">Jalan Masjid No.8 Purwokerto 53115</div>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-phone"></i>
-              </div>
-              <div class="contact-text">
-                <div class="contact-label">Telepon</div>
-                <div class="contact-value">(0281) 632338</div>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contact-text">
-                <div class="contact-label">Email</div>
-                <div class="contact-value">dinkominfo@banyumaskab.go.id</div>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">
-                <i class="fas fa-clock"></i>
-              </div>
-              <div class="contact-text">
-                <div class="contact-label">Jam Kerja</div>
-                <div class="contact-value">Senin - Kamis: 08.00 - 15.00</div>
-              </div>
+            <div class="success-text">
+              Keberatan Anda berhasil dikirim!<br>
+              Kami akan memproses dan menghubungi Anda dalam waktu maksimal <strong>10 hari kerja</strong>.
             </div>
           </div>
         </div>
@@ -446,27 +243,29 @@
 
   <!-- SCRIPT -->
   <script>
-    // Form Submit
-    document.getElementById('complaint-form').addEventListener('submit', function(e) {
+    // Form Submit + Success Message
+    const form = document.getElementById('complaint-form');
+    const successMsg = document.getElementById('success-message');
+
+    form.addEventListener('submit', function(e) {
       e.preventDefault();
-      
-      // Show success message
-      const successMessage = document.getElementById('success-message');
-      successMessage.classList.add('active');
-      
-      // Scroll to success message
-      successMessage.scrollIntoView({ behavior: 'smooth' });
-      
+
+      // Tampilkan pesan sukses
+      successMsg.classList.add('active');
+
+      // Scroll halus ke pesan sukses
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
       // Reset form
-      this.reset();
-      
-      // Hide success message after 5 seconds
+      form.reset();
+
+      // Sembunyikan otomatis setelah 6 detik
       setTimeout(() => {
-        successMessage.classList.remove('active');
-      }, 5000);
+        successMsg.classList.remove('active');
+      }, 6000);
     });
 
-    // AKSESIBILITAS & HEADER/FOOTER
+    // Aksesibilitas
     const accToggle = document.getElementById('accessibility-toggle');
     const accPanel = document.getElementById('accessibility-panel');
     accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
@@ -493,51 +292,37 @@
         isHighlightActive = false;
         document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
 
-        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
-        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
-        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
-        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+        if (mode === 'contrast') {
+          document.body.classList.add('high-contrast');
+          item.classList.add('active');
+        }
+        else if (mode === 'dark') {
+          document.body.classList.add('dark-mode');
+          item.classList.add('active');
+        }
+        else if (mode === 'highlight') {
+          isHighlightActive = true;
+          cursorHighlight.classList.add('active');
+          item.classList.add('active');
+        }
+        else if (mode === 'guideline') {
+          document.body.classList.add('guideline-mode');
+          item.classList.add('active');
+        }
+        else if (mode === 'reset') {
+          document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        }
       });
     });
 
-    // Load Header and Footer - PERBAIKAN
-    fetch('../layout/header.html')
+    // Load Header & Footer
+    fetch('layout/header.html?v=' + Date.now())
       .then(r => r.text())
-      .then(d => {
-        // Extract only the content inside body tags
-        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-        if (bodyContent && bodyContent[1]) {
-          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
-        } else {
-          // Fallback if regex doesn't work
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = d;
-          const bodyElement = tempDiv.querySelector('body');
-          if (bodyElement) {
-            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
-          }
-        }
-      })
-      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('../layout/footer.html')
+    fetch('layout/footer.html?v=' + Date.now())
       .then(r => r.text())
-      .then(d => {
-        // Extract only the content inside body tags
-        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-        if (bodyContent && bodyContent[1]) {
-          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
-        } else {
-          // Fallback if regex doesn't work
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = d;
-          const bodyElement = tempDiv.querySelector('body');
-          if (bodyElement) {
-            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
-          }
-        }
-      })
-      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>
 </body>
 </html>

@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Laporan Tahunan PPID - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
   
+  <base href="/project-template-web-dinkominfo-bms/">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
@@ -12,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   
   <!-- PDF.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -215,127 +216,29 @@
     <section class="main-content">
       <div class="container">
         <div class="info-card">
-          <h2 class="card-title">Laporan Tahunan PPID</h2>
+          <h3 class="card-title">LAPORAN TAHUNAN PPID PELAKSANA DINAS KOMUNIKASI DAN INFORMATIKA KABUPATEN BANYUMAS TAHUN 2022</h3>
           
           <!-- YEAR TABS -->
-          <div class="year-tabs">
-            <button class="year-tab active" data-year="2023">2023</button>
-            <button class="year-tab" data-year="2022">2022</button>
-            <button class="year-tab" data-year="2021">2021</button>
-            <button class="year-tab" data-year="2020">2020</button>
-            <button class="year-tab" data-year="2019">2019</button>
-            <button class="year-tab" data-year="2018">2018</button>
-          </div>
-
-          <!-- YEAR CONTENT -->
-          <div class="year-content active" id="year-2023">
-            <div class="pdf-container">
-              <div class="pdf-viewer">
-                <canvas id="pdf-canvas-2023"></canvas>
-              </div>
-              <div class="pdf-controls">
-                <button id="prev-page-2023" class="pdf-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <span class="page-info">Halaman <span id="page-num-2023">1</span> dari <span id="page-count-2023">?</span></span>
-                <button id="next-page-2023" class="pdf-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="year-content" id="year-2022">
-            <div class="pdf-container">
-              <div class="pdf-viewer">
-                <canvas id="pdf-canvas-2022"></canvas>
-              </div>
-              <div class="pdf-controls">
-                <button id="prev-page-2022" class="pdf-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <span class="page-info">Halaman <span id="page-num-2022">1</span> dari <span id="page-count-2022">?</span></span>
-                <button id="next-page-2022" class="pdf-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="year-content" id="year-2021">
-            <div class="pdf-container">
-              <div class="pdf-viewer">
-                <canvas id="pdf-canvas-2021"></canvas>
-              </div>
-              <div class="pdf-controls">
-                <button id="prev-page-2021" class="pdf-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <span class="page-info">Halaman <span id="page-num-2021">1</span> dari <span id="page-count-2021">?</span></span>
-                <button id="next-page-2021" class="pdf-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="year-content" id="year-2020">
-            <div class="pdf-container">
-              <div class="pdf-viewer">
-                <canvas id="pdf-canvas-2020"></canvas>
-              </div>
-              <div class="pdf-controls">
-                <button id="prev-page-2020" class="pdf-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <span class="page-info">Halaman <span id="page-num-2020">1</span> dari <span id="page-count-2020">?</span></span>
-                <button id="next-page-2020" class="pdf-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="year-content" id="year-2019">
-            <div class="pdf-container">
-              <div class="pdf-viewer">
-                <canvas id="pdf-canvas-2019"></canvas>
-              </div>
-              <div class="pdf-controls">
-                <button id="prev-page-2019" class="pdf-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <span class="page-info">Halaman <span id="page-num-2019">1</span> dari <span id="page-count-2019">?</span></span>
-                <button id="next-page-2019" class="pdf-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <div class="year-content" id="year-2018">
-            <div class="pdf-container">
-              <div class="pdf-viewer">
-                <canvas id="pdf-canvas-2018"></canvas>
-              </div>
-              <div class="pdf-controls">
-                <button id="prev-page-2018" class="pdf-btn">
-                  <i class="halaman fa-chevron-left"></i>
-                </button>
-                <span class="page-info">Halaman <span id="page-num-2018">1</span> dari <span id="page-count-2018">?</span></span>
-                <button id="next-page-2018" class="pdf-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
+          <div class="pdf-container">
+        <div class="pdf-viewer">
+          <canvas id="pdf-canvas"></canvas>
         </div>
+        <div class="pdf-controls">
+          <button id="prev-page" class="pdf-btn">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <span class="page-info">Halaman <span id="page-num">1</span> dari <span id="page-count">?</span></span>
+          <button id="next-page" class="pdf-btn">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
 
         <div class="download-section">
           <i class="fas fa-download"></i>
           <h3>Unduh Laporan Lengkap</h3>
           <p>Unduh semua laporan tahunan PPID dalam satu file PDF</p>
-          <a href="../files/Laporan Tahunan PPID Lengkap.pdf" class="download-btn" download>
+          <a href="files/Laporan Tahunan.pdf" class="download-btn" download>
             <i class="fas fa-file-pdf"></i> Unduh PDF
           </a>
           <a href="https://drive.google.com/file/d/1EQ31Hh41c7vzs-mXDeIw6OXRh0B6KHDv/view?usp=sharing" class="gdrive-link" target="_blank">
@@ -350,180 +253,118 @@
   </div>
 
   <!-- SCRIPT -->
-  <script>
-    // PDF.js Worker
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+ <script>
+  // PDF.js Worker
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-    // PDF Viewer
-    let currentYear = '2023';
-    let currentPdfDoc = null;
-    let currentPageNum = 1;
-    let pageRendering = false;
-    let pageNumPending = null;
-    const scale = 1.5;
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
+  // PDF Viewer
+  let currentPdfDoc = null;
+  let currentPageNum = 1;
+  let pageRendering = false;
+  let pageNumPending = null;
+  const scale = 1.5;
+  const canvas = document.getElementById('pdf-canvas');
+  const ctx = canvas.getContext('2d');
 
-    // Year tabs
-    const yearTabs = document.querySelectorAll('.year-tab');
-    yearTabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        // Remove active class from all tabs
-        yearTabs.forEach(t => t.classList.remove('active'));
-        
-        // Add active class to clicked tab
-        tab.classList.add('active');
-        
-        // Hide all year contents
-        document.querySelectorAll('.year-content').forEach(content => {
-          content.classList.remove('active');
-        });
-        
-        // Show selected year content
-        currentYear = tab.getAttribute('data-year');
-        document.getElementById(`year-${currentYear}`).classList.add('active');
-      });
-    });
+  // HANYA SATU FILE: Laporan Tahunan.pdf
+  const PDF_FILE = 'files/Laporan Tahunan.pdf';
 
-    // Function to render a specific year's PDF
-    function loadYearPDF(year) {
-      // Update canvas for the selected year
-      const canvas = document.getElementById(`pdf-canvas-${year}`);
-      const pageNumElement = document.getElementById(`page-num-${year}`);
-      const pageCountElement = document.getElementById(`page-count-${year}`);
-      
-      // Show loading message
-      canvas.innerHTML = '<div class="loading">Memuat dokumen...</div>';
-      
-      // Load the PDF for the selected year
-      pdfjsLib.getDocument(`../files/Laporan Tahunan PPID Tahun ${year}.pdf`).promise.then(pdf => {
-        currentPdfDoc = pdf;
-        currentPageNum = 1;
-        document.getElementById(`page-count-${year}`).textContent = pdf.numPages;
-        renderPage(currentPageNum);
-      }).catch(err => {
-        canvas.innerHTML = `<p style="color:red; text-align:center;">Gagal memuat PDF: ${err.message}</p>`;
-      });
-    }
+  // Tampilkan "memuat..."
+  const pageCountEl = document.getElementById('page-count');
+  pageCountEl.textContent = 'memuat...';
 
-    // Function to render a specific page
-    function renderPage(num) {
-      pageRendering = true;
-      currentPdfDoc.getPage(num).then(page => {
-        const viewport = page.getViewport({ scale });
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
+  // Render halaman
+  function renderPage(num) {
+    pageRendering = true;
+    currentPdfDoc.getPage(num).then(page => {
+      const viewport = page.getViewport({ scale });
+      canvas.height = viewport.height;
+      canvas.width = viewport.width;
 
-        const renderContext = { canvasContext: ctx, viewport: viewport };
-        const renderTask = page.render(renderContext);
-        renderTask.promise.then(() => {
-          pageRendering = false;
-          if (pageNumPending !== null) {
-            renderPage(pageNumPending);
-            pageNumPending = null;
-          }
-        });
-        
-        // Update page number
-        document.getElementById(`page-num-${currentYear}`).textContent = num;
-      });
-    }
-
-    // Previous page function
-    function prevPage() {
-      if (currentPageNum <= 1) return;
-      currentPageNum--;
-      renderPage(currentPageNum);
-    }
-
-    // Next page function
-    function nextPage() {
-      if (currentPageNum >= currentPdfDoc.numPages) return;
-      currentPageNum++;
-      renderPage(currentPageNum);
-    }
-
-    // Set up event listeners for all years
-    for (let year = 2018; year <= 2023; year++) {
-      document.getElementById(`prev-page-${year}`).addEventListener('click', prevPage);
-      document.getElementById(`next-page-${year}`).addEventListener('click', nextPage);
-    }
-
-    // Load the default year (2023) on page load
-    loadYearPDF(currentYear);
-
-    // AKSESIBILITAS & HEADER/FOOTER
-    const accToggle = document.getElementById('accessibility-toggle');
-    const accPanel = document.getElementById('accessibility-panel');
-    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
-    document.addEventListener('click', (e) => {
-      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
-        accPanel.classList.remove('active');
-      }
-    });
-
-    const cursorHighlight = document.getElementById('cursor-highlight');
-    let isHighlightActive = false;
-    document.addEventListener('mousemove', (e) => {
-      if (isHighlightActive) {
-        cursorHighlight.style.left = e.clientX + 'px';
-        cursorHighlight.style.top = e.clientY + 'px';
-      }
-    });
-
-    document.querySelectorAll('.acc-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const mode = item.getAttribute('data-mode');
-        document.body.classList.remove('high-constast', 'dark-mode', 'guideline-mode');
-        cursorHighlight.classList.remove('active');
-        isHighlightActive = false;
-        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
-
-        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
-        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
-        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
-        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
-      });
-    });
-
-    // Load Header and Footer - PERBAIKAN
-    fetch('../layout/header.html')
-      .then(r => r.text())
-      .then(d => {
-        // Extract only the content inside body tags
-        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-        if (bodyContent && bodyContent[1]) {
-          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
-        } else {
-          // Fallback if regex doesn't work
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = d;
-          const bodyElement = tempDiv.querySelector('body');
-          if (bodyElement) {
-            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
-          }
+      const renderContext = { canvasContext: ctx, viewport };
+      page.render(renderContext).promise.then(() => {
+        pageRendering = false;
+        if (pageNumPending !== null) {
+          renderPage(pageNumPending);
+          pageNumPending = null;
         }
-      })
-      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+      });
+      document.getElementById('page-num').textContent = num;
+    });
+  }
 
-    fetch('../layout/footer.html')
-      .then(r => r.text())
-      .then(d => {
-        // Extract only the content inside body tags
-        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-        if (bodyContent && bodyContent[1]) {
-          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
-        } else {
-          // Fallback if regex doesn't work
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = d;
-          const bodyElement = tempDiv.querySelector('body');
-          if (bodyElement) {
-            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
-          }
-        }
-      })
-      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
-  </script>
+  // Tombol Prev
+  document.getElementById('prev-page').addEventListener('click', () => {
+    if (currentPageNum <= 1) return;
+    currentPageNum--;
+    renderPage(currentPageNum);
+  });
+
+  // Tombol Next
+  document.getElementById('next-page').addEventListener('click', () => {
+    if (currentPageNum >= currentPdfDoc.numPages) return;
+    currentPageNum++;
+    renderPage(currentPageNum);
+  });
+
+  // LOAD PDF: Laporan Tahunan.pdf
+  pdfjsLib.getDocument(PDF_FILE).promise.then(pdf => {
+    currentPdfDoc = pdf;
+    currentPageNum = 1;
+    pageCountEl.textContent = pdf.numPages;  // JUMLAH HALAMAN DITAMPILKAN
+    renderPage(currentPageNum);
+  }).catch(err => {
+    canvas.innerHTML = `
+      <p style="color:red; text-align:center; padding:2rem; font-family:Arial;">
+        Gagal memuat PDF!<br>
+        <small>Error: ${err.message}</small><br>
+        <small>Periksa file: <code>${PDF_FILE}</code></small>
+      </p>`;
+    pageCountEl.textContent = '—';
+  });
+
+  // AKSESIBILITAS (TETAP SAMA)
+  const accToggle = document.getElementById('accessibility-toggle');
+  const accPanel = document.getElementById('accessibility-panel');
+  accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+  document.addEventListener('click', (e) => {
+    if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+      accPanel.classList.remove('active');
+    }
+  });
+
+  const cursorHighlight = document.getElementById('cursor-highlight');
+  let isHighlightActive = false;
+  document.addEventListener('mousemove', (e) => {
+    if (isHighlightActive) {
+      cursorHighlight.style.left = e.clientX + 'px';
+      cursorHighlight.style.top = e.clientY + 'px';
+    }
+  });
+
+  document.querySelectorAll('.acc-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const mode = item.getAttribute('data-mode');
+      document.body.classList.remove('high-constast', 'dark-mode', 'guideline-mode');
+      cursorHighlight.classList.remove('active');
+      isHighlightActive = false;
+      document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+      if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+      else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+      else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+      else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+    });
+  });
+
+  // Load Header & Footer
+  fetch('layout/header.html?v=' + Date.now())
+    .then(r => r.text())
+    .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+  fetch('layout/footer.html?v=' + Date.now())
+    .then(r => r.text())
+    .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+</script>
 </body>
 </html>

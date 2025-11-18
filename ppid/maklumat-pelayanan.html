@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maklumat Pelayanan - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  
+  <base href="/project-template-web-dinkominfo-bms/">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   
   <!-- Additional CSS for this page -->
   <style>
@@ -242,7 +242,7 @@
           <div class="image-gallery">
             <div class="gallery-item">
               <img 
-                src="../images/Maklumat Pelayanan.jpg" 
+                src="images/Maklumat Pelayanan.jpg" 
                 alt="Dokumen Maklumat Pelayanan 1 - Standar Pelayanan" 
                 class="gallery-img"
                 onclick="openModal(this.src, this.alt)"
@@ -252,7 +252,7 @@
             
             <div class="gallery-item">
               <img 
-                src="../images/Maklumat 1.jpg" 
+                src="images/Maklumat 1.jpg" 
                 alt="Dokumen Maklumat Pelayanan 2 - Jam Pelayanan" 
                 class="gallery-img"
                 onclick="openModal(this.src, this.alt)"
@@ -262,7 +262,7 @@
             
             <div class="gallery-item">
               <img 
-                src="../images/Maklumat 2.jpg" 
+                src="images/Maklumat 2.jpg" 
                 alt="Dokumen Maklumat Pelayanan 3 - Prosedur Pengaduan" 
                 class="gallery-img"
                 onclick="openModal(this.src, this.alt)"
@@ -275,7 +275,7 @@
             <i class="fas fa-download"></i>
             <h3>Unduh Dokumen Lengkap</h3>
             <p>Unduh semua dokumen maklumat pelayanan dalam satu file PDF</p>
-            <a href="../files/Maklumat Pelayanan Lengkap.pdf" class="download-btn" download>
+            <a href="files/Maklumat Pelayanan (stempel).pdf" class="download-btn" download>
               <i class="fas fa-file-pdf"></i> Unduh PDF
             </a>
             <a href="https://drive.google.com/file/d/1EQ31Hh41c7vzs-mXDeIw6OXRh0B6KHDv/view?usp=sharing" class="gdrive-link" target="_blank">
@@ -351,43 +351,13 @@
     });
 
     // Load Header and Footer - PERBAIKAN
-    fetch('../layout/header.html')
+    fetch('layout/header.html?v=' + Date.now())
       .then(r => r.text())
-      .then(d => {
-        // Extract only the content inside body tags
-        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-        if (bodyContent && bodyContent[1]) {
-          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
-        } else {
-          // Fallback if regex doesn't work
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = d;
-          const bodyElement = tempDiv.querySelector('body');
-          if (bodyElement) {
-            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
-          }
-        }
-      })
-      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('../layout/footer.html')
+    fetch('layout/footer.html?v=' + Date.now())
       .then(r => r.text())
-      .then(d => {
-        // Extract only the content inside body tags
-        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-        if (bodyContent && bodyContent[1]) {
-          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
-        } else {
-          // Fallback if regex doesn't work
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = d;
-          const bodyElement = tempDiv.querySelector('body');
-          if (bodyElement) {
-            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
-          }
-        }
-      })
-      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>
 </body>
 </html> 

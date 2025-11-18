@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SK DIP Dikecualikan (DIK) - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  
+  <base href="/project-template-web-dinkominfo-bms/">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
   
   <!-- Additional CSS for this page -->
   <style>
@@ -198,9 +198,9 @@
               <h3 class="dip-year">2018</h3>
               <p class="dip-desc">
                 SK Daftar Informasi Publik Yang Dikecualikan Tahun 2018 dapat dilihat 
-                <a href="dokumen/SK_DIP_2018.pdf" class="link-here" target="_blank">disini</a>
+                <a href="files/SK_DIP_2018.pdf" class="link-here" target="_blank">disini</a>
               </p>
-              <a href="dokumen/SK_DIP_2018.pdf" class="dip-btn" target="_blank">
+              <a href="files/SK_DIP_2018.pdf" class="dip-btn" target="_blank">
                 <i class="fas fa-eye"></i> Lihat SK
               </a>
             </div>
@@ -209,9 +209,9 @@
               <h3 class="dip-year">2021</h3>
               <p class="dip-desc">
                 SK Daftar Informasi Publik Yang Dikecualikan Tahun 2021 dapat dilihat 
-                <a href="dokumen/SK_DIP_2021.pdf" class="link-here" target="_blank">disini</a>
+                <a href="files/SK_DIP_2021.pdf" class="link-here" target="_blank">disini</a>
               </p>
-              <a href="dokumen/SK_DIP_2021.pdf" class="dip-btn" target="_blank">
+              <a href="files/SK_DIP_2021.pdf" class="dip-btn" target="_blank">
                 <i class="fas fa-eye"></i> Lihat SK
               </a>
             </div>
@@ -220,9 +220,9 @@
               <h3 class="dip-year">2022</h3>
               <p class="dip-desc">
                 SK Daftar Informasi Publik Yang Dikecualikan Tahun 2022 dapat dilihat 
-                <a href="dokumen/SK_DIP_2022.pdf" class="link-here" target="_blank">disini</a>
+                <a href="files/SK_DIP_2022.pdf" class="link-here" target="_blank">disini</a>
               </p>
-              <a href="dokumen/SK_DIP_2022.pdf" class="dip-btn" target="_blank">
+              <a href="files/SK_DIP_2022.pdf" class="dip-btn" target="_blank">
                 <i class="fas fa-eye"></i> Lihat SK
               </a>
             </div>
@@ -231,10 +231,12 @@
               <h3 class="dip-year">2023</h3>
               <p class="dip-desc">
                 SK Daftar Informasi Publik Yang Dikecualikan Tahun 2023 dapat dilihat 
-                <a href="dokumen/SK_DIP_2023.pdf" class="link-here" target="_blank">disini</a>
+                <a href="files/SK DIP 2023.pdf" class="link-here" target="_blank">disini</a>
               </p>
-              <a href="dokumen/SK_DIP_2023.pdf" class="dip-btn" target="_blank">
-                <i class="fas fa-eye"></i> Lihat SK
+              <a href="files/SK DIP 2023.pdf" 
+                class="btn btn-download" 
+                download="SK_DIP_2023.pdf">
+                Unduh PDF
               </a>
             </div>
 
@@ -242,10 +244,12 @@
               <h3 class="dip-year">2024</h3>
               <p class="dip-desc">
                 SK Daftar Informasi Publik Yang Dikecualikan Tahun 2024 dapat dilihat 
-                <a href="dokumen/SK_DIP_2024.pdf" class="link-here" target="_blank">disini</a>
+                <a href="files/SK DIP 2024.pdf" class="link-here" target="_blank">disini</a>
               </p>
-              <a href="dokumen/SK_DIP_2024.pdf" class="dip-btn" target="_blank">
-                <i class="fas fa-eye"></i> Lihat SK
+              <a href="files/SK DIP 2024.pdf" 
+                class="btn btn-download" 
+                download="SK_DIP_2024.pdf">
+                Unduh PDF
               </a>
             </div>
 
@@ -310,43 +314,13 @@
     });
 
     // Load Header and Footer - PERBAIKAN
-    fetch('../layout/header.html')
+    fetch('layout/header.html?v=' + Date.now())
       .then(r => r.text())
-      .then(d => {
-        // Extract only the content inside body tags
-        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-        if (bodyContent && bodyContent[1]) {
-          document.getElementById('header-placeholder').outerHTML = bodyContent[1];
-        } else {
-          // Fallback if regex doesn't work
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = d;
-          const bodyElement = tempDiv.querySelector('body');
-          if (bodyElement) {
-            document.getElementById('header-placeholder').outerHTML = bodyElement.innerHTML;
-          }
-        }
-      })
-      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('../layout/footer.html')
+    fetch('layout/footer.html?v=' + Date.now())
       .then(r => r.text())
-      .then(d => {
-        // Extract only the content inside body tags
-        const bodyContent = d.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-        if (bodyContent && bodyContent[1]) {
-          document.getElementById('footer-placeholder').outerHTML = bodyContent[1];
-        } else {
-          // Fallback if regex doesn't work
-          const tempDiv = document.createElement('div');
-          tempDiv.innerHTML = d;
-          const bodyElement = tempDiv.querySelector('body');
-          if (bodyElement) {
-            document.getElementById('footer-placeholder').outerHTML = bodyElement.innerHTML;
-          }
-        }
-      })
-      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tugas dan Fungsi - Dinkominfo Banyumas</title>
-  
+  <base href="/project-template-web-dinkominfo-bms/">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
@@ -123,25 +123,13 @@
     });
 
     // Load Header and Footer
-    fetch('../layout/header.html')
+    fetch('layout/header.html?v=' + Date.now())
       .then(r => r.text())
-      .then(d => {
-        // Extract only the body content from header.html
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(d, 'text/html');
-        document.getElementById('header-placeholder').outerHTML = doc.body.innerHTML;
-      })
-      .catch(() => document.getElementById('header-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat header</p>');
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('../layout/footer.html')
+    fetch('layout/footer.html?v=' + Date.now())
       .then(r => r.text())
-      .then(d => {
-        // Extract only the body content from footer.html
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(d, 'text/html');
-        document.getElementById('footer-placeholder').outerHTML = doc.body.innerHTML;
-      })
-      .catch(() => document.getElementById('footer-placeholder').innerHTML = '<p style="color:red; text-align:center;">Gagal memuat footer</p>');
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>
 </body>
 </html>

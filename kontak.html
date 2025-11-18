@@ -744,6 +744,13 @@
       link.addEventListener('click', () => {
         document.getElementById('mobileNav').classList.remove('active');
       });
+      fetch('layout/header.html?v=' + Date.now())
+  .then(r => r.text())
+  .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+fetch('layout/footer.html?v=' + Date.now())
+  .then(r => r.text())
+  .then(d => document.getElementById('footer-placeholder').outerHTML = d);
     });
   </script>
 </body>
