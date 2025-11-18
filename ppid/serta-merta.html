@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Informasi Serta Merta - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  <base href="/project-template-web-dinkominfo-bms/">
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan /MAGANG/ -->
+  <link rel="stylesheet" href="/MAGANG/project-template-web-dinkominfo-bms/css/style.css">
   
   <!-- Additional CSS for this page -->
   <style>
@@ -74,6 +74,25 @@
 
     .sm-table a:hover {
       color: var(--primary);
+    }
+
+    .sm-table .peraturan-list {
+      padding-left: 1.2rem;
+      margin: 0.8rem 0;
+    }
+
+    .sm-table .peraturan-list li {
+      margin-bottom: 0.6rem;
+      position: relative;
+      padding-left: 1.2rem;
+      font-size: 0.9rem;
+    }
+
+    .sm-table .peraturan-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
     }
 
     /* FAQ */
@@ -289,7 +308,7 @@
 
             <div class="faq-item">
               <div class="faq-question">Siapa yang lebih rentan?</div>
-              <div class="faq-answer">Tidak ada batas usia, tapi lansia dan penderita penyakit kronis (asma, diabetes, jantung) lebih rentan sakit parah.</div>
+              <div class="faq-answer">Tidak ada batas usia, tapi lanjut usia dan penderita penyakit kronis (asma, diabetes, jantung) lebih rentan sakit parah.</div>
             </div>
 
             <div class="faq-item">
@@ -403,12 +422,12 @@
       });
     });
 
-    // Load Header and Footer - PERBAIKAN
-    fetch('layout/header.html?v=' + Date.now())
+    // PERUBAHAN 2 & 3: Path ke Header dan Footer sudah ditambahkan /MAGANG/
+    fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('layout/footer.html?v=' + Date.now())
+    fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/footer.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>

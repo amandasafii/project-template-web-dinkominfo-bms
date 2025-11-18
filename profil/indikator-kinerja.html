@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Indikator Kinerja Utama - Dinkominfo Banyumas</title>
-  <base href="/project-template-web-dinkominfo-bms/">
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan /MAGANG/ -->
+  <link rel="stylesheet" href="/MAGANG/project-template-web-dinkominfo-bms/css/style.css">
 </head>
 <body>
 
@@ -118,18 +118,20 @@
       });
     });
 
-    // Load Header and Footer
-    fetch('layout/header.html?v=' + Date.now())
+    // PERUBAHAN 2 & 3: Path ke Header dan Footer sudah ditambahkan /MAGANG/
+    fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('layout/footer.html?v=' + Date.now())
+    fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/footer.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+      
+    // PERUBAHAN 4: Path ke file PDF juga diperbaiki
     // JavaScript untuk Download PDF
     function downloadPDF() {
       const link = document.createElement('a');
-      link.href = '../files/IKU-Dinkominfo-Banyumas-2021.pdf';
+      link.href = '/MAGANG/project-template-web-dinkominfo-bms/files/IKU-Dinkominfo-Banyumas-2021.pdf';
       link.download = 'IKU-Dinkominfo-Banyumas-2021.pdf';
       document.body.appendChild(link);
       link.click();

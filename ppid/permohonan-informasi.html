@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Permohonan Informasi - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  <base href="/project-template-web-dinkominfo-bms/">
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan /MAGANG/ -->
+  <link rel="stylesheet" href="/MAGANG/project-template-web-dinkominfo-bms/css/style.css">
   
   <!-- Additional CSS for this page -->
   <style>
@@ -231,8 +231,9 @@
         <div class="info-card">
           <h2 class="card-title">Form Permohonan Informasi</h2>
           
+          <!-- PERUBAHAN 2: Path ke PDF sudah ditambahkan /MAGANG/ -->
           <div class="download-link">
-            <a href="files/FORMULIR PERMOHONAN INFORMASI.pdf" download>
+            <a href="/MAGANG/project-template-web-dinkominfo-bms/files/FORMULIR PERMOHONAN INFORMASI.pdf" download>
               <i class="fas fa-download"></i> Download Formulir Permohonan Informasi
             </a>
           </div>
@@ -356,7 +357,7 @@
           item.classList.remove('selected');
         });
         
-        // Add selected class to the parent of the checked radio
+        // Add selected class to parent of checked radio
         if (this.checked) {
           this.parentElement.classList.add('selected');
         }
@@ -397,12 +398,12 @@
       });
     });
 
-    // Load Header and Footer - PERBAIKAN
-    fetch('layout/header.html?v=' + Date.now())
+    // PERUBAHAN 3 & 4: Path ke Header dan Footer sudah ditambahkan /MAGANG/
+    fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('layout/footer.html?v=' + Date.now())
+    fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/footer.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>

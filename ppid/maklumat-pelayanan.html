@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maklumat Pelayanan - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  <base href="/project-template-web-dinkominfo-bms/">
+  
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan /MAGANG/ -->
+  <link rel="stylesheet" href="/MAGANG/project-template-web-dinkominfo-bms/css/style.css">
   
   <!-- Additional CSS for this page -->
   <style>
@@ -241,8 +241,9 @@
           
           <div class="image-gallery">
             <div class="gallery-item">
+              <!-- PERUBAHAN 2: Path ke gambar 1 -->
               <img 
-                src="images/Maklumat Pelayanan.jpg" 
+                src="/MAGANG/project-template-web-dinkominfo-bms/images/Maklumat Pelayanan.jpg" 
                 alt="Dokumen Maklumat Pelayanan 1 - Standar Pelayanan" 
                 class="gallery-img"
                 onclick="openModal(this.src, this.alt)"
@@ -251,8 +252,9 @@
             </div>
             
             <div class="gallery-item">
+              <!-- PERUBAHAN 3: Path ke gambar 2 -->
               <img 
-                src="images/Maklumat 1.jpg" 
+                src="/MAGANG/project-template-web-dinkominfo-bms/images/Maklumat 1.jpg" 
                 alt="Dokumen Maklumat Pelayanan 2 - Jam Pelayanan" 
                 class="gallery-img"
                 onclick="openModal(this.src, this.alt)"
@@ -261,8 +263,9 @@
             </div>
             
             <div class="gallery-item">
+              <!-- PERUBAHAN 4: Path ke gambar 3 -->
               <img 
-                src="images/Maklumat 2.jpg" 
+                src="/MAGANG/project-template-web-dinkominfo-bms/images/Maklumat 2.jpg" 
                 alt="Dokumen Maklumat Pelayanan 3 - Prosedur Pengaduan" 
                 class="gallery-img"
                 onclick="openModal(this.src, this.alt)"
@@ -275,7 +278,8 @@
             <i class="fas fa-download"></i>
             <h3>Unduh Dokumen Lengkap</h3>
             <p>Unduh semua dokumen maklumat pelayanan dalam satu file PDF</p>
-            <a href="files/Maklumat Pelayanan (stempel).pdf" class="download-btn" download>
+            <!-- PERUBAHAN 5: Path ke PDF -->
+            <a href="/MAGANG/project-template-web-dinkominfo-bms/files/Maklumat Pelayanan (stempel).pdf" class="download-btn" download>
               <i class="fas fa-file-pdf"></i> Unduh PDF
             </a>
             <a href="https://drive.google.com/file/d/1EQ31Hh41c7vzs-mXDeIw6OXRh0B6KHDv/view?usp=sharing" class="gdrive-link" target="_blank">
@@ -350,14 +354,14 @@
       }
     });
 
-    // Load Header and Footer - PERBAIKAN
-    fetch('layout/header.html?v=' + Date.now())
+    // PERUBAHAN 6 & 7: Path ke Header dan Footer sudah ditambahkan /MAGANG/
+    fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('layout/footer.html?v=' + Date.now())
+    fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/footer.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>
 </body>
-</html> 
+</html>
