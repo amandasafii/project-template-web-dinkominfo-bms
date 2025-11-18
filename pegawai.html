@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Statistik PNS - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  <base href="/project-template-web-dinkominfo-bms/">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Additional CSS untuk halaman statistik -->
+  <style>
+    .stats-section { padding: 4rem 0; background: var(--bg-light); }
+    .stats-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2.5rem;
+    }
+    @media (min-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1024px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .stats-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .stats-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+    }
+    .stats-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+    }
+    .stats-card img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius);
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-md);
+    }
+    .stats-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 0.8rem;
+    }
+    .stats-desc {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      /* line catalogs: 1.6; */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STABILO -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
+
+    <!-- HEADER -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-chart-bar"></i>
+          </div>
+          <h1 class="hero-title">STATISTIK PEGAWAI NEGERI SIPIL</h1>
+          <p class="hero-subtitle">
+            Data komposisi PNS Dinas Komunikasi dan Informatika Kabupaten Banyumas per November 2025
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT - STATISTIK -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="info-card">
+          <h2 class="card-title">Komposisi PNS Dinas Komunikasi dan Informatika</h2>
+          
+          <div class="stats-grid">
+            <!-- Kartu 1: Tingkat Pendidikan -->
+            <div class="stats-card">
+              <img src="images/pegawai3.png" alt="PNS Berdasarkan Tingkat Pendidikan">
+              <h3 class="stats-title">Berdasarkan Tingkat Pendidikan</h3>
+              <p class="stats-desc">
+                <strong>Total PNS: 52 orang</strong><br>
+                • S2: 8 orang<br>
+                • S1: 19 orang<br>
+                • DIII: 16 orang<br>
+                • SMU: 6 orang<br>
+                • SMP: 2 orang<br>
+                • SD: 1 orang
+              </p>
+            </div>
+
+            <!-- Kartu 2: Jenis Kelamin -->
+            <div class="stats-card">
+              <img src="images/pegawai1.png" alt="PNS Berdasarkan Jenis Kelamin">
+              <h3 class="stats-title">Berdasarkan Jenis Kelamin</h3>
+              <p class="stats-desc">
+                <strong>Total PNS: 52 orang</strong><br><br>
+                • Laki-laki: <strong>36 orang</strong> (69,23%)<br>
+                • Perempuan: <strong>16 orang</strong> (30,77%)
+              </p>
+            </div>
+
+            <!-- Kartu 3: Golongan Ruang -->
+            <div class="stats-card">
+              <img src="images/pegawai2.png" alt="PNS Berdasarkan Golongan Ruang">
+              <h3 class="stats-title">Berdasarkan Golongan/Ruang</h3>
+              <p class="stats-desc">
+                <strong>Total PNS: 52 orang</strong><br><br>
+                • Golongan III: 35 orang (67,3%)<br>
+                • Golongan II: 9 orang (17,3%)<br>
+                • Golongan IV: 7 orang (13,5%)<br>
+                • Golongan I: 1 orang (1,9%)
+              </p>
+            </div>
+          </div>
+
+          <!-- Info Box Tambahan -->
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- SCRIPT (sama seperti template sebelumnya) -->
+  <script>
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // Load Header dan Footer
+    fetch('layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+    fetch('layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+  </script>
+</body>
+</html>

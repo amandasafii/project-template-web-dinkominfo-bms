@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pelayanan Publik - Diskominfo Kab. Banyumas</title>
+  <base href="/project-template-web-dinkominfo-bms/">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .services-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.2rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      border: 1px solid #eef2f6;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+    }
+
+    .service-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin: 0 0 1rem 0;
+      line-height: 1.4;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: #636e72;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.4rem;
+      background: rgba(0, 123, 255, 0.1);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .service-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div id="header-placeholder">Loading header...</div>
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-concierge-bell"></i>
+          </div>
+          <h1 class="hero-title">PELAYANAN PUBLIK</h1>
+          <h1 class="hero-subtitle">Semua layanan Dinas Komunikasi dan Informatika Kabupaten Banyumas dalam satu tempat</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+
+          <div class="services-grid">
+
+            <!-- Maklumat Pelayanan (sekarang sama persis seperti yang lain) -->
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-scroll"></i></div>
+              <h3>Maklumat Pelayanan</h3>
+              <p>Komitmen Diskominfo Banyumas dalam memberikan pelayanan prima kepada masyarakat</p>
+              <a href="files/pelayanan/maklumat-pelayanan.pdf" class="service-link" target="_blank">
+                Unduh Maklumat → 
+              </a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
+              <h3>Standar Pelayanan</h3>
+              <p>Prosedur dan waktu penyelesaian setiap jenis layanan publik</p>
+              <a href="files/pelayanan/standar-pelayanan.pdf" class="service-link" target="_blank">
+                Lihat Standar →
+              </a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-database"></i></div>
+              <h3>Pelayanan & Publikasi Data dan Informasi</h3>
+              <p>Penyediaan data statistik sektoral Kabupaten Banyumas</p>
+              <a href="#" class="service-link">Info Lebih Lanjut →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+              <h3>Fasilitasi Kegiatan Non Fisik TMMD</h3>
+              <p>Dukungan publikasi dan dokumentasi kegiatan TMMD</p>
+              <a href="#" class="service-link">Detail →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-list-alt"></i></div>
+              <h3>Penyusunan Daftar Informasi Publik</h3>
+              <p>Pembuatan DIP dan DIP Dikecualikan secara berkala</p>
+              <a href="#" class="service-link">Lihat DIP →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-envelope-open-text"></i></div>
+              <h3>Permohonan Informasi Publik</h3>
+              <p>Ajukan permintaan informasi secara online/offline</p>
+              <a href="permohonan-informasi.html" class="service-link">Ajukan Sekarang →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-exclamation-triangle"></i></div>
+              <h3>Penanganan Keberatan Informasi Publik</h3>
+              <p>Prosedur pengajuan keberatan atas informasi yang ditolak</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-gavel"></i></div>
+              <h3>Fasilitasi Sengketa Informasi Publik</h3>
+              <p>Pendampingan sengketa di Komisi Informasi</p>
+              <a href="#" class="service-link">Detail →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
+              <h3>Uji Uji Konsekuensi</h3>
+              <p>Pengujian sebelum informasi dikecualikan</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-video"></i></div>
+              <h3>Pembuatan Konten</h3>
+              <p>Video, foto, infografis, dan konten media sosial OPD</p>
+              <a href="#" class="service-link">Pesan Konten →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+              <h3>Penanganan Konten Negatif</h3>
+              <p>Pemantauan dan penanganan hoaks</p>
+              <a href="#" class="service-link">Laporkan →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+              <h3>Pengaduan via Lapak Aduan Banyumas</h3>
+              <p>Layanan pengaduan pelayanan publik secara online</p>
+              <a href="https://lapakaduan.banyumaskab.go.id" class="service-link" target="_blank">Buka Lapak Aduan →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+              <h3>Pembangunan/Pengembangan Aplikasi</h3>
+              <p>Pembuatan aplikasi/web untuk kebutuhan OPD</p>
+              <a href="#" class="service-link">Ajukan →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-globe"></i></div>
+              <h3>Pendaftaran Sub Domain</h3>
+              <p>Subdomain resmi .banyumaskab.go.id</p>
+              <a href="#" class="service-link">Daftar →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-key"></i></div>
+              <h3>Permohonan Hak Akses Sub Domain</h3>
+              <p>Akses pengelolaan subdomain OPD</p>
+              <a href="#" class="service-link">Ajukan Akses →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-router"></i></div>
+              <h3>Instalasi Mikrotik Mesin Absensi Simpatik</h3>
+              <p>Konfigurasi router untuk absensi</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+              <h3>Layanan Pelatihan TIK</h3>
+              <p>Pelatihan teknologi informasi untuk OPD & masyarakat</p>
+              <a href="#" class="service-link">Lihat Jadwal →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-server"></i></div>
+              <h3>Pelayanan Tamu Data Center</h3>
+              <p>Kunjungan dan akses ruang server</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-door-open"></i></div>
+              <h3>Permohonan Hak Akses Ruang Server</h3>
+              <p>Izin masuk ruang data center</p>
+              <a href="#" class="service-link">Ajukan →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-tower-cell"></i></div>
+              <h3>Rekomendasi Zona Menara Telekomunikasi</h3>
+              <p>Persyaratan dan prosedur rekomendasi menara</p>
+              <a href="#" class="service-link">Detail →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-archive"></i></div>
+              <h3>Peminjaman Arsip Inaktif</h3>
+              <p>Peminjaman dokumen arsip Diskominfo</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-users"></i></div>
+              <h3>Seleksi Penerimaan Non PNS</h3>
+              <p>Informasi rekrutmen tenaga kontrak</p>
+              <a href="#" class="service-link">Lihat Pengumuman →</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- Script aksesibilitas & header/footer (tetap sama) -->
+  <script>
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    fetch('layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+    fetch('layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+  </script>
+</body>
+</html>

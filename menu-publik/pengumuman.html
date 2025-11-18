@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pengumuman - Diskominfo Kab. Banyumas</title>
+  <base href="/project-template-web-dinkominfo-bms/">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .announcements-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .announcement-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      border: 1px solid #eef2f6;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .announcement-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+    }
+
+    .announcement-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .announcement-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin: 0 0 0.8rem 0;
+      line-height: 1.4;
+    }
+
+    .announcement-date {
+      font-size: 0.9rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .announcement-card p {
+      font-size: 0.95rem;
+      color: #636e72;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+      line-height: 1.6;
+    }
+
+    .announcement-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.4rem;
+      background: rgba(0, 123, 255, 0.1);
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      align-self: flex-start;
+    }
+
+    .announcement-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateX(5px);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div id="header-placeholder">Loading header...</div>
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-bullhorn"></i>
+          </div>
+          <h1 class="hero-title">PENGUMUMAN</h1>
+          <p class="hero-subtitle">Informasi resmi terbaru dari Dinas Komunikasi dan Informatika Kabupaten Banyumas</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+
+          <div class="announcements-grid">
+            <h2>Belum ada pengumuman</h2>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <script>
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    fetch('layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+    fetch('layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+  </script>
+</body>
+</html>

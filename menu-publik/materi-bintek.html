@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Materi Bimtek - Diskominfo Kab. Banyumas</title>
+  <base href="/project-template-web-dinkominfo-bms/">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .bimtek-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    }
+
+    .bimtek-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+      transition: all 0.4s ease;
+      border: 1px solid #eef2f6;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .bimtek-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+    }
+
+    .bimtek-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bimtek-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin: 0 0 0.8rem 0;
+      line-height: 1.4;
+    }
+
+    .bimtek-date {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .bimtek-card ul {
+      flex-grow: 1;
+      margin: 0 0 1.5rem 0;
+      padding-left: 1.2rem;
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .download-all {
+      display: block;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: auto;
+      transition: all 0.3s ease;
+    }
+
+    .download-all:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    .download-item {
+      display: block;
+      margin: 0.8rem 0;
+      padding: 0.7rem 1rem;
+      background: rgba(0, 123, 255, 0.08);
+      border-radius: 50px;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .download-item:hover {
+      background: var(--accent);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div id="header-placeholder">Loading header...</div>
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-chalkboard-teacher"></i>
+          </div>
+          <h1 class="hero-title">MATERI BIMBINGAN TEKNIS</h1>
+          <p class="hero-subtitle">Kumpulan materi presentasi dari kegiatan Bimbingan Teknis (Bimtek) yang diselenggarakan Dinas Kominfo Kabupaten Banyumas</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+
+          <div class="bimtek-grid">
+
+            <!-- Bimtek 2022 -->
+            <div class="bimtek-card">
+              <div class="bimtek-icon"><i class="fas fa-users"></i></div>
+              <h3>Bimtek Pengelolaan Media Sosial Pemerintah</h3>
+              <div class="bimtek-date"><i class="fas fa-calendar-alt"></i> Kamis, 14 Juli 2022</div>
+              <ul>
+                <li>Dr. Edi Santoso, S.Sos, M.Si</li>
+                <li>Yudhis Fajar Kurniawan</li>
+              </ul>
+              <a href="files/bimtek/2022-materi-dr-edi-santoso.pdf" class="download-item" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Materi Dr. Edi Santoso
+              </a>
+              <a href="files/bimtek/2022-materi-yudhis-fajar.pdf" class="download-item" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Materi Yudhis Fajar
+              </a>
+            </div>
+
+            <!-- Bimtek 2019 -->
+            <div class="bimtek-card">
+              <div class="bimtek-icon"><i class="fas fa-laptop"></i></div>
+              <h3>Bimtek Pengelolaan Konten Website & Sosialisasi Ketentuan Cukai</h3>
+              <div class="bimtek-date"><i class="fas fa-calendar-alt"></i> Kamis, 12 September 2019</div>
+              <ul>
+                <li>Bangkit Wismo, S.IKom</li>
+                <li>Bea Cukai Cabang Purwokerto</li>
+              </ul>
+              <a href="files/bimtek/2019-materi-bangkit-wismo.pdf" class="download-item" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Materi Bangkit Wismo
+              </a>
+              <a href="files/bimtek/2019-materi-bea-cukai.pdf" class="download-item" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Materi Bea Cukai
+              </a>
+            </div>
+
+            <!-- Tambah Bimtek lain di sini kalau ada -->
+            <!-- Contoh card kosong untuk ditambah nanti -->
+            <!--
+            <div class="bimtek-card">
+              <div class="bimtek-icon"><i class="fas fa-graduation-cap"></i></div>
+              <h3>Judul Bimtek Tahun XXXX</h3>
+              <div class="bimtek-date"><i class="fas fa-calendar-alt"></i> Tanggal Pelaksanaan</div>
+              <ul>
+                <li>Narasumber 1</li>
+                <li>Narasumber 2</li>
+              </ul>
+              <a href="#" class="download-all">Download Semua Materi</a>
+            </div>
+            -->
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- Script aksesibilitas & header/footer (sama seperti sebelumnya) -->
+  <script>
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    fetch('layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+    fetch('layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+  </script>
+</body>
+</html>

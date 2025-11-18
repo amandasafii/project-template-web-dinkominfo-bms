@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Download Dokumen Perencanaan & Laporan Kinerja - Diskominfo Banyumas</title>
+  <base href="/project-template-web-dinkominfo-bms/">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .accordion-section { margin-top: 2.5rem; }
+    .accordion-item {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+    .accordion-item:hover { box-shadow: var(--shadow-md); }
+
+    .accordion-header {
+      padding: 1.4rem 1.8rem;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      color: white;
+      font-weight: 700;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background 0.3s ease;
+    }
+    .accordion-header:hover { background: var(--primary-light); }
+    .accordion-header i { transition: transform 0.3s ease; font-size: 1.3rem; }
+    .accordion-header.active i { transform: rotate(180deg); }
+
+    .accordion-body {
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      background: #fbfbfb;
+    }
+    .accordion-body.open { padding: 1.8rem; max-height: 2000px; }
+
+    .doc-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .doc-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+      border-bottom: 1px dashed #ddd;
+    }
+    .doc-item:last-child { border-bottom: none; }
+
+    .doc-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex: 1;
+    }
+    .doc-info i {
+      font-size: 1.8rem;
+      color: var(--accent);
+    }
+    .doc-title {
+      font-weight: 600;
+      color: #333;
+      margin: 0;
+    }
+    .doc-desc {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin: 4px 0 0;
+    }
+
+    .download-btn {
+      background: var(--primary);
+      color: white;
+      padding: 0.7rem 1.4rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+    }
+    .download-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    /* RENSTRA Highlight */
+    .renstra-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+    }
+    .renstra-card h3 {
+      font-size: 2rem;
+      margin: 0 0 1rem 0;
+      font-weight: 800;
+    }
+    .renstra-card .download-btn {
+      background: white;
+      color: #667eea;
+      font-size: 1.1rem;
+      padding: 1rem 3rem;
+      margin-top: 1.5rem;
+    }
+    .renstra-card .download-btn:hover {
+      background: #f0f0f0;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-wrapper">
+    <div id="header-placeholder">Loading header...</div>
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-file-alt"></i>
+          </div>
+          <h1 class="hero-title">DOKUMEN PERENCANAAN & LAPORAN KINERJA</h1>
+          <p class="hero-subtitle">Renstra, Renja, Rencana Aksi, LKJIP, DPA, dan dokumen resmi lainnya</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+
+          <!-- RENSTRA Highlight -->
+          <div class="renstra-card">
+            <h3>RENSTRA 2024–2026</h3>
+            <p style="font-size:1.1rem;opacity:0.95;">
+              Rencana Strategis Dinas Komunikasi dan Informatika<br>Kabupaten Banyumas Tahun 2024-2026
+            </p>
+            <a href="files/dokumen/renstra-2024-2026.pdf" class="download-btn" target="_blank">
+              <i class="fas fa-download"></i> Download RENSTRA 2024-2026
+            </a>
+          </div>
+
+          <div class="accordion-section">
+
+            <!-- 2025 -->
+            <div class="accordion-item">
+              <div class="accordion-header active">
+                <span>2025</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-body open">
+                <ul class="doc-list">
+                  <li class="doc-item">
+                    <div class="doc-info">
+                      <i class="fas fa-file-pdf"></i>
+                      <div>
+                        <p class="doc-title">Rencana Aksi Tahun 2025</p>
+                      </div>
+                    </div>
+                    <a href="files/dokumen/rencana-aksi-2025.pdf" class="download-btn" target="_blank">
+                      <i class="fas fa-download"></i> Download
+                    </a>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-info">
+                      <i class="fas fa-file-pdf"></i>
+                      <div>
+                        <p class="doc-title">Dokumen Pelaksanaan Anggaran (DPA) 2025</p>
+                      </div>
+                    </div>
+                    <a href="files/dokumen/dpa-2025.pdf" class="download-btn" target="_blank">
+                      <i class="fas fa-download"></i> Download
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 2024 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>2024</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <ul class="doc-list">
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2024</p></div></div>
+                    <a href="files/dokumen/rencana-aksi-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">RENJA Perubahan 2024</p></div></div>
+                    <a href="files/dokumen/renja-perubahan-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">RKA-SKPD 2024</p></div></div>
+                    <a href="files/dokumen/rka-skpd-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">LKJIP 2024</p></div></div>
+                    <a href="files/dokumen/lkjip-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">DPA 2024</p></div></div>
+                    <a href="files/dokumen/dpa-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 2023 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>2023</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <ul class="doc-list">
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2023</p></div></div>
+                    <a href="files/dokumen/rencana-aksi-2023.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 2022 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>2022</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <ul class="doc-list">
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Data dan Informasi Kabupaten Banyumas 2022</p></div></div>
+                    <a href="files/dokumen/data-informasi-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Renja 2022</p></div></div>
+                    <a href="files/dokumen/renja-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2022</p></div></div>
+                    <a href="files/dokumen/rencana-aksi-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 2021 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>2021</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <ul class="doc-list">
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">LKJIP Tahun 2021</p></div></div>
+                    <a href="files/dokumen/lkjip-2021.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- 2017 -->
+            <div class="accordion-item">
+              <div class="accordion-header">
+                <span>2017</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="accordion-body">
+                <ul class="doc-list">
+                  <li class="doc-item">
+                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Renstra 2017</p></div></div>
+                    <a href="files/dokumen/renstra-2017.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="info-box" style="margin-top: 3rem;">
+            <i class="fas fa-info-circle"></i>
+            <p>Semua dokumen dalam format PDF dan dapat diunduh secara gratis. 
+               Jika ada link rusak atau dokumen belum tersedia, silakan hubungi PPID Diskominfo Banyumas.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div id="footer-placeholder">Loading footer...</div>
+  </div>
+
+  <!-- JavaScript Accordion + Aksesibilitas (sama seperti sebelumnya) -->
+  <script>
+    // Accordion
+    document.querySelectorAll('.accordion-header').forEach(header => {
+      header.addEventListener('click', () => {
+        const body = header.nextElementSibling;
+        const icon = header.querySelector('i');
+        const isOpen = body.classList.contains('open');
+
+        // Tutup semua dulu (opsional, bisa dihapus jika mau multiple open)
+        document.querySelectorAll('.accordion-body').forEach(b => {
+          b.classList.remove('open');
+          b.previousElementSibling.classList.remove('active');
+          b.previousElementSibling.querySelector('i').style.transform = 'rotate(0)';
+        });
+
+        if (!isOpen) {
+          body.classList.add('open');
+          header.classList.add('active');
+          icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Aksesibilitas & Header/Footer (sama seperti sebelumnya)
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    fetch('layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+    fetch('layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+  </script>
+</body>
+</html>
