@@ -3,755 +3,247 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dinkominfo Banyumas - Kontak</title>
+  <title>Buku Tamu - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
+  <base href="/project-template-web-dinkominfo-bms/">
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css">
+
   <style>
-    /* --- SEMUA STYLE CSS ADA DI SINI --- */
-    :root {
-      --primary: #003d99;
-      --primary-light: #0052cc;
-      --accent: #0066ff;
-      --text: #1a1a1a;
-      --text-light: #666666;
-      --bg: #ffffff;
-      --bg-light: #f8f9fb;
-      --card: #ffffff;
-      --border: #e0e0e0;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-      --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
-      --radius: 0.75rem;
-      --transition: all 0.3s ease;
-    }
-
-    [data-theme="dark"] {
-      --text: #f5f5f5;
-      --text-light: #b0b0b0;
-      --bg: #0f1117;
-      --bg-light: #161b22;
-      --card: #1c2128;
-      --border: #30363d;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: var(--transition);
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.5px;
-    }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .container { padding: 0 1rem; }
-    }
-
-    /* Topbar */
-    .topbar {
-      background: var(--primary);
-      color: white;
-      padding: 0.875rem 0;
-      font-size: 0.875rem;
-    }
-
-    .topbar-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-weight: 600;
-    }
-
-    .topbar-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.1rem;
-    }
-
-    .topbar-info {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .topbar-info img {
-      width: 40px;
-      height: auto;
-      vertical-align: middle;
-    }
-
-    .topbar-info h4 {
-      font-size: 0.9rem;
-      margin-bottom: 0.125rem;
-      font-weight: 700;
-      vertical-align: middle;
-    }
-
-    .topbar-info p {
-      font-size: 0.8rem;
-      opacity: 0.9;
-      vertical-align: middle;
-    }
-
-    .topbar-right {
-      display: none;
-      gap: 1.5rem;
-      font-size: 0.85rem;
-    }
-
-    .topbar-right-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .topbar-right-item i {
-      font-size: 1rem;
-      color: #ff6f61;
-      vertical-align: middle;
-    }
-
-    @media (min-width: 768px) {
-      .topbar-right { display: flex; }
-    }
-
-    /* Navigation */
-    nav {
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .nav-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 3.75rem;
-    }
-
-    .nav-items {
-      display: none;
-      gap: 0.5rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    @media (min-width: 768px) {
-      .nav-items { display: flex; }
-    }
-
-    .nav-items a {
-      padding: 0.5rem 1rem;
-      color: var(--text);
-      text-decoration: none;
-      border-radius: var(--radius);
-      transition: var(--transition);
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
-
-    .nav-items a:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    .nav-items a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 1rem;
-      right: 1rem;
-      height: 2px;
-      background: var(--primary);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .nav-items a:hover::after {
-      transform: scaleX(1);
-    }
-
-    /* Dropdown Styles */
-    .dropdown {
-      position: relative;
-    }
-
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background: var(--card);
-      min-width: 200px;
-      box-shadow: var(--shadow-md);
-      border-radius: var(--radius);
-      z-index: 100;
-      top: calc(100% + 2px);
-      left: 0;
-      border: 1px solid var(--border);
-      padding: 0.25rem 0;
-    }
-
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
-
-    .dropdown-content a {
-      color: var(--text);
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      display: block;
-      font-weight: 500;
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-
-    .dropdown-content a:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .btn-icon {
-      background: none;
-      border: none;
-      padding: 0.5rem;
-      border-radius: var(--radius);
-      cursor: pointer;
-      color: var(--text);
-      transition: var(--transition);
-      font-weight: 600;
-    }
-
-    .btn-icon:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    .menu-toggle {
-      display: block;
-    }
-
-    @media (min-width: 768px) {
-      .menu-toggle { display: none; }
-    }
-
-    .mobile-nav {
-      display: none;
-      background: var(--card);
-      border-top: 1px solid var(--border);
-      padding: 0.75rem 0;
-    }
-
-    .mobile-nav.active {
-      display: block;
-    }
-
-    .mobile-nav a {
-      display: block;
-      padding: 0.875rem 1.5rem;
-      color: var(--text);
-      text-decoration: none;
-      border-radius: 0;
-      transition: var(--transition);
-      font-weight: 600;
-    }
-
-    .mobile-nav a:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    .theme-toggle {
-      background: none;
-      border: none;
-      color: var(--text);
-      cursor: pointer;
-      font-size: 1.15rem;
-      padding: 0.5rem;
-      border-radius: var(--radius);
-      transition: var(--transition);
-    }
-
-    .theme-toggle:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    /* Guestbook Styles (Diperbarui dengan Icon) */
-    .guestbook {
-      max-width: 600px;
+    .guestbook-form {
+      max-width: 700px;
       margin: 2rem auto;
-      padding: 2rem;
       background: var(--card);
+      padding: 2.5rem;
       border-radius: var(--radius);
       box-shadow: var(--shadow-md);
       border: 1px solid var(--border);
     }
 
-    .guestbook h2 {
+    .guestbook-form h3 {
       text-align: center;
       color: var(--primary);
-      margin-bottom: 1.5rem;
-      font-size: 1.75rem;
+      margin-bottom: 2rem;
+      font-size: 1.8rem;
     }
 
-    .guestbook form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .guestbook .input-group {
-      width: 100%;
+    .form-group {
       position: relative;
+      margin-bottom: 1.5rem;
     }
 
-    .guestbook .input-group i {
+    .form-group i {
       position: absolute;
-      left: 0.75rem;
+      left: 1rem;
       top: 50%;
       transform: translateY(-50%);
       color: var(--text-light);
       font-size: 1.2rem;
+      z-index: 2;
     }
 
-    .guestbook input,
-    .guestbook textarea {
+    .form-group input,
+    .form-group textarea {
       width: 100%;
-      padding: 0.75rem 2.5rem;
+      padding: 1rem 1rem 1rem 3rem;
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      font-size: 1rem;
       background: var(--bg-light);
+      font-size: 1rem;
       transition: var(--transition);
-      box-sizing: border-box;
     }
 
-    .guestbook input:focus,
-    .guestbook textarea:focus {
+    .form-group input:focus,
+    .form-group textarea:focus {
       outline: none;
       border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(0, 61, 153, 0.2);
+      box-shadow: 0 0 0 4px rgba(0, 61, 153, 0.15);
     }
 
-    .guestbook textarea {
-      min-height: 120px;
+    .form-group textarea {
+      min-height: 140px;
       resize: vertical;
     }
 
-    .guestbook .captcha {
+    .captcha-group {
       display: flex;
       align-items: center;
       gap: 1rem;
-      width: 100%;
+      margin-bottom: 2rem;
     }
 
-    .guestbook .captcha img.captcha-img {
+    .captcha-img {
       border: 1px solid var(--border);
       border-radius: var(--radius);
       padding: 0.5rem;
-      width: 150px;
-      height: 60px;
-      object-fit: cover;
+      background: white;
     }
 
-    .guestbook .captcha input {
+    .captcha-input {
       flex: 1;
-      padding: 0.75rem;
     }
 
-    .guestbook button {
+    .btn-submit {
       background: var(--primary);
       color: white;
       border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
+      padding: 1rem 2rem;
+      border-radius: 50px;
       font-weight: 600;
+      font-size: 1.1rem;
       cursor: pointer;
-      transition: var(--transition);
       width: 100%;
-    }
-
-    .guestbook button:hover {
-      background: var(--primary-light);
-    }
-
-    /* Footer Styles */
-    footer {
-      background: var(--text);
-      color: rgba(255, 255, 255, 0.8);
-      padding: 3.5rem 0 1.5rem;
-      font-size: 0.9rem;
-    }
-
-    .footer-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-      margin-bottom: 2.5rem;
-    }
-
-    @media (min-width: 768px) {
-      .footer-grid { grid-template-columns: repeat(4, 1fr); }
-    }
-
-    .footer-section h3 {
-      color: white;
-      margin-bottom: 1.25rem;
-      font-size: 1rem;
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-    }
-
-    .footer-section a, .footer-section p {
-      color: rgba(255, 255, 255, 0.7);
-      text-decoration: none;
-      display: block;
-      margin-bottom: 0.75rem;
       transition: var(--transition);
-      font-weight: 500;
+      box-shadow: var(--shadow-sm);
     }
 
-    .footer-section a:hover {
-      color: white;
-    }
-
-    .footer-section p span {
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.9);
-    }
-
-    .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      padding-top: 1.75rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      text-align: center;
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    @media (min-width: 640px) {
-      .footer-bottom {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
-      }
-    }
-
-    .footer-links a {
-      color: rgba(255, 255, 255, 0.6);
-      margin: 0 1rem;
-      font-weight: 500;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
-    /* Counter Table Styles */
-    .counter-table {
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 0.5rem;
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .counter-row {
-      display: flex;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .counter-row:last-child {
-      border-bottom: none;
-    }
-
-    .counter-cell {
-      padding: 0.75rem 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-weight: 500;
-      color: rgba(255, 255, 255, 0.7);
-    }
-
-    .counter-cell.value {
-      flex: 1;
-      text-align: right;
-      font-weight: 700;
-      color: rgba(255, 255, 255, 0.9);
-      background: rgba(0, 0, 0, 0.1);
-    }
-
-    .counter-cell i {
-      font-size: 1rem;
-      color: var(--accent);
-    }
-
-    @media (max-width: 768px) {
-      .counter-row {
-        flex-direction: column;
-        text-align: center;
-      }
-      .counter-cell.value {
-        text-align: center;
-        padding-top: 0;
-      }
-    }
-
-    /* Website Link and SKPD Icons */
-    .footer-section a {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer-section a i {
-      font-size: 1rem;
-      color: var(--accent);
+    .btn-submit:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
     }
   </style>
 </head>
 <body>
-  <!-- --- ISI HEADER ADA DI SINI --- -->
-  <!-- Topbar -->
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div class="topbar-left">
-        <div class="topbar-logo">
-          <!-- Ganti dengan path logo yang benar jika perlu -->
-          <img src="https://via.placeholder.com/40" alt="Logo Banyumas" width="40" height="40">
-        </div>
-        <div class="topbar-info">
-          <h4>Dinas Komunikasi dan Informatika</h4>
-          <p>Pemerintah Kabupaten Banyumas</p>
-        </div>
-      </div>
-      <div class="topbar-right">
-        <div class="topbar-right-item">
-          <i class="fas fa-map-marker-alt" style="color: #ff6f61;"></i>
-          <span>Jl. Masjid No. 8 Purwokerto</span>
-        </div>
-        <span>|</span>
-        <div class="topbar-right-item">
-          <i class="fas fa-phone" style="color: #6b48ff;"></i>
-          <span>Telp: (0281) 632338</span>
-        </div>
+
+  <!-- STABILO CURSOR -->
+  <div id="cursor-highlight" class="cursor-highlight"></div>
+
+  <!-- TOGGLE AKSESIBILITAS -->
+  <div class="toggle-container">
+    <div style="position: relative;">
+      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
+        <i class="fas fa-universal-access"></i>
+      </button>
+      <div id="accessibility-panel" class="accessibility-panel">
+        <div class="acc-item" data-mode="contrast">Kontras</div>
+        <div class="acc-item" data-mode="dark">Mode Gelap</div>
+        <div class="acc-item" data-mode="highlight">Stabilo</div>
+        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
+        <div class="acc-item" data-mode="reset">Reset</div>
       </div>
     </div>
   </div>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="container nav-content">
-      <div class="nav-items">
-        <a href="../index.html">Beranda</a>
-        <div class="dropdown">
-          <a href="#" class="dropbtn">Profil</a>
-          <div class="dropdown-content">
-            <a href="./visi-misi.html">Visi Dan Misi</a>
-            <a href="./tugas-fungsi.html">Tugas Dan Fungsi</a>
-            <a href="./struktur-organisasi.html">Struktur Organisasi</a>
-            <a href="./sejarah-dinkominfo.html">Sejarah Dinkominfo Kabupaten Banyumas</a>
-            <a href="./alamat-kontak.html">Alamat Dan Kontak</a>
-            <a href="./indikator-kinerja.html">Indikator Kinerja Utama</a>
-          </div>
-        </div>
-        <a href="../ppid.html">PPID</a>
-        <a href="../layanan.html">Layanan</a>
-        <a href="../berita.html">Berita</a>
-        <a href="../kontak.html">Kontak</a>
-      </div>
-      <div class="nav-actions">
-        <button class="btn-icon theme-toggle" onclick="toggleTheme()" aria-label="Ganti tema">
-          <i class="fas fa-moon"></i>
-        </button>
-        <button class="btn-icon menu-toggle" onclick="toggleMobileMenu()">Menu</button>
-      </div>
-    </div>
-    <div class="mobile-nav" id="mobileNav">
-      <a href="../index.html">Beranda</a>
-      <a href="./visi-misi.html">Visi Dan Misi</a>
-      <a href="./tugas-fungsi.html">Tugas Dan Fungsi</a>
-      <a href="./struktur-organisasi.html">Struktur Organisasi</a>
-      <a href="./sejarah-dinkominfo.html">Sejarah Dinkominfo Kabupaten Banyumas</a>
-      <a href="./alamat-kontak.html">Alamat Dan Kontak</a>
-      <a href="./indikator-kinerja.html">Indikator Kinerja Utama</a>
-      <a href="../ppid.html">PPID</a>
-      <a href="../layanan.html">Layanan</a>
-      <a href="../berita.html">Berita</a>
-      <a href="../kontak.html">Kontak</a>
-    </div>
-  </nav>
+  <!-- PAGE WRAPPER -->
+  <div class="page-wrapper">
 
-  <!-- --- ISI KONTEN UTAMA (BUKU TAMU) --- -->
-  <div class="container">
-    <div class="guestbook">
-      <h2>Buku Tamu</h2>
-      <form action="#" method="post">
-        <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="text" name="nama" placeholder="Nama" required>
+    <!-- HEADER DINAMIS -->
+    <div id="header-placeholder">Loading header...</div>
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <div class="qa-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h1 class="hero-title">BUKU TAMU DIGITAL</h1>
+          <p class="hero-subtitle">
+            Tinggalkan pesan, kritik, saran, atau kesan Anda terhadap layanan Dinas Komunikasi dan Informatika Kabupaten Banyumas
+          </p>
         </div>
-        <div class="input-group">
-          <i class="fas fa-phone-alt"></i>
-          <input type="tel" name="telp" placeholder="No Telpon" required>
+      </div>
+    </section>
+
+    <!-- MAIN CONTENT -->
+    <section class="main-content">
+      <div class="container">
+        <div class="info-card">
+
+          <div class="guestbook-form">
+            <h3>Isi Buku Tamu</h3>
+            <form action="#" method="post">
+              <div class="form-group">
+                <i class="fas fa-user"></i>
+                <input type="text" name="nama" placeholder="Nama Lengkap" required>
+              </div>
+              <div class="form-group">
+                <i class="fas fa-phone-alt"></i>
+                <input type="tel" name="telp" placeholder="Nomor Telepon / WhatsApp" required>
+              </div>
+              <div class="form-group">
+                <i class="fas fa-envelope"></i>
+                <input type="email" name="email" placeholder="Alamat Email" required>
+              </div>
+              <div class="form-group">
+                <i class="fas fa-comment-dots"></i>
+                <textarea name="komentar" placeholder="Pesan / Kritik / Saran" required></textarea>
+              </div>
+
+              <div class="captcha-group">
+                <img src="https://via.placeholder.com/160x60/3366cc/ffffff?text=CAPTCHA" alt="CAPTCHA" class="captcha-img">
+                <div class="form-group captcha-input">
+                  <input type="text" name="captcha" placeholder="Masukkan kode CAPTCHA" required>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-submit">
+                <i class="fas fa-paper-plane"></i> Kirim Pesan
+              </button>
+            </form>
+          </div>
+
         </div>
-        <div class="input-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" name="email" placeholder="Email" required>
-        </div>
-        <div class="input-group">
-          <i class="fas fa-comment-dots"></i>
-          <textarea name="komentar" placeholder="Komentar" required></textarea>
-        </div>
-        <div class="captcha">
-          <img src="https://via.placeholder.com/150x60/ffffff/000000?text=CAPTCHA+Image" alt="CAPTCHA Image" class="captcha-img">
-          <input type="text" name="captcha" placeholder="Masukkan CAPTCHA" required>
-        </div>
-        <button type="submit">Simpan</button>
-      </form>
-    </div>
+      </div>
+    </section>
+
+    <!-- FOOTER DINAMIS -->
+    <div id="footer-placeholder">Loading footer...</div>
   </div>
 
-  <!-- --- ISI FOOTER ADA DI SINI --- -->
-  <footer id="kontak">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-section">
-          <h3>Website SKPD</h3>
-          <a href="#"><i class="fas fa-building"></i> Sekretariat Daerah</a>
-          <a href="#"><i class="fas fa-leaf"></i> Dinas Lingkungan Hidup</a>
-          <a href="#"><i class="fas fa-users"></i> DINSOSPERMASDES BANYUMAS</a>
-          <a href="#"><i class="fas fa-home"></i> Dinas Perumahan dan Kawasan Permukiman</a>
-          <a href="#"><i class="fas fa-briefcase"></i> DPMPTSP BANYUMAS</a>
-          <a href="#"><i class="fas fa-shield-alt"></i> DPPKBP3A</a>
-        </div>
-        <div class="footer-section">
-          <h3>Website Link</h3>
-          <a href="#"><i class="fas fa-globe"></i> Website Pemerintah Kabupaten</a>
-          <a href="#"><i class="fas fa-home"></i> Website Desa</a>
-          <a href="#"><i class="fas fa-home"></i> Desa Sudimara Kecamatan Cilongok</a>
-          <a href="#"><i class="fas fa-home"></i> MEDIA INFORMASI DESA BUNIAYU</a>
-          <a href="#"><i class="fas fa-home"></i> Desa Klapagading Kulon Kecamatan Wangon</a>
-          <a href="#"><i class="fas fa-home"></i> Desa Plangkapan Kecamatan Tambak</a>
-          <a href="#"><i class="fas fa-home"></i> Desa Jurangbahas Kecamatan Wangon</a>
-          <a href="#"><i class="fas fa-home"></i> Desa Rancamaya Kecamatan Cilongok</a>
-        </div>
-        <div class="footer-section">
-          <h3>Counter</h3>
-          <div class="counter-table">
-            <div class="counter-row">
-              <div class="counter-cell"><i class="fas fa-sun"></i> Hari ini</div>
-              <div class="counter-cell value">12 Pengunjung</div>
-            </div>
-            <div class="counter-row">
-              <div class="counter-cell"><i class="fas fa-calendar-week"></i> Minggu ini</div>
-              <div class="counter-cell value">65 Pengunjung</div>
-            </div>
-            <div class="counter-row">
-              <div class="counter-cell"><i class="fas fa-calendar-alt"></i> Bulan ini</div>
-              <div class="counter-cell value">376 Pengunjung</div>
-            </div>
-            <div class="counter-row">
-              <div class="counter-cell"><i class="fas fa-calendar-year"></i> Tahun ini</div>
-              <div class="counter-cell value">68,531 Pengunjung</div>
-            </div>
-            <div class="counter-row">
-              <div class="counter-cell"><i class="fas fa-users"></i> Total Pengunjung</div>
-              <div class="counter-cell value">135,971 Pengunjung</div>
-            </div>
-          </div>
-        </div>
-        <div class="footer-section">
-          <h3>Post</h3>
-          <p>Rapat Koordinasi Penguatan E-Government Di Kabupaten Banyumas: <span>19,691</span></p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 Dinkominfo Banyumas. All rights reserved.</p>
-        <div class="footer-links">
-          <a href="#">Privasi</a>
-          <a href="#">Syarat</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
+  <!-- SCRIPT AKSESIBILITAS & LOAD HEADER/FOOTER -->
   <script>
-    function toggleMobileMenu() {
-      document.getElementById('mobileNav').classList.toggle('active');
-    }
-
-    function toggleTheme() {
-      const body = document.body;
-      const current = body.getAttribute('data-theme');
-      const icon = document.querySelector('.theme-toggle i');
-      
-      if (current === 'dark') {
-        body.removeAttribute('data-theme');
-        icon.classList.replace('fa-sun', 'fa-moon');
-      } else {
-        body.setAttribute('data-theme', 'dark');
-        icon.classList.replace('fa-moon', 'fa-sun');
+    // Toggle Aksesibilitas
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
       }
-    }
-
-    document.querySelectorAll('.mobile-nav a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.getElementById('mobileNav').classList.remove('active');
-      });
-      fetch('layout/header.html?v=' + Date.now())
-  .then(r => r.text())
-  .then(d => document.getElementById('header-placeholder').outerHTML = d);
-
-fetch('layout/footer.html?v=' + Date.now())
-  .then(r => r.text())
-  .then(d => document.getElementById('footer-placeholder').outerHTML = d);
     });
+
+    // Stabilo Cursor
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    // Mode Aksesibilitas
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // Load Header & Footer Dinamis
+    fetch('layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+    fetch('layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>
 </body>
 </html>
