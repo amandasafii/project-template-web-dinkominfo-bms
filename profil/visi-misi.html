@@ -119,13 +119,27 @@
     });
 
     // Load Header and Footer
-    fetch('layout/header.html?v=' + Date.now())
-      .then(r => r.text())
-      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+document.documentElement.style.visibility = 'hidden';
+  document.body.style.background = '#003d99'; // biar tidak putih saat loading
 
-    fetch('layout/footer.html?v=' + Date.now())
-      .then(r => r.text())
-      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+  Promise.all([
+    fetch('layout/header.html?v=' + Date.now()).then(r => r.ok ? r.text() : '<header style="background:#003d99;color:white;text-align:center;padding:20px;">Header Gagal Dimuat</header>'),
+    fetch('layout/footer.html?v=' + Date.now()).then(r => r.ok ? r.text() : '<footer style="background:#003d99;color:white;text-align:center;padding:40px;">Footer Gagal Dimuat</footer>')
+  ])
+  .then(([headerHTML, footerHTML]) => {
+    document.getElementById('header-placeholder').outerHTML = headerHTML;
+    document.getElementById('footer-placeholder').outerHTML = footerHTML;
+    
+    // Baru tampilkan semua setelah header & footer ready
+    requestAnimationFrame(() => {
+      document.documentElement.style.visibility = 'visible';
+      document.body.style.background = '';
+    });
+  })
+  .catch(err => {
+    console.error('Gagal load header/footer', err);
+    document.documentElement.style.visibility = 'visible'; // tetap tampilkan kalau error
+  });
   </script>
 </body>
 </html>

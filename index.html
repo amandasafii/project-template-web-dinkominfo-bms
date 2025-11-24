@@ -56,23 +56,7 @@
       --border: #333333;
     }
 
-    /* GARIS PANDUAN */
-    .guideline-mode::before,
-    .guideline-mode::after {
-      content: '';
-      position: fixed;
-      top: 0; bottom: 0; left: 50%;
-      width: 1px;
-      background: rgba(255, 0, 0, 0.5);
-      z-index: 99999;
-      transform: translateX(-50%);
-    }
-    .guideline-mode::after {
-      top: 50%; left: 0; right: 0; bottom: auto;
-      height: 1px;
-      width: 100%;
-      transform: translateY(-50%);
-    }
+   
 
     * {
       margin: 0;
@@ -431,6 +415,173 @@
       border-radius: 2px;
       display: block;
       margin: 0.8rem auto 0;
+    }
+
+    /* Added new styles for statistics, about highlight, and quick guide sections */
+    
+    /* STATISTIK */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 102, 255, 0.05), transparent);
+      z-index: 0;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      display: block;
+      margin: 0 0 0.5rem 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 600;
+      position: relative;
+      z-index: 1;
+      line-height: 1.4;
+    }
+
+    /* TENTANG KAMI - HIGHLIGHT SECTION */
+    .about-highlight {
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      border-radius: var(--radius);
+      padding: 3rem;
+      margin: 2rem 0;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-highlight::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .about-highlight-content {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .about-highlight-content { 
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .about-text h3 {
+      font-size: 1.8rem;
+      margin: 0 0 1rem 0;
+      font-weight: 800;
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      line-height: 1.6;
+      opacity: 0.95;
+      margin: 0 0 1rem 0;
+    }
+
+    .about-text ul {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 0 0;
+    }
+
+    .about-text li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0.6rem 0;
+      font-size: 0.95rem;
+      opacity: 0.92;
+    }
+
+    .about-text li i {
+      width: 24px;
+      height: 24px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .feature-item {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      padding: 1.5rem;
+      border-radius: 1.2rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: var(--transition);
+    }
+
+    .feature-item:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-3px);
+    }
+
+    .feature-item h4 {
+      font-size: 1.1rem;
+      margin: 0 0 0.5rem 0;
+      font-weight: 700;
+    }
+
+    .feature-item p {
+      font-size: 0.88rem;
+      margin: 0;
+      opacity: 0.88;
     }
 
     /* QUICK LINKS */
@@ -933,6 +1084,261 @@
       color: var(--primary);
       font-weight: 600;
     }
+   
+
+.news-tabs-wrapper {
+  padding: 8rem 0 5rem;
+  background: var(--bg);
+}
+.news-tabs-header {
+  display: flex;
+  justify-content: center;
+  gap: 7rem;
+  margin-bottom: 4.5rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+.news-tabs-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70%;
+  height: 2px;
+  background: #e0e0e0;
+}
+
+/* .news-tabs {
+  {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 3rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  flex-wrap: wrap;
+} */
+
+.news-tab {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #777;
+  padding: 0.8rem 0;
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.news-tab.active {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.news-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+.news-tab:hover:not(.active) {
+  color: var(--primary);
+}
+
+.news-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
+}
+
+.news-item {
+  background: var(--card);
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  gap: 1.2rem;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  align-items: flex-start;
+}
+
+.news-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+.news-thumb {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.news-content-item h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 0.8rem;
+  color: var(--text);
+}
+
+.news-date-item {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.news-date-item i {
+  color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .news-list { grid-template-columns: 1fr; }
+  .news-thumb { width: 90px; height: 90px; }
+  .news-tabs { gap: 2rem; }
+}
+.news-tabs-section {
+  padding: 6rem 0 4rem;
+  background: #fff;
+}
+
+.news-tabs-header {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  margin-bottom: 3.5rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.news-tabs-header::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background: #e5e7eb;
+}
+
+.news-tab {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #777;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  position: relative;
+  transition: color .3s;
+}
+
+.news-tab.active {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.news-tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: -14px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--primary);
+  border-radius: 4px;
+}
+
+/* CARD KE BAWAH SEMUA (1 KOLOM) */
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* CARD UTAMA - GAMBAR KOTAK */
+.news-item {
+  background: var(--card);
+  border-radius: 1.6rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 2.2rem;
+  padding: 2rem;
+  border: 1px solid var(--border);
+}
+
+.news-item:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent);
+}
+
+/* GAMBAR KOTAK + SEDIKIT ROUNDED CORNER */
+.news-thumb {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 1rem;           /* KOTAK TAPI SEDIKIT MELENGKUNG */
+  border: 4px solid var(--accent);
+  flex-shrink: 0;
+  box-shadow: 0 8px 24px rgba(0,102,255,0.25);
+}
+
+/* JUDUL */
+.news-content-item h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+
+/* TANGGAL / SUMBER */
+.news-date-item {
+  font-size: 1rem;
+  color: #777;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-weight: 600;
+}
+
+.news-date-item i {
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+/* RESPONSIVE HP - GAMBAR DI ATAS, TEKS BAWAH */
+@media (max-width: 768px) {
+  .news-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1.8rem;
+  }
+  .news-thumb {
+    width: 120px;
+    height: 120px;
+  }
+  .news-tabs-header {
+    gap: 2rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -985,10 +1391,10 @@
                 <button>Cari</button>
               </div>
               <div class="popular-searches">
-                <button class="popular-btn">LSPE</button>
-                <button class="popular-btn">SIAP</button>
-                <button class="popular-btn">Sipanjimas</button>
-                <button class="popular-btn">Kontak</button>
+                <button class="popular-btn" onclick="window.location.href='http://lpse.banyumaskab.go.id/'">LPSE</button>
+                <button class="popular-btn" onclick="window.location.href='https://siap.banyumaskab.go.id/'">SIAP</button>
+                <button class="popular-btn" onclick="window.location.href='https://perizinan.banyumaskab.go.id/'">Sipanjimas</button>
+                <button class="popular-btn" onclick="window.location.href='kontak.html'">Kontak</button>
               </div>
             </div>
           </div>
@@ -1018,19 +1424,124 @@
     </div>
   </section>
 
+  <!-- STATISTIK PENTING -->
+  <section class="section" style="padding: 1.5rem 0 1rem 0;">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">27</span>
+          <span class="stat-label">Kecamatan Terlayani</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">150+</span>
+          <span class="stat-label">Konten Publik</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Layanan Online</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">99%</span>
+          <span class="stat-label">Uptime Server</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TENTANG KAMI HIGHLIGHT -->
+  <section class="section" style="padding: 0.5rem 0 1.5rem 0;">
+    <div class="container">
+      <div class="about-highlight">
+        <div class="about-highlight-content">
+          <div class="about-text">
+            <h3>Tentang Dinas Komunikasi & Informatika</h3>
+            <p>Kami berkomitmen untuk meningkatkan kualitas pelayanan publik dan transparansi informasi pemerintah melalui transformasi digital yang berkelanjutan.</p>
+            <ul>
+              <li><i class="fas fa-check"></i> Pelayanan transparan dan akuntabel</li>
+              <li><i class="fas fa-check"></i> Sistem informasi terintegrasi</li>
+              <li><i class="fas fa-check"></i> Aksesibilitas data publik</li>
+            </ul>
+          </div>
+          <div class="about-features">
+            <div class="feature-item">
+              <h4><i class="fas fa-lock"></i> Keamanan Data</h4>
+              <p>Sistem keamanan berlapis untuk melindungi informasi publik</p>
+            </div>
+            <div class="feature-item">
+              <h4><i class="fas fa-users"></i> Dukungan Pengguna</h4>
+              <p>Tim support siap membantu 24 jam setiap hari</p>
+            </div>
+            <div class="feature-item">
+              <h4><i class="fas fa-rocket"></i> Inovasi Digital</h4>
+              <p>Teknologi terkini untuk kemudahan akses</p>
+            </div>
+            <div class="feature-item">
+              <h4><i class="fas fa-certificate"></i> Sertifikasi</h4>
+              <p>Terakreditasi dan tersertifikasi internasional</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- LAYANAN -->
   <section class="section section-alt" id="layanan">
     <div class="container">
       <h2 class="section-title">Layanan Kami</h2>
       <div class="links-grid">
-        <a href="#" class="link-card"><div class="link-icon"><i class="fas fa-file-alt"></i></div><span class="link-label">Kartu Kuning</span></a>
-        <a href="#" class="link-card"><div class="link-icon"><i class="fas fa-briefcase"></i></div><span class="link-label">Lowongan Kerja</span></a>
-        <a href="#" class="link-card"><div class="link-icon"><i class="fas fa-chart-bar"></i></div><span class="link-label">BNP2 TKI</span></a>
-        <a href="#" class="link-card"><div class="link-icon"><i class="fas fa-globe"></i></div><span class="link-label">SISKOITLN</span></a>
+        <a href="https://ayokitakerja.kemnaker.go.id/daftar" class="link-card"><div class="link-icon"><i class="fas fa-file-alt"></i></div><span class="link-label">Kartu Kuning</span></a>
+        <a href="https://ayokitakerja.kemnaker.go.id/lowongan" class="link-card"><div class="link-icon"><i class="fas fa-briefcase"></i></div><span class="link-label">Lowongan Kerja</span></a>
+        <a href="http://g2g.bnp2tki.go.id/" class="link-card"><div class="link-icon"><i class="fas fa-chart-bar"></i></div><span class="link-label">BNP2 TKI</span></a>
+        <a href="http://siskotkln.bnp2tki.go.id/index.php" class="link-card"><div class="link-icon"><i class="fas fa-globe"></i></div><span class="link-label">SISKOITLN</span></a>
       </div>
     </div>
   </section>
 
+  <section class="news-tabs-section">
+    <div class="container">
+      <!-- Tab Header -->
+      <div class="news-tabs-header">
+        <div class="news-tab active" data-tab="popular">Populer</div>
+        <div class="news-tab" data-tab="terbaru">Terbaru</div>
+        <div class="news-tab" data-tab="skpd">SKPD</div>
+      </div>
+
+      <!-- Konten Tab -->
+      <div id="news-container" class="news-list">
+        <!-- Ini default = Populer -->
+        <div class="news-item">
+          <img src="images/berita.jpg" alt="" class="news-thumb">
+          <div class="news-content-item">
+            <h3>Banyumas Siap Bangun Sekolah Rakyat: Pemerintah Daerah Tegaskan Komitmen Hadirkan Pendidikan Gratis dan Berkualitas</h3>
+            <div class="news-date-item"><i class="fas fa-globe"></i> dindik.banyumaskab.go.id</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <img src="images/berita2.jpg" alt="" class="news-thumb">
+          <div class="news-content-item">
+            <h3>Sinergitas Kunci Pelayanan Publik: Dinkominfo Banyumas Kuatkan Peran PPID dan SP4N-LAPOR!</h3>
+            <div class="news-date-item"><i class="fas fa-globe"></i> dinkominfo.banyumaskab.go.id</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <img src="images/berita3.jpg" alt="" class="news-thumb">
+          <div class="news-content-item">
+            <h3>Embung Kanoman</h3>
+            <div class="news-date-item"><i class="fas fa-globe"></i> dinporabudpar.banyumaskab.go.id</div>
+          </div>
+        </div>
+        <div class="news-item">
+          <img src="images/galeri4.jpg" alt="" class="news-thumb">
+          <div class="news-content-item">
+            <h3>Embung Wisata Kemutu Lor / Embung Jelita</h3>
+            <div class="news-date-item"><i class="fas fa-globe"></i> dinporabudpar.banyumaskab.go.id</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
   <!-- BERITA — 3 SLIDE + AUTOPLAY -->
   <section class="section" id="berita">
     <div class="container">
@@ -1072,9 +1583,12 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-      <button class="btn-primary">Lihat Semua Berita</button>
+      <button class="btn-primary" onclick="window.location.href='menu-publik/berita.html'">
+        Lihat Semua Berita
+      </button>
     </div>
   </section>
+  
 
   <!-- DOWNLOAD -->
   <section class="section section-alt">
@@ -1100,9 +1614,10 @@
           <button class="download-btn"><i class="fas fa-book"></i> Lihat Urutan</button>
         </div>
       </div>
-      <button class="btn-primary">Lihat Semua</button>
+      <!-- <button class="btn-primary">Lihat Semua</button> -->
     </div>
   </section>
+
 
   <!-- GALERI — SWIPER HORIZONTAL -->
   <section class="section">
@@ -1121,7 +1636,9 @@
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
-      <button class="btn-primary">Lihat Semua Foto</button>
+     <button class="btn-primary" onclick="window.location.href='menu-publik/galeri.html'">
+        Lihat Semua Foto
+      </button>
     </div>
   </section>
 
@@ -1222,7 +1739,7 @@
       breakpoints: {
         640: { slidesPerView: 2 },
         768: { slidesPerView: 3 },
-        1024: { slidesPerView: 3 } // Hanya 3 slide maksimal
+        1024: { slidesPerView: 3 }
       }
     });
 
@@ -1245,14 +1762,110 @@
     });
 
     // LOAD HEADER & FOOTER
-    
-fetch('layout/header.html?v=' + Date.now())
-  .then(r => r.text())
-  .then(d => document.getElementById('header-placeholder').outerHTML = d);
+    fetch('layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-fetch('layout/footer.html?v=' + Date.now())
-  .then(r => r.text())
-  .then(d => document.getElementById('footer-placeholder').outerHTML = d);
-  </script>
+    fetch('layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+  
+      // === TAB BERITA VERTIKAL ===
+const isiTab = {
+  popular: `
+    <div class="news-item">
+      <img src="images/berita.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>Banyumas Siap Bangun Sekolah Rakyat: Pemerintah Daerah Tegaskan Komitmen Hadirkan Pendidikan Gratis dan Berkualitas</h3>
+        <div class="news-date-item"><i class="fas fa-globe"></i> dindik.banyumaskab.go.id</div>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="images/berita2.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>Sinergitas Kunci Pelayanan Publik: Dinkominfo Banyumas Kuatkan Peran PPID dan SP4N-LAPOR!</h3>
+        <div class="news-date-item"><i class="fas fa-globe"></i> dinkominfo.banyumaskab.go.id</div>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="images/berita3.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>Embung Kanoman</h3>
+        <div class="news-date-item"><i class="fas fa-globe"></i> dinporabudpar.banyumaskab.go.id</div>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="images/galeri4.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>Embung Wisata Kemutu Lor / Embung Jelita</h3>
+        <div class="news-date-item"><i class="fas fa-globe"></i> dinporabudpar.banyumaskab.go.id</div>
+      </div>
+    </div>
+  `,
+
+  terbaru: `
+    <div class="news-item">
+      <img src="images/galeri1.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>Sinergitas Kunci Pelayanan Publik: Dinkominfo Kuatkan PPID & LAPOR!</h3>
+        <div class="news-date-item"><i class="fas fa-calendar-alt"></i> Rabu, 19 November 2025</div>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="images/galeri2.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>Indeks SPBE Banyumas Capai 4,09 (Sangat Baik)</h3>
+        <div class="news-date-item"><i class="fas fa-calendar-alt"></i> Selasa, 28 Oktober 2025</div>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="images/galeri3.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>PPID Banyumas Siap Raih Predikat Informatif</h3>
+        <div class="news-date-item"><i class="fas fa-calendar-alt"></i> Senin, 20 Oktober 2025</div>
+      </div>
+    </div>
+  `,
+
+  skpd: `
+    <div class="news-item">
+      <img src="images/berita2.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>Rapat Koordinasi Penguatan E-Government</h3>
+        <div class="news-date-item"><i class="fas fa-calendar-alt"></i> Kamis, 29 Maret 2018</div>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="images/galeri4.jpg" alt="" class="news-thumb">
+      <div class="news-content-item">
+        <h3>Kunjungan Dinas Kominfo Bantul ke Banyumas</h3>
+        <div class="news-date-item"><i class="fas fa-calendar-alt"></i> Jumat, 12 April 2019</div>
+      </div>
+    </div>
+    <div class="news-item">
+      <img src="images/berita.jpg" alt="" class="news-thumb">
+        <h3>Sosialisasi Sistem Keamanan Informasi</h3>
+        <div class="news-date-item"><i class="fas fa-calendar-alt"></i> Kamis, 25 Oktober 2018</div>
+      </div>
+    </div>
+  `
+};
+
+// KLIK TAB GANTI ISI
+document.querySelectorAll('.news-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Hapus active semua
+    document.querySelectorAll('.news-tab').forEach(t => t.classList.remove('active'));
+    // Tambah active di yang diklik
+    tab.classList.add('active');
+    // Ganti isi container
+    document.getElementById('news-container').innerHTML = isiTab[tab.dataset.tab];
+  });
+});
+
+// Pas pertama buka langsung munculin Populer
+document.getElementById('news-container').innerHTML = isiTab.popular;
+
+</script>
 </body>
 </html>

@@ -1,508 +1,212 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dinkominfo Banyumas</title>
-
-<base href="/project-template-web-dinkominfo-bms/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <base href="/project-template-web-dinkominfo-bms/">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     :root {
       --primary: #003d99;
-      --primary-light: #0052cc;
-      --accent: #0066ff;
       --text: #1a1a1a;
-      --text-light: #666666;
-      --bg: # (white);
+      --text-light: #666;
+      --bg: #ffffff;
       --bg-light: #f8f9fb;
       --card: #ffffff;
       --border: #e0e0e0;
-      --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-      --shadow-md: 0 8px 24px rgba(0,0,0,0.12);
       --radius: 0.75rem;
       --transition: all 0.3s ease;
     }
+    [data-theme="dark"] { /* dark mode kalau mau */ }
 
-    [data-theme="dark"] {
-      --text: #f5f5f5;
-      --text-light: #b0b0b0;
-      --bg: #0f1117;
-      --bg-light: #161b22;
-      --card: #1c2128;
-      --border: #30363d;
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Poppins',sans-serif; background:var(--bg); color:var(--text); line-height:1.6; transition:var(--transition); }
+    h1,h2,h3,h4,h5,h6 { font-family:'Sora',sans-serif; font-weight:700; }
+
+    .container { max-width:1280px; margin:0 auto; padding:0 1.5rem; }
+    @media (max-width:768px) { .container { padding:0 1rem; } }
+
+    .main-header {
+      position:fixed; top:0; left:0; width:100%; z-index:1000;
+      background:var(--card); box-shadow:0 2px 10px rgba(0,0,0,0.1);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    .topbar { background:var(--primary); color:#fff; padding:0.875rem 0; font-size:0.875rem; }
+    .topbar-content { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem; }
+    .topbar-left { display:flex; align-items:center; gap:1rem; font-weight:600; }
+    .topbar-logo { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.2); overflow:hidden; flex-shrink:0; }
+    .topbar-logo img { width:100%; height:100%; object-fit:contain; }
+    .topbar-info h4 { font-size:0.9rem; margin:0; font-weight:700; }
+    .topbar-info p { font-size:0.8rem; opacity:0.9; margin:0; }
+    .topbar-right { display:none; gap:1.5rem; align-items:center; }
+    @media (min-width:768px) { .topbar-right { display:flex; } }
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      transition: var(--transition);
-    }
+    nav { background:var(--card); border-bottom:1px solid var(--border); }
+    .nav-content { display:flex; align-items:center; justify-content:space-between; height:3.75rem; }
+    .nav-items { display:none; gap:0.5rem; font-weight:600; font-size:0.95rem; }
+    @media (min-width:768px) { .nav-items { display:flex; } }
 
-    h1, h2, h3, h4, h5, h6 {
-      font-family: 'Sora', sans-serif;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+    .nav-items a, .dropdown > a {
+      padding:0.5rem 1rem; color:var(--text); text-decoration:none; border-radius:var(--radius);
+      transition:var(--transition); position:relative; display:flex; align-items:center; height:100%;
     }
-
-    .container {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 1.5rem;
+    .nav-items a:hover, .dropdown > a:hover { background:var(--bg-light); color:var(--primary); }
+    .nav-items a::after, .dropdown > a::after {
+      content:''; position:absolute; bottom:0; left:1rem; right:1rem; height:3px; background:var(--primary);
+      transform:scaleX(0); transition:transform 0.3s ease;
     }
+    .nav-items a:hover::after, .dropdown > a:hover::after { transform:scaleX(1); }
 
-    @media (max-width: 768px) {
-      .container { padding: 0 1rem; }
-    }
-
-    /* Topbar */
-    .topbar {
-      background: var(--primary);
-      color: white;
-      padding: 0.875rem 0;
-      font-size: 0.875rem;
-    }
-
-    .topbar-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-weight: 600;
-    }
-
-    .topbar-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .topbar-logo img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-
-    .topbar-info {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .topbar-info h4 {
-      font-size: 0.9rem;
-      margin: 0;
-      font-weight: 700;
-    }
-
-    .topbar-info p {
-      font-size: 0.8rem;
-      opacity: 0.9;
-      margin: 0;
-    }
-
-    .topbar-right {
-      display: none;
-      gap: 1.5rem;
-      font-size: 0.85rem;
-      align-items: center;
-    }
-
-    .topbar-right-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .topbar-right-item i {
-      font-size: 1rem;
-      vertical-align: middle;
-    }
-
-    @media (min-width: 768px) {
-      .topbar-right { display: flex; }
-    }
-
-    /* Navigation */
-    nav {
-      background: var(--card);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .nav-content {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 3.75rem;
-    }
-
-    .nav-items {
-      display: none;
-      gap: 0.5rem;
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    @media (min-width: 768px) {
-      .nav-items { display: flex; }
-    }
-
-    .nav-items a {
-      padding: 0.5rem 1rem;
-      color: var(--text);
-      text-decoration: none;
-      border-radius: var(--radius);
-      transition: var(--transition);
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
-
-    .nav-items a:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    .nav-items a::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 1rem;
-      right: 1rem;
-      height: 2px;
-      background: var(--primary);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .nav-items a:hover::after {
-      transform: scaleX(1);
-    }
-
-    /* Dropdown */
-    .dropdown {
-      position: relative;
-    }
-
+    .dropdown { position:relative; }
     .dropdown-content {
-      display: none;
-      position: absolute;
-      background: var(--card);
-      min-width: 220px;
-      box-shadow: var(--shadow-md);
-      border-radius: var(--radius);
-      z-index: 100;
-      top: calc(100% + 2px);
-      left: 0;
-      border: 1px solid var(--border);
-      padding: 0.25rem 0;
+      display:none; position:absolute; top:calc(100% + 2px); left:0; min-width:240px;
+      background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(0,0,0,0.15); z-index:100; padding:0.5rem 0;
     }
+    .dropdown:hover .dropdown-content { display:block; }
+    .dropdown-content a { display:block; padding:0.75rem 1.5rem; color:var(--text); text-decoration:none; font-weight:500; }
+    .dropdown-content a:hover { background:var(--bg-light); color:var(--primary); font-weight:700; }
 
-    .dropdown:hover .dropdown-content {
-      display: block;
+    .nav-actions button {
+      background:none; border:none; cursor:pointer; padding:0.6rem; border-radius:var(--radius);
+      color:var(--text); font-size:1.4rem; transition:var(--transition);
     }
-
-    .dropdown-content a {
-      color: var(--text);
-      padding: 0.75rem 1rem;
-      text-decoration: none;
-      display: block;
-      font-weight: 500;
-      transition: var(--transition);
-      white-space: nowrap;
-    }
-
-    .dropdown-content a:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .btn-icon {
-      background: none;
-      border: none;
-      padding: 0.5rem;
-      border-radius: var(--radius);
-      cursor: pointer;
-      color: var(--text);
-      transition: var(--transition);
-      font-weight: 600;
-      font-size: 1.1rem;
-    }
-
-    .btn-icon:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    .menu-toggle {
-      display: block;
-    }
-
-    @media (min-width: 768px) {
-      .menu-toggle { display: none; }
-    }
+    .nav-actions button:hover { background:var(--bg-light); color:var(--primary); }
+    .menu-toggle { display:block; }
+    @media (min-width:768px) { .menu-toggle { display:none; } }
 
     .mobile-nav {
       display: none;
+      flex-direction: column;
       background: var(--card);
       border-top: 1px solid var(--border);
-      padding: 0.75rem 0;
-    }
-
-    .mobile-nav.active {
-      display: block;
+      padding: 1rem;
     }
 
     .mobile-nav a {
-      display: block;
-      padding: 0.875rem 1.5rem;
-      color: var(--text);
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
       text-decoration: none;
-      transition: var(--transition);
-      font-weight: 600;
-    }
-
-    .mobile-nav a:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-    }
-
-    .theme-toggle {
-      background: none;
-      border: none;
       color: var(--text);
-      cursor: pointer;
-      font-size: 1.15rem;
-      padding: 0.5rem;
-      border-radius: var(--radius);
-      transition: var(--transition);
+      font-weight: 500;
     }
 
-    .theme-toggle:hover {
-      background: var(--bg-light);
-      color: var(--primary);
+    .mobile-nav a:last-child {
+      border-bottom: none;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
-    .dropdown-content a.active,
-    .dropdown-content a:hover {
-      background: var(--bg-light);
-      color: var(--primary);
-      font-weight: 700;
+    .mobile-nav.active {
+      display: flex;
     }
   </style>
 </head>
 <body>
+
 <header>
-  <div class="topbar">
-    <div class="container topbar-content">
-      <div class="topbar-left">
-        <div class="topbar-logo">
-          <img src="images/logo-bms.png" alt="Logo Banyumas">
+  <div class="main-header">
+    <div class="topbar">
+      <div class="container topbar-content">
+        <div class="topbar-left">
+          <div class="topbar-logo">
+            <img src="images/logo-bms.png" alt="Logo Banyumas">
+          </div>
+          <div class="topbar-info">
+            <h4>Dinas Komunikasi dan Informatika</h4>
+            <p>Pemerintah Kabupaten Banyumas</p>
+          </div>
         </div>
-        <div class="topbar-info">
-          <h4>Dinas Komunikasi dan Informatika</h4>
-          <p>Pemerintah Kabupaten Banyumas</p>
+        <div class="topbar-right">
+          <div class="topbar-right-item">
+            <i class="fas fa-map-marker-alt" style="color:#ff6f61;"></i>
+            <span>Jl. Masjid No. 8 Purwokerto</span>
+          </div>
+          <span>|</span>
+          <div class="topbar-right-item">
+            <i class="fas fa-phone" style="color:#6b48ff;"></i>
+            <span>Telp: (0281) 632338</span>
+          </div>
         </div>
-      </div>
-      <div class="topbar-right">
-        <div class="topbar-right-item">
-          <i class="fas fa-map-marker-alt" style="color: #ff6f61;"></i>
-          <span>Jl. Masjid No. 8 Purwokerto</span>
-        </div>
-        <span>|</span>
-        <div class="topbar-right-item">
-          <i class="fas fa-phone" style="color: #6b48ff;"></i>
-          <span>Telp: (0281) 632338</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <nav>
-  <div class="container nav-content">
-    <div class="nav-items">
-      <!-- BERANDA DI LUAR (ROOT) -->
-      <a href="./">Beranda</a>
-
-      <!-- PROFIL -->
-    <div class="dropdown">
-      <a href="profil/visi-misi.html" class="dropdown-toggle">Profil</a>
-      <div class="dropdown-content">
-        <a href="profil/visi-misi.html" class="active">Visi Dan Misi</a>
-        <a href="profil/tugas-fungsi.html">Tugas Dan Fungsi</a>
-        <a href="profil/struktur-organisasi.html">Struktur Organisasi</a>
-        <a href="profil/sejarah-dinkominfo.html">Sejarah Dinkominfo</a>
-        <a href="profil/alamat-kontak.html">Alamat Dan Kontak</a>
-        <a href="profil/indikator-kinerja.html">Indikator Kinerja Utama</a>
       </div>
     </div>
 
+    <nav>
+      <div class="container nav-content">
+        <div class="nav-items">
+          <a href="./">Beranda</a>
+          <div class="dropdown">
+            <a href="profil/visi-misi.html">Profil</a>
+            <div class="dropdown-content">
+              <a href="profil/visi-misi.html">Visi Dan Misi</a>
+              <a href="profil/tugas-fungsi.html">Tugas Dan Fungsi</a>
+              <a href="profil/struktur-organisasi.html">Struktur Organisasi</a>
+              <a href="profil/sejarah-dinkominfo.html">Sejarah Dinkominfo</a>
+              <a href="profil/alamat-kontak.html">Alamat Dan Kontak</a>
+              <a href="profil/indikator-kinerja.html">Indikator Kinerja Utama</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="ppid/berkala.html">PPID</a>
+            <div class="dropdown-content">
+              <a href="ppid/sk-dip.html">SK DIP DIKECUALIKAN</a>
+              <a href="ppid/berkala.html">Berkala</a>
+              <a href="ppid/setiap-saat.html">Setiap Saat</a>
+              <a href="ppid/serta-merta.html">Serta Merta</a>
+              <a href="ppid/struktur-ppid.html">Struktur PPID</a>
+              <a href="ppid/maklumat-pelayanan.html">Maklumat Pelayanan</a>
+              <a href="ppid/laporan-tahunan.html">Laporan Tahunan</a>
+              <a href="ppid/sk-ppid.html">SK PPID</a>
+              <a href="ppid/sk-penetapan-dip.html">SK Penetapan DIP</a>
+              <a href="ppid/permohonan-informasi.html">Permohonan Informasi</a>
+              <a href="ppid/form-keberatan.html">Form Keberatan</a>
+              <a href="ppid/sop.html">SOP</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <a href="menu-publik/berita.html">Menu Publik</a>
+            <div class="dropdown-content">
+              <a href="menu-publik/berita.html">Berita</a>
+              <a href="menu-publik/pelayanan.html">Pelayanan</a>
+              <a href="menu-publik/pengumuman.html">Pengumuman</a>
+              <a href="menu-publik/materi-bintek.html">Materi Bintek</a>
+              <a href="menu-publik/galeri.html">Galeri</a>
+              <a href="menu-publik/reformasi-birokrasi.html">Reformasi Birokrasi</a>
+            </div>
+          </div>
+          <a href="pegawai.html">Data Pegawai</a>
+          <a href="download.html">Download</a>
+          <a href="faq.html">F.A.Q</a>
+          <a href="kontak.html">Kontak</a>
+        </div>
 
-      <!-- PPID -->
-      <div class="dropdown">
+        <div class="nav-actions">
+          <button id="menuToggleBtn" class="menu-toggle" aria-label="Buka Menu">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav">
+        <a href="./">Beranda</a>
+        <a href="profil/visi-misi.html">Profil</a>
         <a href="ppid/berkala.html">PPID</a>
-        <div class="dropdown-content">
-          <a href="ppid/sk-dip.html">SK DIP DIKECUALIKAN</a>
-          <a href="ppid/berkala.html">Berkala</a>
-          <a href="ppid/setiap-saat.html">Setiap Saat</a>
-          <a href="ppid/serta-merta.html">Serta Merta</a>
-          <a href="ppid/struktur-ppid.html">Struktur PPID</a>
-          <a href="ppid/maklumat-pelayanan.html">Maklumat Pelayanan</a>
-          <a href="ppid/laporan-tahunan.html">Laporan Tahunan</a>
-          <a href="ppid/sk-ppid.html">SK PPID</a>
-          <a href="ppid/sk-penetapan-dip.html">SK Penetapan DIP</a>
-          <a href="ppid/permohonan-informasi.html">Permohonan Informasi</a>
-          <a href="ppid/form-keberatan.html">Form Keberatan</a>
-          <a href="ppid/sop.html">SOP</a>
-        </div>
+        <a href="menu-publik/berita.html">Menu Publik</a>
+        <a href="pegawai.html">Data Pegawai</a>
+        <a href="download.html">Download</a>
+        <a href="faq.html">F.A.Q</a>
+        <a href="kontak.html">Kontak</a>
       </div>
-
-      <!-- MENU PUBLIK + SUBMENU (SESUAI GAMBAR) -->
-      <div class="dropdown">
-        <a href="menu-publik.html">Menu Publik</a>
-        <div class="dropdown-content">
-          <a href="menu-publik/berita.html">Berita</a>
-          <a href="menu-publik/pelayanan.html">Pelayanan</a>
-          <a href="menu-publik/pengumuman.html">Pengumuman</a>
-          <a href="menu-publik/materi-bintek.html">Materi Bintek</a>
-          <a href="menu-publik/galeri.html">Galeri</a>
-          <a href="menu-publik/reformasi-birokrasi.html">Reformasi Birokrasi</a>
-        </div>
-      </div>
-
-      <!-- MENU LAIN -->
-      <a href="pegawai.html">Data Pegawai</a>
-      <a href="download.html">Download</a>
-      <a href="faq.html">F.A.Q</a>
-      <a href="kontak.html">Kontak</a>
-    </div>
-
-    <!-- TOMBOL DARK MODE & MENU MOBILE -->
-    <div class="nav-actions">
-      <button class="btn-icon theme-toggle" onclick="toggleTheme()">
-        <i class="fas fa-moon"></i>
-      </button>
-      <button class="btn-icon menu-toggle" onclick="toggleMobileMenu()">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
+    </nav>
   </div>
-
-  <!-- MOBILE NAV (JUGA DIPERBAIKI: BERANDA = /) -->
-  <div class="mobile-nav" id="mobileNav">
-    <a href="/" onclick="toggleMobileMenu()">Beranda</a>
-    <a href="/profil/visi-misi.html" onclick="toggleMobileMenu()">Profil</a>
-    <a href="/ppid/berkala.html" onclick="toggleMobileMenu()">PPID</a>
-    <a href="/menu-publik.html" onclick="toggleMobileMenu()">Menu Publik</a>
-    <a href="/pegawai.html" onclick="toggleMobileMenu()">Data Pegawai</a>
-    <a href="/download.html" onclick="toggleMobileMenu()">Download</a>
-    <a href="/faq.html" onclick="toggleMobileMenu()">F.A.Q</a>
-    <a href="/kontak.html" onclick="toggleMobileMenu()">Kontak</a>
-  </div>
-</nav>
-
-  <script>
-    // Guard: hanya inisialisasi sekali walau header di-include berkali-kali
-    if (!window.dinkominfoHeaderInit) {
-      window.dinkominfoHeaderInit = true;
-
-      // Tambah Google Fonts jika belum ada
-      if (!document.querySelector('link[href*="fonts.googleapis.com"]')) {
-        const lf = document.createElement('link');
-        lf.rel = 'stylesheet';
-        lf.href = 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap';
-        document.head.appendChild(lf);
-      }
-
-      // Tambah Font Awesome jika belum ada
-      if (!document.querySelector('link[href*="font-awesome"], link[href*="fontawesome"], link[href*="cdnjs.cloudflare.com/ajax/libs/font-awesome"]')) {
-        const fa = document.createElement('link');
-        fa.rel = 'stylesheet';
-        fa.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css';
-        document.head.appendChild(fa);
-      }
-
-      // Inject CSS sekali saja
-      if (!document.getElementById('dinkominfo-header-styles')) {
-        const style = document.createElement('style');
-        style.id = 'dinkominfo-header-styles';
-        style.textContent = `
-:root{--primary:#003d99;--primary-light:#0052cc;--accent:#0066ff;--text:#1a1a1a;--text-light:#666666;--bg:#ffffff;--bg-light:#f8f9fb;--card:#ffffff;--border:#e0e0e0;--shadow-sm:0 2px 8px rgba(0,0,0,0.08);--shadow-md:0 8px 24px rgba(0,0,0,0.12);--radius:.75rem;--transition:all .3s ease} [data-theme="dark"]{--text:#f5f5f5;--text-light:#b0b0b0;--bg:#0f1117;--bg-light:#161b22;--card:#1c2128;--border:#30363d} *{margin:0;padding:0;box-sizing:border-box} body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:var(--transition)} h1,h2,h3,h4,h5,h6{font-family:'Sora',sans-serif;font-weight:700;letter-spacing:-.5px} .container{max-width:1280px;margin:0 auto;padding:0 1.5rem} @media(max-width:768px){.container{padding:0 1rem}} .topbar{background:var(--primary);color:#fff;padding:.875rem 0;font-size:.875rem} .topbar-content{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem} .topbar-left{display:flex;align-items:center;gap:1rem;font-weight:600} .topbar-logo{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;overflow:hidden} .topbar-logo img{width:100%;height:100%;object-fit:contain} .topbar-info{display:flex;flex-direction:column;justify-content:center} .topbar-info h4{font-size:.9rem;margin:0;font-weight:700} .topbar-info p{font-size:.8rem;opacity:.9;margin:0} .topbar-right{display:none;gap:1.5rem;font-size:.85rem;align-items:center} .topbar-right-item{display:flex;align-items:center;gap:.5rem} .topbar-right-item i{font-size:1rem;vertical-align:middle} @media(min-width:768px){.topbar-right{display:flex}} nav{background:var(--card);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:50;box-shadow:var(--shadow-sm)} .nav-content{display:flex;align-items:center;justify-content:space-between;height:3.75rem} .nav-items{display:none;gap:.5rem;font-weight:600;font-size:.95rem} @media(min-width:768px){.nav-items{display:flex}} .nav-items a{padding:.5rem 1rem;color:var(--text);text-decoration:none;border-radius:var(--radius);transition:var(--transition);position:relative;display:flex;align-items:center;height:100%} .nav-items a:hover{background:var(--bg-light);color:var(--primary)} .nav-items a::after{content:'';position:absolute;bottom:0;left:1rem;right:1rem;height:2px;background:var(--primary);transform:scaleX(0);transition:transform .3s ease} .nav-items a:hover::after{transform:scaleX(1)} .dropdown{position:relative} .dropdown-content{display:none;position:absolute;background:var(--card);min-width:220px;box-shadow:var(--shadow-md);border-radius:var(--radius);z-index:100;top:calc(100% + 2px);left:0;border:1px solid var(--border);padding:.25rem 0} .dropdown:hover .dropdown-content{display:block} .dropdown-content a{color:var(--text);padding:.75rem 1rem;text-decoration:none;display:block;font-weight:500;transition:var(--transition);white-space:nowrap} .dropdown-content a:hover{background:var(--bg-light);color:var(--primary)} .nav-actions{display:flex;align-items:center;gap:1rem} .btn-icon{background:none;border:none;padding:.5rem;border-radius:var(--radius);cursor:pointer;color:var(--text);transition:var(--transition);font-weight:600;font-size:1.1rem} .btn-icon:hover{background:var(--bg-light);color:var(--primary)} .menu-toggle{display:block} @media(min-width:768px){.menu-toggle{display:none}} .mobile-nav{display:none;background:var(--card);border-top:1px solid var(--border);padding:.75rem 0} .mobile-nav.active{display:block} .mobile-nav a{display:block;padding:.875rem 1.5rem;color:var(--text);text-decoration:none;transition:var(--transition);font-weight:600} .mobile-nav a:hover{background:var(--bg-light);color:var(--primary)} .theme-toggle{background:none;border:none;color:var(--text);cursor:pointer;font-size:1.15rem;padding:.5rem;border-radius:var(--radius);transition:var(--transition)} .theme-toggle:hover{background:var(--bg-light);color:var(--primary)} html{scroll-behavior:smooth}
-        `;
-        document.head.appendChild(style);
-      }
-
-      // fungsi global dipasang sekali
-      window.toggleMobileMenu = function () {
-        const m = document.getElementById('mobileNav');
-        if (m) m.classList.toggle('active');
-      };
-
-      window.toggleTheme = function () {
-        const body = document.body;
-        const current = body.getAttribute('data-theme');
-        const icon = document.querySelector('.theme-toggle i');
-        if (current === 'dark') {
-          body.removeAttribute('data-theme');
-          if (icon) icon.classList.replace('fa-sun', 'fa-moon');
-        } else {
-          body.setAttribute('data-theme', 'dark');
-          if (icon) icon.classList.replace('fa-moon', 'fa-sun');
-        }
-      };
-      document.addEventListener('DOMContentLoaded', () => {
-        const path = window.location.pathname;
-        document.querySelectorAll('.dropdown-content a').forEach(link => {
-          if (link.getAttribute('href') === path) {
-            link.classList.add('active');
-          }
-        });
-      });
-      // pasang listener sekali untuk mobile links
-      document.querySelectorAll('.mobile-nav a').forEach(link => {
-        link.addEventListener('click', () => {
-          const m = document.getElementById('mobileNav');
-          if (m) m.classList.remove('active');
-        });
-      });
-    }
-  </script>
 </header>
+<script>
+  const toggleBtn = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  toggleBtn.addEventListener('click', () => {
+    mobileNav.classList.toggle('active');
+  });
+</script>
 </body>
 </html>
