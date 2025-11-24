@@ -11,8 +11,8 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan / -->
+  <link rel="stylesheet" href="/project-template-web-dinkominfo-bms/css/style.css">
   
   <!-- PDF.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -474,12 +474,12 @@
       });
     });
 
-    // Load Header and Footer - PERBAIKAN
-    fetch('layout/header.html?v=' + Date.now())
+    // PERUBAHAN 12 & 13: Path ke Header dan Footer sudah ditambahkan /
+    fetch('/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('layout/footer.html?v=' + Date.now())
+    fetch('/project-template-web-dinkominfo-bms/layout/footer.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>

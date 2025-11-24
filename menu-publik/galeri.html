@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galeri - Dinkominfo Banyumas</title>
+  
+  <!-- Base href yang benar -->
+  <base href="/project-template-web-dinkominfo-bms/">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Path CSS yang benar -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="topbar">
+      <div class="container topbar-content">
+        <div class="topbar-left">
+          <div class="topbar-logo">
+            <!-- Path logo yang benar -->
+            <img src="images/logo-bms.png" alt="Logo Banyumas">
+          </div>
+          <div class="topbar-info">
+            <h4>Dinas Komunikasi dan Informatika</h4>
+            <p>Pemerintah Kabupaten Banyumas</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-right-item">
+            <i class="fas fa-map-marker-alt" style="color: #ff6f61;"></i>
+            <span>Jl. Masjid No. 8 Purwokerto</span>
+          </div>
+          <span>|</span>
+          <div class="topbar-right-item">
+            <i class="fas fa-phone" style="color: #6b48ff;"></i>
+            <span>Telp: (0281) 632338</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav>
+      <div class="container nav-content">
+        <div class="nav-items">
+          <!-- BERANDA DI LUAR (ROOT) -->
+          <a href="./">Beranda</a>
+
+          <!-- PROFIL -->
+          <div class="dropdown">
+            <a href="profil/visi-misi.html" class="dropdown-toggle">Profil</a>
+            <div class="dropdown-content">
+              <a href="profil/visi-misi.html">Visi Dan Misi</a>
+              <a href="profil/tugas-fungsi.html">Tugas Dan Fungsi</a>
+              <a href="profil/struktur-organisasi.html">Struktur Organisasi</a>
+              <a href="profil/sejarah-dinkominfo.html">Sejarah Dinkominfo</a>
+              <a href="profil/alamat-kontak.html">Alamat Dan Kontak</a>
+              <a href="profil/indikator-kinerja.html">Indikator Kinerja Utama</a>
+            </div>
+          </div>
+
+          <!-- PPID -->
+          <div class="dropdown">
+            <a href="ppid/berkala.html">PPID</a>
+            <div class="dropdown-content">
+              <a href="ppid/sk-dip.html">SK DIP DIKECUALIKAN</a>
+              <a href="ppid/berkala.html">Berkala</a>
+              <a href="ppid/setiap-saat.html">Setiap Saat</a>
+              <a href="ppid/serta-merta.html">Serta Merta</a>
+              <a href="ppid/struktur-ppid.html">Struktur PPID</a>
+              <a href="ppid/maklumat-pelayanan.html">Maklumat Pelayanan</a>
+              <a href="ppid/laporan-tahunan.html">Laporan Tahunan</a>
+              <a href="ppid/sk-ppid.html">SK PPID</a>
+              <a href="ppid/sk-penetapan-dip.html">SK Penetapan DIP</a>
+              <a href="ppid/permohonan-informasi.html">Permohonan Informasi</a>
+              <a href="ppid/form-keberatan.html">Form Keberatan</a>
+              <a href="ppid/sop.html">SOP</a>
+            </div>
+          </div>
+
+          <!-- MENU PUBLIK + SUBMENU (SESUAI GAMBAR) -->
+          <div class="dropdown">
+            <a href="menu-publik.html" class="active">Menu Publik</a>
+            <div class="dropdown-content">
+              <a href="menu-publik/berita.html">Berita</a>
+              <a href="menu-publik/pelayanan.html">Pelayanan</a>
+              <a href="menu-publik/pengumuman.html">Pengumuman</a>
+              <a href="menu-publik/materi-bintek.html">Materi Bintek</a>
+              <a href="menu-publik/galeri.html" class="active">Galeri</a>
+              <a href="menu-publik/reformasi-birokrasi.html">Reformasi Birokrasi</a>
+            </div>
+          </div>
+
+          <!-- MENU LAIN -->
+          <a href="pegawai.html">Data Pegawai</a>
+          <a href="download.html">Download</a>
+          <a href="faq.html">F.A.Q</a>
+          <a href="kontak.html">Kontak</a>
+        </div>
+
+        <!-- TOMBOL DARK MODE & MENU MOBILE -->
+        <div class="nav-actions">
+          <button class="btn-icon theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="btn-icon menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- MOBILE NAV -->
+      <div class="mobile-nav" id="mobileNav">
+        <a href="/" onclick="toggleMobileMenu()">Beranda</a>
+        <a href="/profil/visi-misi.html" onclick="toggleMobileMenu()">Profil</a>
+        <a href="/ppid/berkala.html" onclick="toggleMobileMenu()">PPID</a>
+        <a href="/menu-publik.html" onclick="toggleMobileMenu()">Menu Publik</a>
+        <a href="/pegawai.html" onclick="toggleMobileMenu()">Data Pegawai</a>
+        <a href="/download.html" onclick="toggleMobileMenu()">Download</a>
+        <a href="/faq.html" onclick="toggleMobileMenu()">F.A.Q</a>
+        <a href="/kontak.html" onclick="toggleMobileMenu()">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Galeri</h1>
+        <p class="hero-subtitle">Dokumentasi kegiatan dan acara Dinas Komunikasi dan Informatika Kabupaten Banyumas</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="gallery-grid">
+        <!-- Gallery Item 1 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri1/400/300.jpg" alt="Rapat Koordinasi">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Rapat Koordinasi</h3>
+                <p>15 Januari 2023</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(1)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 2 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri2/400/300.jpg" alt="Pelantikan Pejabat">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Pelantikan Pejabat</h3>
+                <p>12 Januari 2023</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(2)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 3 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri3/400/300.jpg" alt="Workshop Digital">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Workshop Digital Marketing</h3>
+                <p>8 Januari 2023</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(3)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 4 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri4/400/300.jpg" alt="Kunjungan Kerja">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Kunjungan Kerja</h3>
+                <p>5 Januari 2023</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(4)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 5 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri5/400/300.jpg" alt="Seminar Literasi">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Seminar Literasi Digital</h3>
+                <p>2 Januari 2023</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(5)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 6 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri6/400/300.jpg" alt="Pelatihan UMKM">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Pelatihan UMKM</h3>
+                <p>28 Desember 2022</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(6)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 7 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri7/400/300.jpg" alt="Upacara Bendera">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Upacara Bendera</h3>
+                <p>25 Desember 2022</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(7)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 8 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri8/400/300.jpg" alt="Studi Banding">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Studi Banding</h3>
+                <p>20 Desember 2022</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(8)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 9 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri9/400/300.jpg" alt="Sosialisasi Program">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Sosialisasi Program</h3>
+                <p>18 Desember 2022</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(9)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 10 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri10/400/300.jpg" alt="Pertemuan Tim">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Pertemuan Tim</h3>
+                <p>15 Desember 2022</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(10)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 11 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri11/400/300.jpg" alt="Penyerahan Bantuan">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Penyerahan Bantuan</h3>
+                <p>12 Desember 2022</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(11)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Item 12 -->
+        <div class="gallery-item">
+          <div class="gallery-image">
+            <img src="https://picsum.photos/seed/galeri12/400/300.jpg" alt="Peresmian Gedung">
+            <div class="gallery-overlay">
+              <div class="gallery-info">
+                <h3>Peresmian Gedung</h3>
+                <p>10 Desember 2022</p>
+                <button class="btn btn-sm btn-light" onclick="openLightbox(12)">
+                  <i class="fas fa-search-plus"></i> Lihat
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <a href="#" class="pagination-link active">1</a>
+        <a href="#" class="pagination-link">2</a>
+        <a href="#" class="pagination-link">3</a>
+        <a href="#" class="pagination-link">4</a>
+        <a href="#" class="pagination-link">5</a>
+        <a href="#" class="pagination-link">6</a>
+        <a href="#" class="pagination-link">7</a>
+        <a href="#" class="pagination-link">8</a>
+        <a href="#" class="pagination-link">
+          <i class="fas fa-chevron-right"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Website SKPD</h3>
+          <a href="#"><i class="fas fa-building"></i> Sekretariat Daerah</a>
+          <a href="#"><i class="fas fa-leaf"></i> Dinas Lingkungan Hidup</a>
+          <a href="#"><i class="fas fa-users"></i> DINSOSPERMASDES BANYUMAS</a>
+          <a href="#"><i class="fas fa-home"></i> Dinas Perumahan dan Kawasan Permukiman</a>
+          <a href="#"><i class="fas fa-briefcase"></i> DPMPTSP BANYUMAS</a>
+          <a href="#"><i class="fas fa-shield-alt"></i> DPPKBP3A</a>
+        </div>
+        <div class="footer-section">
+          <h3>Website Link</h3>
+          <a href="#"><i class="fas fa-globe"></i> Website Pemerintah Kabupaten</a>
+          <a href="#"><i class="fas fa-home"></i> Website Desa</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Sudimara Kecamatan Cilongok</a>
+          <a href="#"><i class="fas fa-home"></i> MEDIA INFORMASI DESA BUNIAYU</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Klapagading Kulon Kecamatan Wangon</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Plangkapan Kecamatan Tambak</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Jurangbahas Kecamatan Wangon</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Rancamaya Kecamatan Cilongok</a>
+        </div>
+        <div class="footer-section">
+          <h3>Counter</h3>
+          <div class="counter-table">
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-sun"></i> Hari ini</div>
+              <div class="counter-cell value">12 Pengunjung</div>
+            </div>
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-calendar-week"></i> Minggu ini</div>
+              <div class="counter-cell value">65 Pengunjung</div>
+            </div>
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-calendar-alt"></i> Bulan ini</div>
+              <div class="counter-cell value">376 Pengunjung</div>
+            </div>
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-calendar-year"></i> Tahun ini</div>
+              <div class="counter-cell value">68,531 Pengunjung</div>
+            </div>
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-users"></i> Total Pengunjung</div>
+              <div class="counter-cell value">135,971 Pengunjung</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Post</h3>
+          <p>Rapat Koordinasi Penguatan E-Government Di Kabupaten Banyumas: <span>19,691</span></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Dinkominfo Banyumas. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privasi</a>
+          <a href="#">Syarat</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox">
+    <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+    <img class="lightbox-content" id="lightbox-img">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <script>
+    // Toggle Mobile Menu
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('mobileNav');
+      mobileNav.classList.toggle('active');
+    }
+
+    // Toggle Theme
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle i');
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        themeToggle.classList.remove('fa-sun');
+        themeToggle.classList.add('fa-moon');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        themeToggle.classList.remove('fa-moon');
+        themeToggle.classList.add('fa-sun');
+      }
+    }
+
+    // Active Navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-items a, .dropdown-content a');
+      
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Lightbox functionality
+    function openLightbox(imageId) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      
+      // Set image source
+      lightboxImg.src = `https://picsum.photos/seed/galeri${imageId}/1200/900.jpg`;
+      
+      // Set caption based on image
+      const captions = {
+        1: 'Rapat Koordinasi - 15 Januari 2023',
+        2: 'Pelantikan Pejabat - 12 Januari 2023',
+        3: 'Workshop Digital Marketing - 8 Januari 2023',
+        4: 'Kunjungan Kerja - 5 Januari 2023',
+        5: 'Seminar Literasi Digital - 2 Januari 2023',
+        6: 'Pelatihan UMKM - 28 Desember 2022',
+        7: 'Upacara Bendera - 25 Desember 2022',
+        8: 'Studi Banding - 20 Desember 2022',
+        9: 'Sosialisasi Program - 18 Desember 2022',
+        10: 'Pertemuan Tim - 15 Desember 2022',
+        11: 'Penyerahan Bantuan - 12 Desember 2022',
+        12: 'Peresmian Gedung - 10 Desember 2022'
+      };
+      
+      lightboxCaption.innerHTML = captions[imageId];
+      lightbox.style.display = 'block';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    // Close lightbox when clicking outside the image
+    window.onclick = function(event) {
+      const lightbox = document.getElementById('lightbox');
+      if (event.target == lightbox) {
+        lightbox.style.display = 'none';
+      }
+    }
+  </script>
+
+  <style>
+    /* Gallery Grid Styles */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      background: var(--card);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .gallery-image {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .gallery-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-image img {
+      transform: scale(1.1);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+      display: flex;
+      align-items: flex-end;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-info {
+      padding: 1.5rem;
+      color: white;
+      width: 100%;
+    }
+
+    .gallery-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      font-family: 'Sora', sans-serif;
+    }
+
+    .gallery-info p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    .btn-light {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(5px);
+    }
+
+    .btn-light:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .lightbox-content {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 900px;
+      max-height: 80vh;
+      object-fit: contain;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: var(--radius);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-caption {
+      margin: auto;
+      display: block;
+      width: 80%;
+      max-width: 900px;
+      text-align: center;
+      color: #ccc;
+      padding: 10px 0;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      color: #f1f1f1;
+      font-size: 40px;
+      font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .close-lightbox:hover {
+      color: #bbb;
+      text-decoration: none;
+    }
+
+    /* Pagination Styles */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .pagination-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--card);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 1px solid var(--border);
+    }
+
+    .pagination-link:hover {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .pagination-link.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+      }
+      
+      .gallery-image {
+        height: 180px;
+      }
+      
+      .lightbox-content {
+        width: 95%;
+        max-height: 70vh;
+      }
+      
+      .close-lightbox {
+        font-size: 30px;
+        top: 15px;
+        right: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .gallery-image {
+        height: 200px;
+      }
+    }
+  </style>
+</body>
+</html>

@@ -4,16 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Laporan Tahunan PPID - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  
-  <base href="/project-template-web-dinkominfo-bms/">
+   <base href="/project-template-web-dinkominfo-bms/">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan / -->
+  <link rel="stylesheet" href="/project-template-web-dinkominfo-bms/css/style.css">
   
   <!-- PDF.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -149,6 +148,25 @@
       box-shadow: var(--shadow-md);
     }
 
+    .gdrive-link {
+      display: inline-block;
+      background: #4285f4;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: var(--radius);
+      text-decoration: none;
+      font-weight: 600;
+      margin: 0.5rem;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .gdrive-link:hover {
+      background: #3367d6;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
     .download-section i {
       font-size: 2rem;
       color: var(--primary);
@@ -218,32 +236,33 @@
         <div class="info-card">
           <h3 class="card-title">LAPORAN TAHUNAN PPID PELAKSANA DINAS KOMUNIKASI DAN INFORMATIKA KABUPATEN BANYUMAS TAHUN 2022</h3>
           
-          <!-- YEAR TABS -->
           <div class="pdf-container">
-        <div class="pdf-viewer">
-          <canvas id="pdf-canvas"></canvas>
-        </div>
-        <div class="pdf-controls">
-          <button id="prev-page" class="pdf-btn">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <span class="page-info">Halaman <span id="page-num">1</span> dari <span id="page-count">?</span></span>
-          <button id="next-page" class="pdf-btn">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
+            <div class="pdf-viewer">
+              <canvas id="pdf-canvas"></canvas>
+            </div>
+            <div class="pdf-controls">
+              <button id="prev-page" class="pdf-btn">
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <span class="page-info">Halaman <span id="page-num">1</span> dari <span id="page-count">?</span></span>
+              <button id="next-page" class="pdf-btn">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
 
-        <div class="download-section">
-          <i class="fas fa-download"></i>
-          <h3>Unduh Laporan Lengkap</h3>
-          <p>Unduh semua laporan tahunan PPID dalam satu file PDF</p>
-          <a href="files/Laporan Tahunan.pdf" class="download-btn" download>
-            <i class="fas fa-file-pdf"></i> Unduh PDF
-          </a>
-          <a href="https://drive.google.com/file/d/1EQ31Hh41c7vzs-mXDeIw6OXRh0B6KHDv/view?usp=sharing" class="gdrive-link" target="_blank">
-            <i class="fab fa-google-drive"></i> Buka di Google Drive
-          </a>
+          <div class="download-section">
+            <i class="fas fa-download"></i>
+            <h3>Unduh Laporan Lengkap</h3>
+            <p>Unduh semua laporan tahunan PPID dalam satu file PDF</p>
+            <!-- PERUBAHAN 2: Path ke PDF sudah ditambahkan / -->
+            <a href="/project-template-web-dinkominfo-bms/files/Laporan Tahunan.pdf" class="download-btn" download>
+              <i class="fas fa-file-pdf"></i> Unduh PDF
+            </a>
+            <a href="https://drive.google.com/file/d/1EQ31Hh41c7vzs-mXDeIw6OXRh0B6KHDv/view?usp=sharing" class="gdrive-link" target="_blank">
+              <i class="fab fa-google-drive"></i> Buka di Google Drive
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -253,118 +272,118 @@
   </div>
 
   <!-- SCRIPT -->
- <script>
-  // PDF.js Worker
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  <script>
+    // PDF.js Worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
 
-  // PDF Viewer
-  let currentPdfDoc = null;
-  let currentPageNum = 1;
-  let pageRendering = false;
-  let pageNumPending = null;
-  const scale = 1.5;
-  const canvas = document.getElementById('pdf-canvas');
-  const ctx = canvas.getContext('2d');
+    // PDF Viewer
+    let currentPdfDoc = null;
+    let currentPageNum = 1;
+    let pageRendering = false;
+    let pageNumPending = null;
+    const scale = 1.5;
+    const canvas = document.getElementById('pdf-canvas');
+    const ctx = canvas.getContext('2d');
 
   // HANYA SATU FILE: Laporan Tahunan.pdf
   const PDF_FILE = 'files/Laporan_Tahunan.pdf';
 
-  // Tampilkan "memuat..."
-  const pageCountEl = document.getElementById('page-count');
-  pageCountEl.textContent = 'memuat...';
+    // Tampilkan "memuat..."
+    const pageCountEl = document.getElementById('page-count');
+    pageCountEl.textContent = 'memuat...';
 
-  // Render halaman
-  function renderPage(num) {
-    pageRendering = true;
-    currentPdfDoc.getPage(num).then(page => {
-      const viewport = page.getViewport({ scale });
-      canvas.height = viewport.height;
-      canvas.width = viewport.width;
+    // Render halaman
+    function renderPage(num) {
+      pageRendering = true;
+      currentPdfDoc.getPage(num).then(page => {
+        const viewport = page.getViewport({ scale });
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
 
-      const renderContext = { canvasContext: ctx, viewport };
-      page.render(renderContext).promise.then(() => {
-        pageRendering = false;
-        if (pageNumPending !== null) {
-          renderPage(pageNumPending);
-          pageNumPending = null;
-        }
+        const renderContext = { canvasContext: ctx, viewport };
+        page.render(renderContext).promise.then(() => {
+          pageRendering = false;
+          if (pageNumPending !== null) {
+            renderPage(pageNumPending);
+            pageNumPending = null;
+          }
+        });
+        document.getElementById('page-num').textContent = num;
       });
-      document.getElementById('page-num').textContent = num;
-    });
-  }
-
-  // Tombol Prev
-  document.getElementById('prev-page').addEventListener('click', () => {
-    if (currentPageNum <= 1) return;
-    currentPageNum--;
-    renderPage(currentPageNum);
-  });
-
-  // Tombol Next
-  document.getElementById('next-page').addEventListener('click', () => {
-    if (currentPageNum >= currentPdfDoc.numPages) return;
-    currentPageNum++;
-    renderPage(currentPageNum);
-  });
-
-  // LOAD PDF: Laporan Tahunan.pdf
-  pdfjsLib.getDocument(PDF_FILE).promise.then(pdf => {
-    currentPdfDoc = pdf;
-    currentPageNum = 1;
-    pageCountEl.textContent = pdf.numPages;  // JUMLAH HALAMAN DITAMPILKAN
-    renderPage(currentPageNum);
-  }).catch(err => {
-    canvas.innerHTML = `
-      <p style="color:red; text-align:center; padding:2rem; font-family:Arial;">
-        Gagal memuat PDF!<br>
-        <small>Error: ${err.message}</small><br>
-        <small>Periksa file: <code>${PDF_FILE}</code></small>
-      </p>`;
-    pageCountEl.textContent = '—';
-  });
-
-  // AKSESIBILITAS (TETAP SAMA)
-  const accToggle = document.getElementById('accessibility-toggle');
-  const accPanel = document.getElementById('accessibility-panel');
-  accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
-  document.addEventListener('click', (e) => {
-    if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
-      accPanel.classList.remove('active');
     }
-  });
 
-  const cursorHighlight = document.getElementById('cursor-highlight');
-  let isHighlightActive = false;
-  document.addEventListener('mousemove', (e) => {
-    if (isHighlightActive) {
-      cursorHighlight.style.left = e.clientX + 'px';
-      cursorHighlight.style.top = e.clientY + 'px';
-    }
-  });
-
-  document.querySelectorAll('.acc-item').forEach(item => {
-    item.addEventListener('click', () => {
-      const mode = item.getAttribute('data-mode');
-      document.body.classList.remove('high-constast', 'dark-mode', 'guideline-mode');
-      cursorHighlight.classList.remove('active');
-      isHighlightActive = false;
-      document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
-
-      if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
-      else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
-      else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
-      else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+    // Tombol Prev
+    document.getElementById('prev-page').addEventListener('click', () => {
+      if (currentPageNum <= 1) return;
+      currentPageNum--;
+      renderPage(currentPageNum);
     });
-  });
 
-  // Load Header & Footer
-  fetch('layout/header.html?v=' + Date.now())
-    .then(r => r.text())
-    .then(d => document.getElementById('header-placeholder').outerHTML = d);
+    // Tombol Next
+    document.getElementById('next-page').addEventListener('click', () => {
+      if (currentPageNum >= currentPdfDoc.numPages) return;
+      currentPageNum++;
+      renderPage(currentPageNum);
+    });
 
-  fetch('layout/footer.html?v=' + Date.now())
-    .then(r => r.text())
-    .then(d => document.getElementById('footer-placeholder').outerHTML = d);
-</script>
+    // LOAD PDF: Laporan Tahunan.pdf
+    pdfjsLib.getDocument(PDF_FILE).promise.then(pdf => {
+      currentPdfDoc = pdf;
+      currentPageNum = 1;
+      pageCountEl.textContent = pdf.numPages;  // JUMLAH HALAMAN DITAMPILKAN
+      renderPage(currentPageNum);
+    }).catch(err => {
+      canvas.innerHTML = `
+        <p style="color:red; text-align:center; padding:2rem; font-family:Arial;">
+          Gagal memuat PDF!<br>
+          <small>Error: ${err.message}</small><br>
+          <small>Periksa file: <code>${PDF_FILE}</code></small>
+        </p>`;
+      pageCountEl.textContent = '—';
+    });
+
+    // AKSESIBILITAS (TETAP SAMA)
+    const accToggle = document.getElementById('accessibility-toggle');
+    const accPanel = document.getElementById('accessibility-panel');
+    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
+    document.addEventListener('click', (e) => {
+      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
+        accPanel.classList.remove('active');
+      }
+    });
+
+    const cursorHighlight = document.getElementById('cursor-highlight');
+    let isHighlightActive = false;
+    document.addEventListener('mousemove', (e) => {
+      if (isHighlightActive) {
+        cursorHighlight.style.left = e.clientX + 'px';
+        cursorHighlight.style.top = e.clientY + 'px';
+      }
+    });
+
+    document.querySelectorAll('.acc-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const mode = item.getAttribute('data-mode');
+        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
+        cursorHighlight.classList.remove('active');
+        isHighlightActive = false;
+        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+      });
+    });
+
+    // PERUBAHAN 4 & 5: Path ke Header dan Footer sudah ditambahkan /
+    fetch('/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+    fetch('/project-template-web-dinkominfo-bms/layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
+  </script>
 </body>
 </html>

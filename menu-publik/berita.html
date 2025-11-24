@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Berita - Dinkominfo Banyumas</title>
+
+<!-- Base href yang benar -->
+<base href="/project-template-web-dinkominfo-bms/">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<!-- Path CSS yang benar -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Header -->
+<header>
+<div class="topbar">
+<div class="container topbar-content">
+<div class="topbar-left">
+<div class="topbar-logo">
+<!-- Path logo yang benar -->
+<img src="images/logo-bms.png" alt="Logo Banyumas">
+</div>
+<div class="topbar-info">
+<h4>Dinas Komunikasi dan Informatika</h4>
+<p>Pemerintah Kabupaten Banyumas</p>
+</div>
+</div>
+<div class="topbar-right">
+<div class="topbar-right-item">
+<i class="fas fa-map-marker-alt" style="color: #ff6f61;"></i>
+<span>Jl. Masjid No. 8 Purwokerto</span>
+</div>
+<span>|</span>
+<div class="topbar-right-item">
+<i class="fas fa-phone" style="color: #6b48ff;"></i>
+<span>Telp: (0281) 632338</span>
+</div>
+</div>
+</div>
+</div>
+
+<nav>
+<div class="container nav-content">
+<div class="nav-items">
+<!-- BERANDA DI LUAR (ROOT) -->
+<a href="./">Beranda</a>
+
+<!-- PROFIL -->
+<div class="dropdown">
+<a href="profil/visi-misi.html" class="dropdown-toggle">Profil</a>
+<div class="dropdown-content">
+<a href="profil/visi-misi.html">Visi Dan Misi</a>
+<a href="profil/tugas-fungsi.html">Tugas Dan Fungsi</a>
+<a href="profil/struktur-organisasi.html">Struktur Organisasi</a>
+<a href="profil/sejarah-dinkominfo.html">Sejarah Dinkominfo</a>
+<a href="profil/alamat-kontak.html">Alamat Dan Kontak</a>
+<a href="profil/indikator-kinerja.html">Indikator Kinerja Utama</a>
+</div>
+</div>
+
+<!-- PPID -->
+<div class="dropdown">
+<a href="ppid/berkala.html">PPID</a>
+<div class="dropdown-content">
+<a href="ppid/sk-dip.html">SK DIP DIKECUALIKAN</a>
+<a href="ppid/berkala.html">Berkala</a>
+<a href="ppid/setiap-saat.html">Setiap Saat</a>
+<a href="ppid/serta-merta.html">Serta Merta</a>
+<a href="ppid/struktur-ppid.html">Struktur PPID</a>
+<a href="ppid/maklumat-pelayanan.html">Maklumat Pelayanan</a>
+<a href="ppid/laporan-tahunan.html">Laporan Tahunan</a>
+<a href="ppid/sk-ppid.html">SK PPID</a>
+<a href="ppid/sk-penetapan-dip.html">SK Penetapan DIP</a>
+<a href="ppid/permohonan-informasi.html">Permohonan Informasi</a>
+<a href="ppid/form-keberatan.html">Form Keberatan</a>
+<a href="ppid/sop.html">SOP</a>
+</div>
+</div>
+
+<!-- MENU PUBLIK + SUBMENU (SESUAI GAMBAR) -->
+<div class="dropdown">
+<a href="menu-publik.html" class="active">Menu Publik</a>
+<div class="dropdown-content">
+<a href="menu-publik/berita.html" class="active">Berita</a>
+<a href="menu-publik/pelayanan.html">Pelayanan</a>
+<a href="menu-publik/pengumuman.html">Pengumuman</a>
+<a href="menu-publik/materi-bintek.html">Materi Bintek</a>
+<a href="menu-publik/galeri.html">Galeri</a>
+<a href="menu-publik/reformasi-birokrasi.html">Reformasi Birokrasi</a>
+</div>
+</div>
+
+<!-- MENU LAIN -->
+<a href="pegawai.html">Data Pegawai</a>
+<a href="download.html">Download</a>
+<a href="faq.html">F.A.Q</a>
+<a href="kontak.html">Kontak</a>
+</div>
+
+<!-- TOMBOL DARK MODE & MENU MOBILE -->
+<div class="nav-actions">
+<button class="btn-icon theme-toggle" onclick="toggleTheme()">
+<i class="fas fa-moon"></i>
+</button>
+<button class="btn-icon menu-toggle" onclick="toggleMobileMenu()">
+<i class="fas fa-bars"></i>
+</button>
+</div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<a href="/" onclick="toggleMobileMenu()">Beranda</a>
+<a href="/profil/visi-misi.html" onclick="toggleMobileMenu()">Profil</a>
+<a href="/ppid/berkala.html" onclick="toggleMobileMenu()">PPID</a>
+<a href="/menu-publik.html" onclick="toggleMobileMenu()">Menu Publik</a>
+<a href="/pegawai.html" onclick="toggleMobileMenu()">Data Pegawai</a>
+<a href="/download.html" onclick="toggleMobileMenu()">Download</a>
+<a href="/faq.html" onclick="toggleMobileMenu()">F.A.Q</a>
+<a href="/kontak.html" onclick="toggleMobileMenu()">Kontak</a>
+</div>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero-section">
+<div class="container">
+<div class="hero-content">
+<h1 class="hero-title">Berita</h1>
+<p class="hero-subtitle">Informasi terkini dari Dinas Komunikasi dan Informatika Kabupaten Banyumas</p>
+</div>
+</div>
+</section>
+
+<!-- Main Content -->
+<main class="main-content">
+<div class="container">
+<div class="news-grid">
+<!-- News Item 1 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news1/600/400.jpg" alt="Forum Konsultasi Publik">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">Dinkominfo Gelar Forum Konsultasi : Indeks SPBE Banyumas Tembus 4,09 (Sangat Baik)</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 15 Januari 2023
+</div>
+<p class="news-excerpt">Dinas Komunikasi dan Informatika Kabupaten Banyumas menyelenggarakan Forum Konsultasi Publik untuk evaluasi Sistem Pemerintahan Berbasis Elektronik (SPBE). Hasilnya, indeks SPBE Banyumas mencapai 4,09 dengan kategori "Sangat Baik".</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+
+<!-- News Item 2 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news2/600/400.jpg" alt="PPID Banyumas">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">PPID Banyumas Siap Sandang Predikat Badan Publik Informatif</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 12 Januari 2023
+</div>
+<p class="news-excerpt">Pejabat Pengelola Informasi dan Dokumentasi (PPID) Kabupaten Banyumas tengah mempersiapkan diri untuk meraih predikat Badan Publik Informatif dari Komisi Informasi Pusat.</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+
+<!-- News Item 3 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news3/600/400.jpg" alt="Gempur Rokok Illegal">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">Gempur Rokok Illegal, Dinkominfo Banyumas Gelar Sosialisasi Digital Marketing</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 8 Januari 2023
+</div>
+<p class="news-excerpt">Dalam rangka mendukung program pemerintah untuk memberantas rokok illegal, Dinkominfo Banyumas menggelar sosialisasi pemanfaatan digital marketing bagi UMKM lokal.</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+
+<!-- News Item 4 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news4/600/400.jpg" alt="Digital Marketing">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">Dinkominfo Banyumas Dorong UMKM Digital: Dari Nilai Kejujuran Hingga 7 Peran Strategis Pemerintah</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 5 Januari 2023
+</div>
+<p class="news-excerpt">Dinas Komunikasi dan Informatika Kabupaten Banyumas terus mendorong UMKM untuk go digital. Acara yang dihadiri ratusan pelaku UMKM ini membahas tentang nilai kejujuran dalam bisnis digital dan 7 peran strategis pemerintah.</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+
+<!-- News Item 5 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news5/600/400.jpg" alt="Transformasi Digital">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">Akselerasi Transformasi Digital melalui Penerapan SPBE di Kabupaten Banyumas</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 2 Januari 2023
+</div>
+<p class="news-excerpt">Pemerintah Kabupaten Banyumas terus mengakselerasi transformasi digital melalui penerapan Sistem Pemerintahan Berbasis Elektronik (SPBE) di berbagai bidang pelayanan publik.</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+
+<!-- News Item 6 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news6/600/400.jpg" alt="Pimpinan Baru">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">Sambut Pimpinan Baru, Dinkominfo Banyumas Siap Jaga Semangat Inovasi</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 28 Desember 2022
+</div>
+<p class="news-excerpt">Dalam acara serah terima jabatan, Dinkominfo Banyumas berkomitmen untuk terus menjaga semangat inovasi di bawah kepemimpinan yang baru.</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+
+<!-- News Item 7 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news7/600/400.jpg" alt="Rokok Illegal">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">Jutaan Batang Rokok Illegal Disita, Kerugian Negara Mencapai Miliaran Rupiah</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 25 Desember 2022
+</div>
+<p class="news-excerpt">Satgas Pemberantasan Rokok Illegal Kabupaten Banyumas berhasil menyita jutaan batang rokok illegal dalam operasi yang dilakukan selama tiga bulan terakhir.</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+
+<!-- News Item 8 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news8/600/400.jpg" alt="Studi Banding">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">Kementerian Perlindungan Pekerja Migran Indonesia Gelar Studi Banding di Pemkab Banyumas, Fokus pada Layanan Digital</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 20 Desember 2022
+</div>
+<p class="news-excerpt">Kementerian Perlindungan Pekerja Migran Indonesia melakukan studi banding ke Pemerintah Kabupaten Banyumas untuk mempelajari implementasi layanan digital bagi pekerja migran.</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+
+<!-- News Item 9 -->
+<div class="news-card">
+<div class="news-image">
+<img src="https://picsum.photos/seed/news9/600/400.jpg" alt="Literasi Digital">
+</div>
+<div class="news-content">
+<div class="news-category">BERITA</div>
+<h2 class="news-title">Pelatihan Literasi Digital di Banyumas: Membangun Generasi Muda Produktif</h2>
+<div class="news-meta">
+<i class="far fa-calendar"></i> 18 Desember 2022
+</div>
+<p class="news-excerpt">Dinkominfo Banyumas menggelar pelatihan literasi digital bagi generasi muda untuk meningkatkan produktivitas dan keterampilan di era digital.</p>
+<a href="#" class="btn btn-primary">Baca Selengkapnya</a>
+</div>
+</div>
+</div>
+
+<!-- Pagination -->
+<div class="pagination">
+<a href="#" class="pagination-link active">1</a>
+<a href="#" class="pagination-link">2</a>
+<a href="#" class="pagination-link">3</a>
+<a href="#" class="pagination-link">
+<i class="fas fa-chevron-right"></i>
+</a>
+</div>
+</div>
+</main>
+
+<!-- Footer -->
+<footer id="kontak">
+<div class="container">
+<div class="footer-grid">
+<div class="footer-section">
+<h3>Website SKPD</h3>
+<a href="#"><i class="fas fa-building"></i> Sekretariat Daerah</a>
+<a href="#"><i class="fas fa-leaf"></i> Dinas Lingkungan Hidup</a>
+<a href="#"><i class="fas fa-users"></i> DINSOSPERMASDES BANYUMAS</a>
+<a href="#"><i class="fas fa-home"></i> Dinas Perumahan dan Kawasan Permukiman</a>
+<a href="#"><i class="fas fa-briefcase"></i> DPMPTSP BANYUMAS</a>
+<a href="#"><i class="fas fa-shield-alt"></i> DPPKBP3A</a>
+</div>
+<div class="footer-section">
+<h3>Website Link</h3>
+<a href="#"><i class="fas fa-globe"></i> Website Pemerintah Kabupaten</a>
+<a href="#"><i class="fas fa-home"></i> Website Desa</a>
+<a href="#"><i class="fas fa-home"></i> Desa Sudimara Kecamatan Cilongok</a>
+<a href="#"><i class="fas fa-home"></i> MEDIA INFORMASI DESA BUNIAYU</a>
+<a href="#"><i class="fas fa-home"></i> Desa Klapagading Kulon Kecamatan Wangon</a>
+<a href="#"><i class="fas fa-home"></i> Desa Plangkapan Kecamatan Tambak</a>
+<a href="#"><i class="fas fa-home"></i> Desa Jurangbahas Kecamatan Wangon</a>
+<a href="#"><i class="fas fa-home"></i> Desa Rancamaya Kecamatan Cilongok</a>
+</div>
+<div class="footer-section">
+<h3>Counter</h3>
+<div class="counter-table">
+<div class="counter-row">
+<div class="counter-cell"><i class="fas fa-sun"></i> Hari ini</div>
+<div class="counter-cell value">12 Pengunjung</div>
+</div>
+<div class="counter-row">
+<div class="counter-cell"><i class="fas fa-calendar-week"></i> Minggu ini</div>
+<div class="counter-cell value">65 Pengunjung</div>
+</div>
+<div class="counter-row">
+<div class="counter-cell"><i class="fas fa-calendar-alt"></i> Bulan ini</div>
+<div class="counter-cell value">376 Pengunjung</div>
+</div>
+<div class="counter-row">
+<div class="counter-cell"><i class="fas fa-calendar-year"></i> Tahun ini</div>
+<div class="counter-cell value">68,531 Pengunjung</div>
+</div>
+<div class="counter-row">
+<div class="counter-cell"><i class="fas fa-users"></i> Total Pengunjung</div>
+<div class="counter-cell value">135,971 Pengunjung</div>
+</div>
+</div>
+</div>
+<div class="footer-section">
+<h3>Post</h3>
+<p>Rapat Koordinasi Penguatan E-Government Di Kabupaten Banyumas: <span>19,691</span></p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>© 2025 Dinkominfo Banyumas. All rights reserved.</p>
+<div class="footer-links">
+<a href="#">Privasi</a>
+<a href="#">Syarat</a>
+</div>
+</div>
+</div>
+</footer>
+
+<script>
+// Toggle Mobile Menu
+function toggleMobileMenu() {
+const mobileNav = document.getElementById('mobileNav');
+mobileNav.classList.toggle('active');
+}
+
+// Toggle Theme
+function toggleTheme() {
+const body = document.body;
+const themeToggle = document.querySelector('.theme-toggle i');
+
+if (body.getAttribute('data-theme') === 'dark') {
+body.removeAttribute('data-theme');
+themeToggle.classList.remove('fa-sun');
+themeToggle.classList.add('fa-moon');
+} else {
+body.setAttribute('data-theme', 'dark');
+themeToggle.classList.remove('fa-moon');
+themeToggle.classList.add('fa-sun');
+}
+}
+
+// Active Navigation
+document.addEventListener('DOMContentLoaded', function() {
+const currentPath = window.location.pathname;
+const navLinks = document.querySelectorAll('.nav-items a, .dropdown-content a');
+
+navLinks.forEach(link => {
+if (link.getAttribute('href') === currentPath) {
+link.classList.add('active');
+}
+});
+});
+</script>
+
+<style>
+/* News Grid Styles */
+.news-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+gap: 2rem;
+margin-bottom: 3rem;
+}
+
+.news-card {
+background: var(--card);
+border-radius: var(--radius);
+overflow: hidden;
+box-shadow: var(--shadow-sm);
+transition: var(--transition);
+display: flex;
+flex-direction: column;
+}
+
+.news-card:hover {
+transform: translateY(-8px);
+box-shadow: var(--shadow-lg);
+}
+
+.news-image {
+height: 200px;
+overflow: hidden;
+}
+
+.news-image img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+transition: var(--transition);
+}
+
+.news-card:hover .news-image img {
+transform: scale(1.05);
+}
+
+.news-content {
+padding: 1.5rem;
+flex: 1;
+display: flex;
+flex-direction: column;
+}
+
+.news-category {
+display: inline-block;
+background: var(--red-line);
+color: white;
+padding: 0.25rem 0.75rem;
+border-radius: 1rem;
+font-size: 0.75rem;
+font-weight: 600;
+margin-bottom: 0.75rem;
+width: fit-content;
+}
+
+.news-title {
+font-size: 1.25rem;
+font-weight: 700;
+margin-bottom: 0.75rem;
+color: var(--primary);
+line-height: 1.3;
+}
+
+.news-meta {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+color: var(--text-light);
+font-size: 0.875rem;
+margin-bottom: 1rem;
+}
+
+.news-excerpt {
+color: var(--text-light);
+margin-bottom: 1.5rem;
+flex: 1;
+line-height: 1.6;
+}
+
+/* Pagination Styles */
+.pagination {
+display: flex;
+justify-content: center;
+gap: 0.5rem;
+margin-top: 3rem;
+}
+
+.pagination-link {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 40px;
+height: 40px;
+border-radius: 50%;
+background: var(--card);
+color: var(--text);
+text-decoration: none;
+font-weight: 600;
+transition: var(--transition);
+border: 1px solid var(--border);
+}
+
+.pagination-link:hover {
+background: var(--primary);
+color: white;
+border-color: var(--primary);
+}
+
+.pagination-link.active {
+background: var(--primary);
+color: white;
+border-color: var(--primary);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+.news-grid {
+grid-template-columns: 1fr;
+}
+}
+</style>
+</body>
+</html>

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reformasi Birokrasi 2020 - Dinkominfo Banyumas</title>
+  
+  <base href="/project-template-web-dinkominfo-bms/">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="topbar">
+      <div class="container topbar-content">
+        <div class="topbar-left">
+          <div class="topbar-logo">
+            <img src="images/logo-bms.png" alt="Logo Banyumas">
+          </div>
+          <div class="topbar-info">
+            <h4>Dinas Komunikasi dan Informatika</h4>
+            <p>Pemerintah Kabupaten Banyumas</p>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="topbar-right-item">
+            <i class="fas fa-map-marker-alt" style="color: #ff6f61;"></i>
+            <span>Jl. Masjid No. 8 Purwokerto</span>
+          </div>
+          <span>|</span>
+          <div class="topbar-right-item">
+            <i class="fas fa-phone" style="color: #6b48ff;"></i>
+            <span>Telp: (0281) 632338</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav>
+      <div class="container nav-content">
+        <div class="nav-items">
+          <a href="index.html">Beranda</a>
+
+          <div class="dropdown">
+            <a href="profil/visi-misi.html" class="dropdown-toggle">Profil</a>
+            <div class="dropdown-content">
+              <a href="profil/visi-misi.html">Visi Dan Misi</a>
+              <a href="profil/tugas-fungsi.html">Tugas Dan Fungsi</a>
+              <a href="profil/struktur-organisasi.html">Struktur Organisasi</a>
+              <a href="profil/sejarah-dinkominfo.html">Sejarah Dinkominfo</a>
+              <a href="profil/alamat-kontak.html">Alamat Dan Kontak</a>
+              <a href="profil/indikator-kinerja.html">Indikator Kinerja Utama</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="ppid/berkala.html">PPID</a>
+            <div class="dropdown-content">
+              <a href="ppid/sk-dip.html">SK DIP DIKECUALIKAN</a>
+              <a href="ppid/berkala.html">Berkala</a>
+              <a href="ppid/setiap-saat.html">Setiap Saat</a>
+              <a href="ppid/serta-merta.html">Serta Merta</a>
+              <a href="ppid/struktur-ppid.html">Struktur PPID</a>
+              <a href="ppid/maklumat-pelayanan.html">Maklumat Pelayanan</a>
+              <a href="ppid/laporan-tahunan.html">Laporan Tahunan</a>
+              <a href="ppid/sk-ppid.html">SK PPID</a>
+              <a href="ppid/sk-penetapan-dip.html">SK Penetapan DIP</a>
+              <a href="ppid/permohonan-informasi.html">Permohonan Informasi</a>
+              <a href="ppid/form-keberatan.html">Form Keberatan</a>
+              <a href="ppid/sop.html">SOP</a>
+            </div>
+          </div>
+
+          <div class="dropdown">
+            <a href="menu-publik.html">Menu Publik</a>
+            <div class="dropdown-content">
+              <a href="menu-publik/berita.html">Berita</a>
+              <a href="menu-publik/pelayanan.html">Pelayanan</a>
+              <a href="menu-publik/pengumuman.html">Pengumuman</a>
+              <a href="menu-publik/materi-bintek.html">Materi Bintek</a>
+              <a href="menu-publik/galeri.html">Galeri</a>
+              <div class="dropdown-submenu">
+                <a href="menu-publik/reformasi-birokrasi.html" class="active">Reformasi Birokrasi <i class="fas fa-chevron-right"></i></a>
+                <div class="dropdown-content-sub">
+                  <a href="menu-publik/reformasi-birokrasi-2020.html" class="active">2020</a>
+                  <a href="menu-publik/reformasi-birokrasi-2019.html">2019</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="pegawai.html">Data Pegawai</a>
+          <a href="download.html">Download</a>
+          <a href="faq.html">F.A.Q</a>
+          <a href="kontak.html">Kontak</a>
+        </div>
+
+        <div class="nav-actions">
+          <button class="btn-icon theme-toggle" onclick="toggleTheme()">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="btn-icon menu-toggle" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" onclick="toggleMobileMenu()">Beranda</a>
+        <a href="profil/visi-misi.html" onclick="toggleMobileMenu()">Profil</a>
+        <a href="ppid/berkala.html" onclick="toggleMobileMenu()">PPID</a>
+        <a href="menu-publik.html" onclick="toggleMobileMenu()">Menu Publik</a>
+        <a href="menu-publik/reformasi-birokrasi-2020.html" onclick="toggleMobileMenu()">Reformasi Birokrasi 2020</a>
+        <a href="menu-publik/reformasi-birokrasi-2019.html" onclick="toggleMobileMenu()">Reformasi Birokrasi 2019</a>
+        <a href="pegawai.html" onclick="toggleMobileMenu()">Data Pegawai</a>
+        <a href="download.html" onclick="toggleMobileMenu()">Download</a>
+        <a href="faq.html" onclick="toggleMobileMenu()">F.A.Q</a>
+        <a href="kontak.html" onclick="toggleMobileMenu()">Kontak</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">Reformasi Birokrasi 2020</h1>
+        <p class="hero-subtitle">Data dan informasi mengenai program reformasi birokrasi Dinas Komunikasi dan Informatika Kabupaten Banyumas tahun 2020</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="reformasi-container">
+        <div class="reformasi-header">
+          <div class="year-selector">
+            <a href="menu-publik/reformasi-birokrasi-2019.html" class="year-btn">2019</a>
+            <a href="menu-publik/reformasi-birokrasi-2020.html" class="year-btn active">2020</a>
+          </div>
+          <h2 class="reformasi-title">Data Reformasi Birokrasi 2020</h2>
+        </div>
+
+        <div class="reformasi-content">
+          <div class="reformasi-list">
+            <div class="reformasi-item">
+              <div class="reformasi-icon">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div class="reformasi-info">
+                <h3>Renstra Kominfo 2018 - 2023</h3>
+                <p>Rencana Strategis Dinas Komunikasi dan Informatika Kabupaten Banyumas periode 2018-2023</p>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="fas fa-download"></i> Unduh Dokumen
+                </a>
+              </div>
+            </div>
+
+            <div class="reformasi-item">
+              <div class="reformasi-icon">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <div class="reformasi-info">
+                <h3>PK Dinkominfo 2020</h3>
+                <p>Perjanjian Kinerja Dinas Komunikasi dan Informatika tahun 2020</p>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="fas fa-download"></i> Unduh Dokumen
+                </a>
+              </div>
+            </div>
+
+            <div class="reformasi-item">
+              <div class="reformasi-icon">
+                <i class="fas fa-tasks"></i>
+              </div>
+              <div class="reformasi-info">
+                <h3>PK Dinkominfo 2021</h3>
+                <p>Perjanjian Kinerja Dinas Komunikasi dan Informatika tahun 2021</p>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="fas fa-download"></i> Unduh Dokumen
+                </a>
+              </div>
+            </div>
+
+            <div class="reformasi-item">
+              <div class="reformasi-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="reformasi-info">
+                <h3>IKU 2020</h3>
+                <p>Indikator Kinerja Utama tahun 2020</p>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="fas fa-download"></i> Unduh Dokumen
+                </a>
+              </div>
+            </div>
+
+            <div class="reformasi-item">
+              <div class="reformasi-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="reformasi-info">
+                <h3>IKU 2021</h3>
+                <p>Indikator Kinerja Utama tahun 2021</p>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="fas fa-download"></i> Unduh Dokumen
+                </a>
+              </div>
+            </div>
+
+            <div class="reformasi-item">
+              <div class="reformasi-icon">
+                <i class="fas fa-clipboard-check"></i>
+              </div>
+              <div class="reformasi-info">
+                <h3>Pengukuran Capaian Kinerja Tahun 2020</h3>
+                <p>Dokumen pengukuran capaian kinerja tahun 2020</p>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="fas fa-download"></i> Unduh Dokumen
+                </a>
+              </div>
+            </div>
+
+            <div class="reformasi-item">
+              <div class="reformasi-icon">
+                <i class="fas fa-file-contract"></i>
+              </div>
+              <div class="reformasi-info">
+                <h3>Perjanjian Kinerja Tahun 2020</h3>
+                <p>Perjanjian kinerja tahun 2020</p>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="fas fa-download"></i> Unduh Dokumen
+                </a>
+              </div>
+            </div>
+
+            <div class="reformasi-item">
+              <div class="reformasi-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="reformasi-info">
+                <h3>SK Tim UPG</h3>
+                <p>Surat Keputusan Tim Unit Pengelolaan Government</p>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="fas fa-download"></i> Unduh Dokumen
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer id="kontak">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Website SKPD</h3>
+          <a href="#"><i class="fas fa-building"></i> Sekretariat Daerah</a>
+          <a href="#"><i class="fas fa-leaf"></i> Dinas Lingkungan Hidup</a>
+          <a href="#"><i class="fas fa-users"></i> DINSOSPERMASDES BANYUMAS</a>
+          <a href="#"><i class="fas fa-home"></i> Dinas Perumahan dan Kawasan Permukiman</a>
+          <a href="#"><i class="fas fa-briefcase"></i> DPMPTSP BANYUMAS</a>
+          <a href="#"><i class="fas fa-shield-alt"></i> DPPKBP3A</a>
+        </div>
+        <div class="footer-section">
+          <h3>Website Link</h3>
+          <a href="#"><i class="fas fa-globe"></i> Website Pemerintah Kabupaten</a>
+          <a href="#"><i class="fas fa-home"></i> Website Desa</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Sudimara Kecamatan Cilongok</a>
+          <a href="#"><i class="fas fa-home"></i> MEDIA INFORMASI DESA BUNIAYU</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Klapagading Kulon Kecamatan Wangon</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Plangkapan Kecamatan Tambak</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Jurangbahas Kecamatan Wangon</a>
+          <a href="#"><i class="fas fa-home"></i> Desa Rancamaya Kecamatan Cilongok</a>
+        </div>
+        <div class="footer-section">
+          <h3>Counter</h3>
+          <div class="counter-table">
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-sun"></i> Hari ini</div>
+              <div class="counter-cell value">12 Pengunjung</div>
+            </div>
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-calendar-week"></i> Minggu ini</div>
+              <div class="counter-cell value">65 Pengunjung</div>
+            </div>
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-calendar-alt"></i> Bulan ini</div>
+              <div class="counter-cell value">376 Pengunjung</div>
+            </div>
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-calendar-year"></i> Tahun ini</div>
+              <div class="counter-cell value">68,531 Pengunjung</div>
+            </div>
+            <div class="counter-row">
+              <div class="counter-cell"><i class="fas fa-users"></i> Total Pengunjung</div>
+              <div class="counter-cell value">135,971 Pengunjung</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h3>Post</h3>
+          <p>Rapat Koordinasi Penguatan E-Government Di Kabupaten Banyumas: <span>19,691</span></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Dinkominfo Banyumas. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privasi</a>
+          <a href="#">Syarat</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle Mobile Menu
+    function toggleMobileMenu() {
+      const mobileNav = document.getElementById('mobileNav');
+      mobileNav.classList.toggle('active');
+    }
+
+    // Toggle Theme
+    function toggleTheme() {
+      const body = document.body;
+      const themeToggle = document.querySelector('.theme-toggle i');
+      
+      if (body.getAttribute('data-theme') === 'dark') {
+        body.removeAttribute('data-theme');
+        themeToggle.classList.remove('fa-sun');
+        themeToggle.classList.add('fa-moon');
+      } else {
+        body.setAttribute('data-theme', 'dark');
+        themeToggle.classList.remove('fa-moon');
+        themeToggle.classList.add('fa-sun');
+      }
+    }
+
+    // Active Navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentPath = window.location.pathname;
+      const navLinks = document.querySelectorAll('.nav-items a, .dropdown-content a');
+      
+      navLinks.forEach(link => {
+        if (link.getAttribute('href') === currentPath) {
+          link.classList.add('active');
+        }
+      });
+    });
+  </script>
+
+  <style>
+    /* Dropdown Submenu Styles */
+    .dropdown-submenu {
+      position: relative;
+    }
+
+    .dropdown-submenu > a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .dropdown-submenu > a i {
+      font-size: 0.7rem;
+      margin-left: 0.5rem;
+    }
+
+    .dropdown-content-sub {
+      display: none;
+      position: absolute;
+      left: 100%;
+      top: 0;
+      background: var(--card);
+      min-width: 150px;
+      box-shadow: var(--shadow-md);
+      border-radius: var(--radius);
+      z-index: 100;
+      border: 1px solid var(--border);
+      padding: 0.25rem 0;
+    }
+
+    .dropdown-submenu:hover .dropdown-content-sub {
+      display: block;
+    }
+
+    /* Reformasi Birokrasi Styles */
+    .reformasi-container {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 2rem;
+    }
+
+    .reformasi-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .year-selector {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .year-btn {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: var(--bg-light);
+      color: var(--text);
+      text-decoration: none;
+      border-radius: 2rem;
+      font-weight: 600;
+      transition: var(--transition);
+      border: 2px solid transparent;
+    }
+
+    .year-btn:hover {
+      background: var(--bg-light);
+      color: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .year-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .reformasi-title {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      font-weight: 800;
+    }
+
+    .reformasi-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .reformasi-item {
+      background: var(--bg-light);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: var(--transition);
+      border-left: 4px solid var(--primary);
+    }
+
+    .reformasi-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      background: var(--card);
+    }
+
+    .reformasi-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .reformasi-info {
+      flex: 1;
+    }
+
+    .reformasi-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .reformasi-info p {
+      color: var(--text-light);
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+
+    .btn-sm {
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .reformasi-list {
+        grid-template-columns: 1fr;
+      }
+      
+      .reformasi-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .reformasi-icon {
+        margin: 0 auto 1rem;
+      }
+    }
+  </style>
+</body>
+</html>

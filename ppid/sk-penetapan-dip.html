@@ -4,15 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>SK Penetapan DIP - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  <base href="/project-template-web-dinkominfo-bms/">
+   <base href="/project-template-web-dinkominfo-bms/">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan / -->
+  <link rel="stylesheet" href="/project-template-web-dinkominfo-bms/css/style.css">
   
   <!-- PDF.js CDN -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
@@ -308,10 +308,12 @@
               <div class="sk-year">SK Penetapan DIP Tahun 2023</div>
               <div class="sk-desc">Surat Keputusan penetapan Daftar Informasi Publik Tahun 2023.</div>
               <div class="sk-actions">
-                <button class="btn btn-preview" onclick="openPDFPreview('../files/SK DIP 2023.pdf', 'SK Penetapan DIP Tahun 2023')">
+                <!-- PERUBAHAN 2: Path ke PDF untuk preview 2023 -->
+                <button class="btn btn-preview" onclick="openPDFPreview('/project-template-web-dinkominfo-bms/files/SK DIP 2023.pdf', 'SK Penetapan DIP Tahun 2023')">
                   Preview
                 </button>
-                <a href="../files/SK DIP 2023.pdf" class="btn btn-download" download>
+                <!-- PERUBAHAN 3: Path ke PDF untuk download 2023 -->
+                <a href="/project-template-web-dinkominfo-bms/files/SK DIP 2023.pdf" class="btn btn-download" download>
                   Unduh PDF
                 </a>
               </div>
@@ -322,10 +324,12 @@
               <div class="sk-year">SK Penetapan DIP Tahun 2024</div>
               <div class="sk-desc">Surat Keputusan penetapan Daftar Informasi Publik Tahun 2024.</div>
               <div class="sk-actions">
-                <button class="btn btn-preview" onclick="openPDFPreview('../files/SK DIP 2024.pdf', 'SK Penetapan DIP Tahun 2024')">
+                <!-- PERUBAHAN 4: Path ke PDF untuk preview 2024 -->
+                <button class="btn btn-preview" onclick="openPDFPreview('/project-template-web-dinkominfo-bms/files/SK DIP 2024.pdf', 'SK Penetapan DIP Tahun 2024')">
                   Preview
                 </button>
-                <a href="../files/SK DIP 2024.pdf" class="btn btn-download" download>
+                <!-- PERUBAHAN 5: Path ke PDF untuk download 2024 -->
+                <a href="/project-template-web-dinkominfo-bms/files/SK DIP 2024.pdf" class="btn btn-download" download>
                   Unduh PDF
                 </a>
               </div>
@@ -461,12 +465,12 @@
       });
     });
 
-    // Load Header and Footer - PERBAIKAN
-    fetch('layout/header.html?v=' + Date.now())
+    // PERUBAHAN 6 & 7: Path ke Header dan Footer sudah ditambahkan /
+    fetch('/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('layout/footer.html?v=' + Date.now())
+    fetch('/project-template-web-dinkominfo-bms/layout/footer.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>

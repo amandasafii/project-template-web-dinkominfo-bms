@@ -4,16 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Keberatan Informasi - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  <base href="/project-template-web-dinkominfo-bms/">
-  
+   <base href="/project-template-web-dinkominfo-bms/">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="css/style.css">
+  <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan / -->
+  <link rel="stylesheet" href="/project-template-web-dinkominfo-bms/css/style.css">
   
   <!-- Additional CSS for this page -->
   <style>
@@ -230,7 +229,7 @@
             </div>
             <div class="success-text">
               Keberatan Anda berhasil dikirim!<br>
-              Kami akan memproses dan menghubungi Anda dalam waktu maksimal <strong>10 hari kerja</strong>.
+              Kami akan memproses keberatan Anda dan menghubungi Anda dalam waktu maksimal <strong>10 hari kerja</strong>.
             </div>
           </div>
         </div>
@@ -249,23 +248,23 @@
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-
+      
       // Tampilkan pesan sukses
       successMsg.classList.add('active');
 
-      // Scroll halus ke pesan sukses
+      // Scroll ke pesan sukses
       successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
       // Reset form
       form.reset();
-
+      
       // Sembunyikan otomatis setelah 6 detik
       setTimeout(() => {
         successMsg.classList.remove('active');
       }, 6000);
     });
 
-    // Aksesibilitas
+    // AKSESIBILITAS & HEADER/FOOTER
     const accToggle = document.getElementById('accessibility-toggle');
     const accPanel = document.getElementById('accessibility-panel');
     accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
@@ -292,35 +291,20 @@
         isHighlightActive = false;
         document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
 
-        if (mode === 'contrast') {
-          document.body.classList.add('high-contrast');
-          item.classList.add('active');
-        }
-        else if (mode === 'dark') {
-          document.body.classList.add('dark-mode');
-          item.classList.add('active');
-        }
-        else if (mode === 'highlight') {
-          isHighlightActive = true;
-          cursorHighlight.classList.add('active');
-          item.classList.add('active');
-        }
-        else if (mode === 'guideline') {
-          document.body.classList.add('guideline-mode');
-          item.classList.add('active');
-        }
-        else if (mode === 'reset') {
-          document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
-        }
+        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
+        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
+        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
+        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
+        else if (mode === 'reset') { document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode'); }
       });
     });
 
-    // Load Header & Footer
-    fetch('layout/header.html?v=' + Date.now())
+    // PERUBAHAN 2 & 3: Path ke Header dan Footer sudah ditambahkan /
+    fetch('/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('header-placeholder').outerHTML = d);
 
-    fetch('layout/footer.html?v=' + Date.now())
+    fetch('/project-template-web-dinkominfo-bms/layout/footer.html?v=' + Date.now())
       .then(r => r.text())
       .then(d => document.getElementById('footer-placeholder').outerHTML = d);
   </script>
