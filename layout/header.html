@@ -100,6 +100,35 @@
     .mobile-nav.active {
       display: flex;
     }
+    /* Submenu container */
+.dropdown-sub {
+  position: relative;
+}
+
+/* Submenu hidden default */
+.dropdown-sub-content {
+  display: none;
+  position: absolute;
+  left: 100%; /* supaya muncul di samping */
+  top: 0;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 999;
+}
+
+/* Show submenu ketika hover */
+.dropdown-sub:hover .dropdown-sub-content {
+  display: block;
+}
+
+/* Style tombol submenu */
+.subbtn {
+  cursor: pointer;
+  display: block;
+  padding: 10px 16px;
+}
+
   </style>
 </head>
 <body>
@@ -164,16 +193,25 @@
             </div>
           </div>
           <div class="dropdown">
-            <a href="menu-publik/berita.html">Menu Publik</a>
-            <div class="dropdown-content">
-              <a href="menu-publik/berita.html">Berita</a>
-              <a href="menu-publik/pelayanan.html">Pelayanan</a>
-              <a href="menu-publik/pengumuman.html">Pengumuman</a>
-              <a href="menu-publik/materi-bintek.html">Materi Bintek</a>
-              <a href="menu-publik/galeri.html">Galeri</a>
-              <a href="menu-publik/reformasi-birokrasi.html">Reformasi Birokrasi</a>
+          <a href="menu-publik/berita.html">Menu Publik</a>
+
+          <div class="dropdown-content">
+
+            <a href="menu-publik/berita.html">Berita</a>
+            <a href="menu-publik/pelayanan.html">Pelayanan</a>
+            <a href="menu-publik/pengumuman.html">Pengumuman</a>
+            <a href="menu-publik/materi-bintek.html">Materi Bintek</a>
+            <a href="menu-publik/galeri.html">Galeri</a>
+            <!-- SUBMENU -->
+            <div class="dropdown-sub">
+              <a class="subbtn">Reformasi Birokrasi ▸</a>
+              <div class="dropdown-sub-content">
+                <a href="menu-publik/reformasi-birokrasi-2020.html">2020</a>
+                <a href="menu-publik/reformasi-birokrasi-2019.html">2019</a>
+              </div>
             </div>
           </div>
+        </div>
           <a href="pegawai.html">Data Pegawai</a>
           <a href="download.html">Download</a>
           <a href="faq.html">F.A.Q</a>
@@ -188,15 +226,73 @@
       </div>
 
       <div class="mobile-nav" id="mobileNav">
-        <a href="./">Beranda</a>
-        <a href="profil/visi-misi.html">Profil</a>
-        <a href="ppid/berkala.html">PPID</a>
-        <a href="menu-publik/berita.html">Menu Publik</a>
-        <a href="pegawai.html">Data Pegawai</a>
-        <a href="download.html">Download</a>
-        <a href="faq.html">F.A.Q</a>
-        <a href="kontak.html">Kontak</a>
+  <div class="nav-items">
+
+    <a href="./">Beranda</a>
+
+    <!-- PROFIL -->
+    <div class="dropdown">
+      <a href="profil/visi-misi.html">Profil</a>
+      <div class="dropdown-content">
+        <a href="profil/visi-misi.html">Visi Dan Misi</a>
+        <a href="profil/tugas-fungsi.html">Tugas Dan Fungsi</a>
+        <a href="profil/struktur-organisasi.html">Struktur Organisasi</a>
+        <a href="profil/sejarah-dinkominfo.html">Sejarah Dinkominfo</a>
+        <a href="profil/alamat-kontak.html">Alamat Dan Kontak</a>
+        <a href="profil/indikator-kinerja.html">Indikator Kinerja Utama</a>
       </div>
+    </div>
+
+    <!-- PPID -->
+    <div class="dropdown">
+      <a href="ppid/berkala.html">PPID</a>
+      <div class="dropdown-content">
+        <a href="ppid/sk-dip.html">SK DIP DIKECUALIKAN</a>
+        <a href="ppid/berkala.html">Berkala</a>
+        <a href="ppid/setiap-saat.html">Setiap Saat</a>
+        <a href="ppid/serta-merta.html">Serta Merta</a>
+        <a href="ppid/struktur-ppid.html">Struktur PPID</a>
+        <a href="ppid/maklumat-pelayanan.html">Maklumat Pelayanan</a>
+        <a href="ppid/laporan-tahunan.html">Laporan Tahunan</a>
+        <a href="ppid/sk-ppid.html">SK PPID</a>
+        <a href="ppid/sk-penetapan-dip.html">SK Penetapan DIP</a>
+        <a href="ppid/permohonan-informasi.html">Permohonan Informasi</a>
+        <a href="ppid/form-keberatan.html">Form Keberatan</a>
+        <a href="ppid/sop.html">SOP</a>
+      </div>
+    </div>
+
+    <!-- MENU PUBLIK -->
+    <div class="dropdown">
+      <a href="menu-publik/berita.html">Menu Publik</a>
+
+      <div class="dropdown-content">
+        <a href="menu-publik/berita.html">Berita</a>
+        <a href="menu-publik/pelayanan.html">Pelayanan</a>
+        <a href="menu-publik/pengumuman.html">Pengumuman</a>
+        <a href="menu-publik/materi-bintek.html">Materi Bintek</a>
+        <a href="menu-publik/galeri.html">Galeri</a>
+
+        <!-- SUBMENU REFORMASI BIROKRASI -->
+        <div class="dropdown-sub">
+          <a class="subbtn">Reformasi Birokrasi ▸</a>
+          <div class="dropdown-sub-content">
+            <a href="menu-publik/reformasi-birokrasi-2020.html">2020</a>
+            <a href="menu-publik/reformasi-birokrasi-2019.html">2019</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MENU LAIN -->
+    <a href="pegawai.html">Data Pegawai</a>
+    <a href="download.html">Download</a>
+    <a href="faq.html">F.A.Q</a>
+    <a href="kontak.html">Kontak</a>
+
+  </div>
+</div>
+
     </nav>
   </div>
 </header>

@@ -141,7 +141,7 @@
 <!-- News Item 1 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news1/600/400.jpg" alt="Forum Konsultasi Publik">
+<img src="/project-template-web-dinkominfo-bms/images/berita.jpg" alt="Forum Konsultasi Publik">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -157,7 +157,7 @@
 <!-- News Item 2 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news2/600/400.jpg" alt="PPID Banyumas">
+<img src="/project-template-web-dinkominfo-bms/images/berita1.jpg" alt="PPID Banyumas">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -173,7 +173,7 @@
 <!-- News Item 3 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news3/600/400.jpg" alt="Gempur Rokok Illegal">
+<img src="/project-template-web-dinkominfo-bms/images/berita2.jpg" alt="Gempur Rokok Illegal">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -189,7 +189,7 @@
 <!-- News Item 4 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news4/600/400.jpg" alt="Digital Marketing">
+<img src="/project-template-web-dinkominfo-bms/images/berita3.jpg" alt="Digital Marketing">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -205,7 +205,7 @@
 <!-- News Item 5 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news5/600/400.jpg" alt="Transformasi Digital">
+<img src="/project-template-web-dinkominfo-bms/images/galeri5.jpg" alt="Transformasi Digital">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -221,7 +221,7 @@
 <!-- News Item 6 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news6/600/400.jpg" alt="Pimpinan Baru">
+<img src="/project-template-web-dinkominfo-bms/images/galeri4.jpg" alt="Pimpinan Baru">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -237,7 +237,7 @@
 <!-- News Item 7 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news7/600/400.jpg" alt="Rokok Illegal">
+<img src="/project-template-web-dinkominfo-bms/images/galeri1.jpg" alt="Rokok Illegal">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -253,7 +253,7 @@
 <!-- News Item 8 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news8/600/400.jpg" alt="Studi Banding">
+<img src="/project-template-web-dinkominfo-bms/images/galeri3.jpg" alt="Studi Banding">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -269,7 +269,7 @@
 <!-- News Item 9 -->
 <div class="news-card">
 <div class="news-image">
-<img src="https://picsum.photos/seed/news9/600/400.jpg" alt="Literasi Digital">
+<img src="/project-template-web-dinkominfo-bms/images/galeri3.jpg" alt="Literasi Digital">
 </div>
 <div class="news-content">
 <div class="news-category">BERITA</div>
@@ -393,6 +393,13 @@ link.classList.add('active');
 }
 });
 });
+fetch('layout/header.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('header-placeholder').outerHTML = d);
+
+    fetch('layout/footer.html?v=' + Date.now())
+      .then(r => r.text())
+      .then(d => document.getElementById('footer-placeholder').outerHTML = d);
 </script>
 
 <style>
