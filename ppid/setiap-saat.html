@@ -4,12 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Informasi Setiap Saat - Dinas Komunikasi dan Informatika Kab. Banyumas</title>
-  
+  <base href="/MAGANG/project-template-web-dinkominfo-bms/">
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+  <!-- OpenDyslexic Font for Accessibility -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=OpenDyslexic&display=swap">
   
   <!-- PERUBAHAN 1: Path ke CSS sudah ditambahkan /MAGANG/ -->
   <link rel="stylesheet" href="/MAGANG/project-template-web-dinkominfo-bms/css/style.css">
@@ -118,26 +121,347 @@
       margin: 0;
       font-weight: 500;
     }
+    
+    /* TOMBOL AKSESBILITAS */
+    #accessibility-container {
+      position: fixed;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      z-index: 9999;
+    }
+
+    #accessibility-btn {
+      position: relative;
+      background: #0066FF;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 30px rgba(0,102,255,0.5);
+      transition: all 0.4s ease;
+      overflow: visible;
+    }
+
+    #accessibility-btn .icon {
+      font-size: 38px;
+      color: white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      transition: all 0.4s ease;
+    }
+
+    #accessibility-btn .label {
+      position: absolute;
+      left: 78px;
+      font-weight: 600;
+      font-size: 17px;
+      color: white;
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateX(-15px);
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+
+    #accessibility-btn:hover {
+      border-radius: 50px;
+      width: 220px;
+      justify-content: flex-start;
+      padding-left: 20px;
+    }
+
+    #accessibility-btn:hover .icon { left: 22px; transform: translate(0, -50%); }
+    #accessibility-btn:hover .label { opacity: 1; transform: translateX(0); }
+
+    /* PANEL */
+    #accessibility-panel {
+      position: fixed;
+      top: 50%;
+      right: 110px;
+      transform: translateY(-50%);
+      width: 390px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    #accessibility-panel.active { opacity: 1; visibility: visible; }
+
+    .acc-header {
+      background: #0066FF;
+      color: white;
+      padding: 18px 24px;
+      font-weight: 600;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .acc-header i { margin-right: 10px; }
+    .acc-close { background:none; border:none; color:white; font-size:32px; cursor:pointer; }
+
+    .acc-body { padding:24px; }
+    .acc-group { margin-bottom:28px; }
+    .acc-title {
+      font-weight:600; margin-bottom:14px; color:#222;
+      display:flex; align-items:center; gap:10px;
+      font-size: 16px;
+    }
+    .acc-title i { color:#0066FF; font-size: 20px; width: 24px; text-align: center; }
+
+    .size-control { display:flex; align-items:center; gap:14px; }
+    .size-control button {
+      width:44px; height:44px; border-radius:50%; background:#0066FF; color:white;
+      border:none; font-size:22px; cursor:pointer;
+    }
+    .size-value { min-width:70px; text-align:center; font-weight:600; }
+
+    .spacing-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .spacing-btns button {
+      padding: 12px 20px; border: 2px solid #0066FF; background: white; color: #0066FF;
+      border-radius: 12px; cursor: pointer; font-weight: 600; font-size: 15px; transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .spacing-btns button.active { background: #0066FF; color: white; }
+
+    .align-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .align-btns button {
+      width: 56px; height: 56px; border: 2px solid #0066FF; background: white; color: #0066FF;
+      border-radius: 12px; cursor: pointer; font-size: 24px; display: flex; align-items: center;
+      justify-content: center; transition: all 0.3s;
+    }
+    .align-btns button.active { background: #0066FF; color: white; }
+
+    .toggle-row {
+      display:flex; justify-content:space-between; align-items:center;
+      padding:12px 0; border-bottom:1px solid #eee;
+    }
+    .toggle-row:last-child { border-bottom:none; }
+    .toggle-row span {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .toggle-row i {
+      color: #0066FF;
+      font-size: 18px;
+      width: 24px;
+      text-align: center;
+    }
+
+    .switch { position:relative; display:inline-block; width:56px; height:32px; }
+    .switch input { opacity:0; width:0; height:0; }
+    .slider { position:absolute; cursor:pointer; top:0; left:0; right:0; bottom:0;
+      background:#ccc; transition:.4s; border-radius:34px; }
+    .slider:before { position:absolute; content:""; height:24px; width:24px;
+      left:4px; bottom:4px; background:white; transition:.4s; border-radius:50%; }
+    input:checked + .slider { background:#0066FF; }
+    input:checked + .slider:before { transform:translateX(24px); }
+
+    .reset-btn {
+      margin-top:30px; width:100%; padding:16px; background:#0066FF; color:white;
+      border:none; border-radius:10px; font-size:17px; font-weight:600; cursor:pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    /* KURSOR BESAR – PUTIH + OUTLINE HITAM */
+    body.big-cursor, body.big-cursor * {
+      cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="44" height="52" viewBox="0 0 44 52"><path fill="%23FFFFFF" stroke="%23000000" stroke-width="4" d="M2 2l16 40 10-12 12 16 10-8-18-26 12-12z"/></svg>') 2 2, auto !important;
+    }
+
+    /* EFEK AKSESBILITAS LENGKAP */
+    body.monochrome { filter: grayscale(100%); }
+    body.high-contrast { background:#000 !important; color:#fff !important; }
+    body.high-contrast * { background:#000 !important; color:#fff !important; border-color:#fff !important; }
+    body.invert { filter: invert(1) hue-rotate(180deg); }
+    body.sepia { filter: sepia(100%); }
+    body.saturation-0 { filter: saturate(0%); }
+    body.dyslexia-font { font-family: "OpenDyslexic", Arial, sans-serif !important; }
+    body.underline-links a { text-decoration: underline !important; }
+
+    /* --- PERBAIKAN PANDUAN BACA --- */
+    body.reading-guide::before {
+      content: "";
+      position: fixed;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(0,102,255,0.15);
+      pointer-events: none;
+      z-index: 9997;
+      top: var(--mouse-y, 0px);
+      transform: translateY(-30px); /* Menengahkan garis pada kursor */
+      transition: top 0.08s ease-out; /* Pergerakan lebih halus */
+    }
+
+    body.hide-images img, body.hide-images picture { display:none !important; }
+    body.animation-paused *, body.animation-paused *::before, body.animation-paused *::after {
+      animation: none !important; transition: none !important;
+    }
+    body.bold-text { font-weight: 700 !important; }
+    body.links-highlight a { background: #ffff00 !important; color: #000 !important; padding: 2px 4px !important; }
+    body.focus-outline * { outline: 3px solid #0066FF !important; outline-offset: 2px !important; }
   </style>
 </head>
 <body>
 
-  <!-- STABILO -->
-  <div id="cursor-highlight" class="cursor-highlight"></div>
+  <!-- TOMBOL AKSESBILITAS -->
+  <div id="accessibility-container">
+    <div id="accessibility-btn" aria-label="Menu Aksesibilitas">
+      <i class="fas fa-wheelchair icon"></i>
+      <span class="label">Aksesibilitas</span>
+    </div>
+  </div>
 
-  <!-- TOGGLE AKSESIBILITAS -->
-  <div class="toggle-container">
-    <div style="position: relative;">
-      <button id="accessibility-toggle" class="toggle-btn" title="Aksesibilitas">
-        <i class="fas fa-universal-access"></i>
-      </button>
-      <div id="accessibility-panel" class="accessibility-panel">
-        <div class="acc-item" data-mode="contrast">Kontras</div>
-        <div class="acc-item" data-mode="dark">Mode Gelap</div>
-        <div class="acc-item" data-mode="highlight">Stabilo</div>
-        <div class="acc-item" data-mode="guideline">Garis Panduan</div>
-        <div class="acc-item" data-mode="reset">Reset</div>
+  <!-- PANEL AKSESBILITAS SUPER LENGKAP -->
+  <div id="accessibility-panel">
+    <div class="acc-header">
+      <span><i class="fas fa-universal-access"></i>Menu Aksesibilitas</span>
+      <button class="acc-close" aria-label="Tutup">×</button>
+    </div>
+    <div class="acc-body">
+
+      <!-- 1. Mode Suara -->
+      <div class="acc-group">
+        <div class="acc-title"><i class="fas fa-volume-up"></i> Mode Suara</div>
+        <div class="toggle-row">
+          <span><i class="fas fa-microphone"></i> Baca teks saat diklik</span>
+          <label class="switch"><input type="checkbox" id="voice-mode"><span class="slider"></span></label>
+        </div>
       </div>
+
+      <!-- 2. Ukuran Teks -->
+      <div class="acc-group">
+        <div class="acc-title"><i class="fas fa-text-height"></i> Ukuran Teks</div>
+        <div class="size-control">
+          <button id="text-smaller"><i class="fas fa-minus"></i></button>
+          <span class="size-value" id="text-size">100%</span>
+          <button id="text-bigger"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+
+      <!-- 3. Tinggi Baris -->
+      <div class="acc-group">
+        <div class="acc-title"><i class="fas fa-arrows-alt-v"></i> Tinggi Baris</div>
+        <div class="size-control">
+          <button id="line-smaller"><i class="fas fa-minus"></i></button>
+          <span class="size-value" id="line-height">1.5x</span>
+          <button id="line-bigger"><i class="fas fa-plus"></i></button>
+        </div>
+      </div>
+
+      <!-- 4. Spasi Teks -->
+      <div class="acc-group">
+        <div class="acc-title"><i class="fas fa-text-width"></i> Spasi Antar Huruf</div>
+        <div class="spacing-btns">
+          <button data-spacing="0"><i class="fas fa-compress-alt"></i> Kecil</button>
+          <button data-spacing="4" class="active"><i class="fas fa-font"></i> Sedang</button>
+          <button data-spacing="10"><i class="fas fa-expand-alt"></i> Besar</button>
+        </div>
+      </div>
+
+      <!-- 5. Rata Tulisan -->
+      <div class="acc-group">
+        <div class="acc-title"><i class="fas fa-align-center"></i> Rata Tulisan</div>
+        <div class="align-btns">
+          <button data-align="left" title="Rata Kiri"><i class="fas fa-align-left"></i></button>
+          <button data-align="center" title="Rata Tengah"><i class="fas fa-align-center"></i></button>
+          <button data-align="justify" class="active" title="Rata Kanan-Kiri"><i class="fas fa-align-justify"></i></button>
+          <button data-align="right" title="Rata Kanan"><i class="fas fa-align-right"></i></button>
+        </div>
+      </div>
+
+      <!-- 6. Fitur Visual -->
+      <div class="acc-group">
+        <div class="acc-title"><i class="fas fa-eye"></i> Fitur Visual</div>
+        <div class="toggle-row">
+          <span><i class="fas fa-bold"></i> Pertebal Huruf</span>
+          <label class="switch"><input type="checkbox" id="bold-text"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-highlighter"></i> Sorot Tautan</span>
+          <label class="switch"><input type="checkbox" id="highlight-links"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-underline"></i> Garis Bawah Tautan</span>
+          <label class="switch"><input type="checkbox" id="underline-links"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-border-style"></i> Outline Fokus</span>
+          <label class="switch"><input type="checkbox" id="focus-outline"><span class="slider"></span></label>
+        </div>
+      </div>
+
+      <!-- 7. Mode Warna -->
+      <div class="acc-group">
+        <div class="acc-title"><i class="fas fa-palette"></i> Mode Warna</div>
+        <div class="toggle-row">
+          <span><i class="fas fa-adjust"></i> Kontras Tinggi</span>
+          <label class="switch"><input type="checkbox" id="high-contrast"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-circle"></i> Monokrom</span>
+          <label class="switch"><input type="checkbox" id="monochrome"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-adjust"></i> Invert Warna</span>
+          <label class="switch"><input type="checkbox" id="invert"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-image"></i> Sepia</span>
+          <label class="switch"><input type="checkbox" id="sepia"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-tint-slash"></i> Hilangkan Saturasi</span>
+          <label class="switch"><input type="checkbox" id="saturation-0"><span class="slider"></span></label>
+        </div>
+      </div>
+
+      <!-- 8. Fitur Tambahan -->
+      <div class="acc-group">
+        <div class="acc-title"><i class="fas fa-tools"></i> Fitur Tambahan</div>
+        <div class="toggle-row">
+          <span><i class="fas fa-font"></i> Font Disleksia</span>
+          <label class="switch"><input type="checkbox" id="dyslexia-font"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-ruler-horizontal"></i> Panduan Baca</span>
+          <label class="switch"><input type="checkbox" id="reading-guide"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-mouse-pointer"></i> Perbesar Kursor</span>
+          <label class="switch"><input type="checkbox" id="big-cursor"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-pause-circle"></i> Hentikan Animasi</span>
+          <label class="switch"><input type="checkbox" id="pause-animation"><span class="slider"></span></label>
+        </div>
+        <div class="toggle-row">
+          <span><i class="fas fa-eye-slash"></i> Sembunyikan Gambar</span>
+          <label class="switch"><input type="checkbox" id="hide-images"><span class="slider"></span></label>
+        </div>
+      </div>
+
+      <button class="reset-btn" id="reset-accessibility"><i class="fas fa-undo"></i> Atur Ulang Semua</button>
     </div>
   </div>
 
@@ -249,39 +573,130 @@
 
   <!-- SCRIPT -->
   <script>
-    // AKSESIBILITAS & HEADER/FOOTER
-    const accToggle = document.getElementById('accessibility-toggle');
-    const accPanel = document.getElementById('accessibility-panel');
-    accToggle.addEventListener('click', () => accPanel.classList.toggle('active'));
-    document.addEventListener('click', (e) => {
-      if (!accToggle.contains(e.target) && !accPanel.contains(e.target)) {
-        accPanel.classList.remove('active');
+    // Accessibility Panel Script
+    const btn = document.getElementById('accessibility-btn');
+    const panel = document.getElementById('accessibility-panel');
+    const closeBtn = document.querySelector('.acc-close');
+
+    btn.addEventListener('click', () => panel.classList.toggle('active'));
+    closeBtn.addEventListener('click', () => panel.classList.remove('active'));
+    document.addEventListener('click', e => {
+      if (!btn.contains(e.target) && !panel.contains(e.target)) panel.classList.remove('active');
+    });
+
+    // Ukuran Teks & Tinggi Baris
+    let textScale = 100, lineHeight = 1.5;
+    const textDisplay = document.getElementById('text-size');
+    const lineDisplay = document.getElementById('line-height');
+
+    document.getElementById('text-bigger').onclick = () => { 
+      if(textScale<200){ 
+        textScale+=10; 
+        document.documentElement.style.fontSize=textScale+'%'; 
+        textDisplay.textContent=textScale+'%'; 
       }
-    });
-
-    const cursorHighlight = document.getElementById('cursor-highlight');
-    let isHighlightActive = false;
-    document.addEventListener('mousemove', (e) => {
-      if (isHighlightActive) {
-        cursorHighlight.style.left = e.clientX + 'px';
-        cursorHighlight.style.top = e.clientY + 'px';
+    };
+    document.getElementById('text-smaller').onclick = () => { 
+      if(textScale>80){ 
+        textScale-=10; 
+        document.documentElement.style.fontSize=textScale+'%'; 
+        textDisplay.textContent=textScale+'%'; 
       }
+    };
+    document.getElementById('line-bigger').onclick = () => { 
+      if(lineHeight<3){ 
+        lineHeight+=0.2; 
+        document.body.style.lineHeight=lineHeight; 
+        lineDisplay.textContent=lineHeight.toFixed(1)+'x'; 
+      }
+    };
+    document.getElementById('line-smaller').onclick = () => { 
+      if(lineHeight>1){ 
+        lineHeight-=0.2; 
+        document.body.style.lineHeight=lineHeight; 
+        lineDisplay.textContent=lineHeight.toFixed(1)+'x'; 
+      }
+    };
+
+    // Spasi & Alignment
+    document.querySelectorAll('[data-spacing]').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('[data-spacing]').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      document.body.style.letterSpacing = b.dataset.spacing + 'px';
+    }));
+    document.querySelectorAll('[data-align]').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('[data-align]').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      document.body.style.textAlign = b.dataset.align;
+    }));
+
+    // Semua Toggle
+    const toggles = {
+      'bold-text': 'bold-text',
+      'highlight-links': 'links-highlight',
+      'underline-links': 'underline-links',
+      'focus-outline': 'focus-outline',
+      'high-contrast': 'high-contrast',
+      'monochrome': 'monochrome',
+      'invert': 'invert',
+      'sepia': 'sepia',
+      'saturation-0': 'saturation-0',
+      'dyslexia-font': 'dyslexia-font',
+      'reading-guide': 'reading-guide',
+      'big-cursor': 'big-cursor',
+      'pause-animation': 'animation-paused',
+      'hide-images': 'hide-images'
+    };
+
+    Object.keys(toggles).forEach(id => {
+      document.getElementById(id).onchange = e => document.body.classList.toggle(toggles[id], e.target.checked);
     });
 
-    document.querySelectorAll('.acc-item').forEach(item => {
-      item.addEventListener('click', () => {
-        const mode = item.getAttribute('data-mode');
-        document.body.classList.remove('high-contrast', 'dark-mode', 'guideline-mode');
-        cursorHighlight.classList.remove('active');
-        isHighlightActive = false;
-        document.querySelectorAll('.acc-item').forEach(i => i.classList.remove('active'));
+    // Reading Guide (PERBAIKAN)
+    document.getElementById('reading-guide').onchange = e => {
+      if (e.target.checked) {
+        document.body.classList.add('reading-guide');
+        document.addEventListener('mousemove', moveGuide);
+      } else {
+        document.body.classList.remove('reading-guide');
+        document.removeEventListener('mousemove', moveGuide);
+      }
+    };
+    function moveGuide(e) {
+      // Setel variabel CSS --mouse-y dengan posisi Y dari kursor
+      document.body.style.setProperty('--mouse-y', e.clientY + 'px');
+    }
 
-        if (mode === 'contrast') { document.body.classList.add('high-contrast'); item.classList.add('active'); }
-        else if (mode === 'dark') { document.body.classList.add('dark-mode'); item.classList.add('active'); }
-        else if (mode === 'highlight') { isHighlightActive = true; cursorHighlight.classList.add('active'); item.classList.add('active'); }
-        else if (mode === 'guideline') { document.body.classList.add('guideline-mode'); item.classList.add('active'); }
-      });
-    });
+    // Mode Suara
+    document.getElementById('voice-mode').onchange = e => {
+      if(e.target.checked) document.body.addEventListener('click', readOnClick);
+      else document.body.removeEventListener('click', readOnClick);
+    };
+    function readOnClick(e){
+      if(e.target.closest('button,a,input,textarea,#accessibility-btn,#accessibility-panel')) return;
+      const text = e.target.innerText || e.target.alt || '';
+      if(text.trim() && text.length < 400){
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = 'id-ID';
+        speechSynthesis.cancel();
+        speechSynthesis.speak(utter);
+      }
+    }
+
+    // Reset Semua
+    document.getElementById('reset-accessibility').onclick = () => {
+      textScale = 100; lineHeight = 1.5;
+      document.documentElement.style.fontSize = '100%';
+      document.body.style.lineHeight = '1.5';
+      document.body.style.letterSpacing = '0px';
+      document.body.style.textAlign = 'justify'; // Reset ke default justify
+      document.body.className = '';
+      textDisplay.textContent = '100%'; lineDisplay.textContent = '1.5x';
+      document.querySelectorAll('input[type="checkbox"]').forEach(c => c.checked = false);
+      document.querySelectorAll('.spacing-btns button, .align-btns button').forEach(b => b.classList.remove('active'));
+      document.querySelector('[data-spacing="4"]').classList.add('active');
+      document.querySelector('[data-align="justify"]').classList.add('active');
+    };
 
     // PERUBAHAN 4 & 5: Path ke Header dan Footer sudah ditambahkan /MAGANG/
     fetch('/MAGANG/project-template-web-dinkominfo-bms/layout/header.html?v=' + Date.now())

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Download Dokumen Perencanaan & Laporan Kinerja - Diskominfo Banyumas</title>
+  <title>Materi Bimtek - Diskominfo Kab. Banyumas</title>
   <base href="/MAGANG/project-template-web-dinkominfo-bms/">
   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -211,123 +211,100 @@
     body.links-highlight a { background: #ffff00 !important; color: #000 !important; padding: 2px 4px !important; }
     body.focus-outline * { outline: 3px solid #0066FF !important; outline-offset: 2px !important; }
 
-    .accordion-section { margin-top: 2.5rem; }
-    .accordion-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 1rem;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+    .bimtek-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     }
-    .accordion-item:hover { box-shadow: var(--shadow-md); }
 
-    .accordion-header {
-      padding: 1.4rem 1.8rem;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      color: white;
-      font-weight: 700;
-      font-size: 1.25rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s ease;
-    }
-    .accordion-header:hover { background: var(--primary-light); }
-    .accordion-header i { transition: transform 0.3s ease; font-size: 1.3rem; }
-    .accordion-header.active i { transform: rotate(180deg); }
-
-    .accordion-body {
-      padding: 0;
-      max-height: 0;
-      overflow: hidden;
+    .bimtek-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.2rem 2rem;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
       transition: all 0.4s ease;
-      background: #fbfbfb;
-    }
-    .accordion-body.open { padding: 1.8rem; max-height: 2000px; }
-
-    .doc-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .doc-item {
+      border: 1px solid #eef2f6;
+      height: 100%;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1rem 0;
-      border-bottom: 1px dashed #ddd;
+      flex-direction: column;
     }
-    .doc-item:last-child { border-bottom: none; }
 
-    .doc-info {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex: 1;
+    .bimtek-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      border-color: var(--accent);
     }
-    .doc-info i {
-      font-size: 1.8rem;
+
+    .bimtek-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bimtek-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin: 0 0 0.8rem 0;
+      line-height: 1.4;
+    }
+
+    .bimtek-date {
+      font-size: 0.95rem;
       color: var(--accent);
-    }
-    .doc-title {
       font-weight: 600;
-      color: #333;
-      margin: 0;
-    }
-    .doc-desc {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin: 4px 0 0;
-    }
-
-    .download-btn {
-      background: var(--primary);
-      color: white;
-      padding: 0.7rem 1.4rem;
-      border-radius: 2rem;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
-      display: inline-flex;
+      margin-bottom: 1rem;
+      display: flex;
       align-items: center;
       gap: 0.5rem;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-    .download-btn:hover {
-      background: var(--primary-light);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
     }
 
-    /* RENSTRA Highlight */
-    .renstra-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      color: white;
-      text-align: center;
-      padding: 3rem 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-    }
-    .renstra-card h3 {
-      font-size: 2rem;
-      margin: 0 0 1rem 0;
-      font-weight: 800;
-    }
-    .renstra-card .download-btn {
-      background: white;
-      color: #667eea;
-      font-size: 1.1rem;
-      padding: 1rem 3rem;
-      margin-top: 1.5rem;
-    }
-    .renstra-card .download-btn:hover {
-      background: #f0f0f0;
+    .bimtek-card ul {
+      flex-grow: 1;
+      margin: 0 0 1.5rem 0;
+      padding-left: 1.2rem;
       color: #555;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .download-all {
+      display: block;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 0.9rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      margin-top: auto;
+      transition: all 0.3s ease;
+    }
+
+    .download-all:hover {
+      background: var(--primary-light);
+      transform: translateY(-3px);
+    }
+
+    .download-item {
+      display: block;
+      margin: 0.8rem 0;
+      padding: 0.7rem 1rem;
+      background: rgba(0, 123, 255, 0.08);
+      border-radius: 50px;
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .download-item:hover {
+      background: var(--accent);
+      color: white;
     }
   </style>
 </head>
@@ -480,10 +457,10 @@
       <div class="container">
         <div class="hero-content">
           <div class="qa-icon">
-            <i class="fas fa-file-alt"></i>
+            <i class="fas fa-chalkboard-teacher"></i>
           </div>
-          <h1 class="hero-title">DOKUMEN PERENCANAAN & LAPORAN KINERJA</h1>
-          <p class="hero-subtitle">Renstra, Renja, Rencana Aksi, LKJIP, DPA, dan dokumen resmi lainnya</p>
+          <h1 class="hero-title">MATERI BIMBINGAN TEKNIS</h1>
+          <p class="hero-subtitle">Kumpulan materi presentasi dari kegiatan Bimbingan Teknis (Bimtek) yang diselenggarakan Dinas Kominfo Kabupaten Banyumas</p>
         </div>
       </div>
     </section>
@@ -492,163 +469,57 @@
       <div class="container">
         <div class="info-card">
 
-          <!-- RENSTRA Highlight -->
-          <div class="renstra-card">
-            <h3>RENSTRA 2024–2026</h3>
-            <p style="font-size:1.1rem;opacity:0.95;">
-              Rencana Strategis Dinas Komunikasi dan Informatika<br>Kabupaten Banyumas Tahun 2024-2026
-            </p>
-            <a href="files/dokumen/renstra-2024-2026.pdf" class="download-btn" target="_blank">
-              <i class="fas fa-download"></i> Download RENSTRA 2024-2026
-            </a>
-          </div>
+          <div class="bimtek-grid">
 
-          <div class="accordion-section">
-
-            <!-- 2025 -->
-            <div class="accordion-item">
-              <div class="accordion-header active">
-                <span>2025</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body open">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info">
-                      <i class="fas fa-file-pdf"></i>
-                      <div>
-                        <p class="doc-title">Rencana Aksi Tahun 2025</p>
-                      </div>
-                    </div>
-                    <a href="files/dokumen/rencana-aksi-2025.pdf" class="download-btn" target="_blank">
-                      <i class="fas fa-download"></i> Download
-                    </a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info">
-                      <i class="fas fa-file-pdf"></i>
-                      <div>
-                        <p class="doc-title">Dokumen Pelaksanaan Anggaran (DPA) 2025</p>
-                      </div>
-                    </div>
-                    <a href="files/dokumen/dpa-2025.pdf" class="download-btn" target="_blank">
-                      <i class="fas fa-download"></i> Download
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            <!-- Bimtek 2022 -->
+            <div class="bimtek-card">
+              <div class="bimtek-icon"><i class="fas fa-users"></i></div>
+              <h3>Bimtek Pengelolaan Media Sosial Pemerintah</h3>
+              <div class="bimtek-date"><i class="fas fa-calendar-alt"></i> Kamis, 14 Juli 2022</div>
+              <ul>
+                <li>Dr. Edi Santoso, S.Sos, M.Si</li>
+                <li>Yudhis Fajar Kurniawan</li>
+              </ul>
+              <a href="files/bimtek/2022-materi-dr-edi-santoso.pdf" class="download-item" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Materi Dr. Edi Santoso
+              </a>
+              <a href="files/bimtek/2022-materi-yudhis-fajar.pdf" class="download-item" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Materi Yudhis Fajar
+              </a>
             </div>
 
-            <!-- 2024 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2024</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2024</p></div></div>
-                    <a href="files/dokumen/rencana-aksi-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">RENJA Perubahan 2024</p></div></div>
-                    <a href="files/dokumen/renja-perubahan-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">RKA-SKPD 2024</p></div></div>
-                    <a href="files/dokumen/rka-skpd-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">LKJIP 2024</p></div></div>
-                    <a href="files/dokumen/lkjip-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">DPA 2024</p></div></div>
-                    <a href="files/dokumen/dpa-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
+            <!-- Bimtek 2019 -->
+            <div class="bimtek-card">
+              <div class="bimtek-icon"><i class="fas fa-laptop"></i></div>
+              <h3>Bimtek Pengelolaan Konten Website & Sosialisasi Ketentuan Cukai</h3>
+              <div class="bimtek-date"><i class="fas fa-calendar-alt"></i> Kamis, 12 September 2019</div>
+              <ul>
+                <li>Bangkit Wismo, S.IKom</li>
+                <li>Bea Cukai Cabang Purwokerto</li>
+              </ul>
+              <a href="files/bimtek/2019-materi-bangkit-wismo.pdf" class="download-item" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Materi Bangkit Wismo
+              </a>
+              <a href="files/bimtek/2019-materi-bea-cukai.pdf" class="download-item" target="_blank">
+                <i class="fas fa-file-pdf"></i> Download Materi Bea Cukai
+              </a>
             </div>
 
-            <!-- 2023 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2023</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2023</p></div></div>
-                    <a href="files/dokumen/rencana-aksi-2023.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
+            <!-- Tambah Bimtek lain di sini kalau ada -->
+            <!-- Contoh card kosong untuk ditambah nanti -->
+            <!--
+            <div class="bimtek-card">
+              <div class="bimtek-icon"><i class="fas fa-graduation-cap"></i></div>
+              <h3>Judul Bimtek Tahun XXXX</h3>
+              <div class="bimtek-date"><i class="fas fa-calendar-alt"></i> Tanggal Pelaksanaan</div>
+              <ul>
+                <li>Narasumber 1</li>
+                <li>Narasumber 2</li>
+              </ul>
+              <a href="#" class="download-all">Download Semua Materi</a>
             </div>
+            -->
 
-            <!-- 2022 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2022</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Data dan Informasi Kabupaten Banyumas 2022</p></div></div>
-                    <a href="files/dokumen/data-informasi-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Renja 2022</p></div></div>
-                    <a href="files/dokumen/renja-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2022</p></div></div>
-                    <a href="files/dokumen/rencana-aksi-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 2021 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2021</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">LKJIP Tahun 2021</p></div></div>
-                    <a href="files/dokumen/lkjip-2021.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <!-- 2017 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2017</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Renstra 2017</p></div></div>
-                    <a href="files/dokumen/renstra-2017.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="info-box" style="margin-top: 3rem;">
-            <i class="fas fa-info-circle"></i>
-            <p>Semua dokumen dalam format PDF dan dapat diunduh secara gratis. 
-               Jika ada link rusak atau dokumen belum tersedia, silakan hubungi PPID Diskominfo Banyumas.</p>
           </div>
 
         </div>
@@ -658,30 +529,8 @@
     <div id="footer-placeholder">Loading footer...</div>
   </div>
 
-  <!-- JavaScript Accordion + Aksesibilitas -->
+  <!-- Script aksesibilitas & header/footer -->
   <script>
-    // Accordion
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const body = header.nextElementSibling;
-        const icon = header.querySelector('i');
-        const isOpen = body.classList.contains('open');
-
-        // Tutup semua dulu (opsional, bisa dihapus jika mau multiple open)
-        document.querySelectorAll('.accordion-body').forEach(b => {
-          b.classList.remove('open');
-          b.previousElementSibling.classList.remove('active');
-          b.previousElementSibling.querySelector('i').style.transform = 'rotate(0)';
-        });
-
-        if (!isOpen) {
-          body.classList.add('open');
-          header.classList.add('active');
-          icon.style.transform = 'rotate(180deg)';
-        }
-      });
-    });
-
     // Accessibility Panel Script
     const btn = document.getElementById('accessibility-btn');
     const panel = document.getElementById('accessibility-panel');

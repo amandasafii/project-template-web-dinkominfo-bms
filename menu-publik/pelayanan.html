@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Download Dokumen Perencanaan & Laporan Kinerja - Diskominfo Banyumas</title>
+  <title>Pelayanan Publik - Diskominfo Kab. Banyumas</title>
   <base href="/MAGANG/project-template-web-dinkominfo-bms/">
   
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -211,123 +211,75 @@
     body.links-highlight a { background: #ffff00 !important; color: #000 !important; padding: 2px 4px !important; }
     body.focus-outline * { outline: 3px solid #0066FF !important; outline-offset: 2px !important; }
 
-    .accordion-section { margin-top: 2.5rem; }
-    .accordion-item {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 1rem;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: all 0.3s ease;
+    .services-grid {
+      display: grid;
+      gap: 2rem;
+      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     }
-    .accordion-item:hover { box-shadow: var(--shadow-md); }
 
-    .accordion-header {
-      padding: 1.4rem 1.8rem;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      color: white;
-      font-weight: 700;
-      font-size: 1.25rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.3s ease;
-    }
-    .accordion-header:hover { background: var(--primary-light); }
-    .accordion-header i { transition: transform 0.3s ease; font-size: 1.3rem; }
-    .accordion-header.active i { transform: rotate(180deg); }
-
-    .accordion-body {
-      padding: 0;
-      max-height: 0;
-      overflow: hidden;
+    .service-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2.2rem 2rem;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
       transition: all 0.4s ease;
-      background: #fbfbfb;
-    }
-    .accordion-body.open { padding: 1.8rem; max-height: 2000px; }
-
-    .doc-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .doc-item {
+      border: 1px solid #eef2f6;
+      height: 100%;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: space-between;
-      padding: 1rem 0;
-      border-bottom: 1px dashed #ddd;
-    }
-    .doc-item:last-child { border-bottom: none; }
-
-    .doc-info {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex: 1;
-    }
-    .doc-info i {
-      font-size: 1.8rem;
-      color: var(--accent);
-    }
-    .doc-title {
-      font-weight: 600;
-      color: #333;
-      margin: 0;
-    }
-    .doc-desc {
-      font-size: 0.9rem;
-      color: var(--text-light);
-      margin: 4px 0 0;
     }
 
-    .download-btn {
-      background: var(--primary);
-      color: white;
-      padding: 0.7rem 1.4rem;
-      border-radius: 2rem;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.9rem;
+    .service-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+    }
+
+    .service-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .service-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #2d3436;
+      margin: 0 0 1rem 0;
+      line-height: 1.4;
+    }
+
+    .service-card p {
+      font-size: 0.95rem;
+      color: #636e72;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .service-link {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      box-shadow: var(--shadow-sm);
+      color: var(--accent);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.4rem;
+      background: rgba(0, 123, 255, 0.1);
+      border-radius: 50px;
       transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-    .download-btn:hover {
-      background: var(--primary-light);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
     }
 
-    /* RENSTRA Highlight */
-    .renstra-card {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    .service-link:hover {
+      background: var(--accent);
       color: white;
-      text-align: center;
-      padding: 3rem 2rem;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-lg);
-    }
-    .renstra-card h3 {
-      font-size: 2rem;
-      margin: 0 0 1rem 0;
-      font-weight: 800;
-    }
-    .renstra-card .download-btn {
-      background: white;
-      color: #667eea;
-      font-size: 1.1rem;
-      padding: 1rem 3rem;
-      margin-top: 1.5rem;
-    }
-    .renstra-card .download-btn:hover {
-      background: #f0f0f0;
-      color: #555;
+      transform: translateX(5px);
     }
   </style>
 </head>
@@ -480,10 +432,10 @@
       <div class="container">
         <div class="hero-content">
           <div class="qa-icon">
-            <i class="fas fa-file-alt"></i>
+            <i class="fas fa-concierge-bell"></i>
           </div>
-          <h1 class="hero-title">DOKUMEN PERENCANAAN & LAPORAN KINERJA</h1>
-          <p class="hero-subtitle">Renstra, Renja, Rencana Aksi, LKJIP, DPA, dan dokumen resmi lainnya</p>
+          <h1 class="hero-title">PELAYANAN PUBLIK</h1>
+          <h1 class="hero-subtitle">Semua layanan Dinas Komunikasi dan Informatika Kabupaten Banyumas dalam satu tempat</h1>
         </div>
       </div>
     </section>
@@ -492,163 +444,167 @@
       <div class="container">
         <div class="info-card">
 
-          <!-- RENSTRA Highlight -->
-          <div class="renstra-card">
-            <h3>RENSTRA 2024–2026</h3>
-            <p style="font-size:1.1rem;opacity:0.95;">
-              Rencana Strategis Dinas Komunikasi dan Informatika<br>Kabupaten Banyumas Tahun 2024-2026
-            </p>
-            <a href="files/dokumen/renstra-2024-2026.pdf" class="download-btn" target="_blank">
-              <i class="fas fa-download"></i> Download RENSTRA 2024-2026
-            </a>
-          </div>
+          <div class="services-grid">
 
-          <div class="accordion-section">
-
-            <!-- 2025 -->
-            <div class="accordion-item">
-              <div class="accordion-header active">
-                <span>2025</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body open">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info">
-                      <i class="fas fa-file-pdf"></i>
-                      <div>
-                        <p class="doc-title">Rencana Aksi Tahun 2025</p>
-                      </div>
-                    </div>
-                    <a href="files/dokumen/rencana-aksi-2025.pdf" class="download-btn" target="_blank">
-                      <i class="fas fa-download"></i> Download
-                    </a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info">
-                      <i class="fas fa-file-pdf"></i>
-                      <div>
-                        <p class="doc-title">Dokumen Pelaksanaan Anggaran (DPA) 2025</p>
-                      </div>
-                    </div>
-                    <a href="files/dokumen/dpa-2025.pdf" class="download-btn" target="_blank">
-                      <i class="fas fa-download"></i> Download
-                    </a>
-                  </li>
-                </ul>
-              </div>
+            <!-- Maklumat Pelayanan (sekarang sama persis seperti yang lain) -->
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-scroll"></i></div>
+              <h3>Maklumat Pelayanan</h3>
+              <p>Komitmen Diskominfo Banyumas dalam memberikan pelayanan prima kepada masyarakat</p>
+              <a href="files/pelayanan/maklumat-pelayanan.pdf" class="service-link" target="_blank">
+                Unduh Maklumat → 
+              </a>
             </div>
 
-            <!-- 2024 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2024</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2024</p></div></div>
-                    <a href="files/dokumen/rencana-aksi-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">RENJA Perubahan 2024</p></div></div>
-                    <a href="files/dokumen/renja-perubahan-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">RKA-SKPD 2024</p></div></div>
-                    <a href="files/dokumen/rka-skpd-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">LKJIP 2024</p></div></div>
-                    <a href="files/dokumen/lkjip-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">DPA 2024</p></div></div>
-                    <a href="files/dokumen/dpa-2024.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-clipboard-list"></i></div>
+              <h3>Standar Pelayanan</h3>
+              <p>Prosedur dan waktu penyelesaian setiap jenis layanan publik</p>
+              <a href="files/pelayanan/standar-pelayanan.pdf" class="service-link" target="_blank">
+                Lihat Standar →
+              </a>
             </div>
 
-            <!-- 2023 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2023</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2023</p></div></div>
-                    <a href="files/dokumen/rencana-aksi-2023.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-database"></i></div>
+              <h3>Pelayanan & Publikasi Data dan Informasi</h3>
+              <p>Penyediaan data statistik sektoral Kabupaten Banyumas</p>
+              <a href="#" class="service-link">Info Lebih Lanjut →</a>
             </div>
 
-            <!-- 2022 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2022</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Data dan Informasi Kabupaten Banyumas 2022</p></div></div>
-                    <a href="files/dokumen/data-informasi-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Renja 2022</p></div></div>
-                    <a href="files/dokumen/renja-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Rencana Aksi 2022</p></div></div>
-                    <a href="files/dokumen/rencana-aksi-2022.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+              <h3>Fasilitasi Kegiatan Non Fisik TMMD</h3>
+              <p>Dukungan publikasi dan dokumentasi kegiatan TMMD</p>
+              <a href="#" class="service-link">Detail →</a>
             </div>
 
-            <!-- 2021 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2021</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">LKJIP Tahun 2021</p></div></div>
-                    <a href="files/dokumen/lkjip-2021.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-list-alt"></i></div>
+              <h3>Penyusunan Daftar Informasi Publik</h3>
+              <p>Pembuatan DIP dan DIP Dikecualikan secara berkala</p>
+              <a href="#" class="service-link">Lihat DIP →</a>
             </div>
 
-            <!-- 2017 -->
-            <div class="accordion-item">
-              <div class="accordion-header">
-                <span>2017</span>
-                <i class="fas fa-chevron-down"></i>
-              </div>
-              <div class="accordion-body">
-                <ul class="doc-list">
-                  <li class="doc-item">
-                    <div class="doc-info"><i class="fas fa-file-pdf"></i><div><p class="doc-title">Renstra 2017</p></div></div>
-                    <a href="files/dokumen/renstra-2017.pdf" class="download-btn" target="_blank"><i class="fas fa-download"></i> Download</a>
-                  </li>
-                </ul>
-              </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-envelope-open-text"></i></div>
+              <h3>Permohonan Informasi Publik</h3>
+              <p>Ajukan permintaan informasi secara online/offline</p>
+              <a href="permohonan-informasi.html" class="service-link">Ajukan Sekarang →</a>
             </div>
 
-          </div>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-exclamation-triangle"></i></div>
+              <h3>Penanganan Keberatan Informasi Publik</h3>
+              <p>Prosedur pengajuan keberatan atas informasi yang ditolak</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
 
-          <div class="info-box" style="margin-top: 3rem;">
-            <i class="fas fa-info-circle"></i>
-            <p>Semua dokumen dalam format PDF dan dapat diunduh secara gratis. 
-               Jika ada link rusak atau dokumen belum tersedia, silakan hubungi PPID Diskominfo Banyumas.</p>
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-gavel"></i></div>
+              <h3>Fasilitasi Sengketa Informasi Publik</h3>
+              <p>Pendampingan sengketa di Komisi Informasi</p>
+              <a href="#" class="service-link">Detail →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
+              <h3>Uji Uji Konsekuensi</h3>
+              <p>Pengujian sebelum informasi dikecualikan</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-video"></i></div>
+              <h3>Pembuatan Konten</h3>
+              <p>Video, foto, infografis, dan konten media sosial OPD</p>
+              <a href="#" class="service-link">Pesan Konten →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+              <h3>Penanganan Konten Negatif</h3>
+              <p>Pemantauan dan penanganan hoaks</p>
+              <a href="#" class="service-link">Laporkan →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-bullhorn"></i></div>
+              <h3>Pengaduan via Lapak Aduan Banyumas</h3>
+              <p>Layanan pengaduan pelayanan publik secara online</p>
+              <a href="https://lapakaduan.banyumaskab.go.id" class="service-link" target="_blank">Buka Lapak Aduan →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+              <h3>Pembangunan/Pengembangan Aplikasi</h3>
+              <p>Pembuatan aplikasi/web untuk kebutuhan OPD</p>
+              <a href="#" class="service-link">Ajukan →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-globe"></i></div>
+              <h3>Pendaftaran Sub Domain</h3>
+              <p>Subdomain resmi .banyumaskab.go.id</p>
+              <a href="#" class="service-link">Daftar →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-key"></i></div>
+              <h3>Permohonan Hak Akses Sub Domain</h3>
+              <p>Akses pengelolaan subdomain OPD</p>
+              <a href="#" class="service-link">Ajukan Akses →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-router"></i></div>
+              <h3>Instalasi Mikrotik Mesin Absensi Simpatik</h3>
+              <p>Konfigurasi router untuk absensi</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+              <h3>Layanan Pelatihan TIK</h3>
+              <p>Pelatihan teknologi informasi untuk OPD & masyarakat</p>
+              <a href="#" class="service-link">Lihat Jadwal →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-server"></i></div>
+              <h3>Pelayanan Tamu Data Center</h3>
+              <p>Kunjungan dan akses ruang server</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-door-open"></i></div>
+              <h3>Permohonan Hak Akses Ruang Server</h3>
+              <p>Izin masuk ruang data center</p>
+              <a href="#" class="service-link">Ajukan →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-tower-cell"></i></div>
+              <h3>Rekomendasi Zona Menara Telekomunikasi</h3>
+              <p>Persyaratan dan prosedur rekomendasi menara</p>
+              <a href="#" class="service-link">Detail →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-archive"></i></div>
+              <h3>Peminjaman Arsip Inaktif</h3>
+              <p>Peminjaman dokumen arsip Diskominfo</p>
+              <a href="#" class="service-link">Info →</a>
+            </div>
+
+            <div class="service-card">
+              <div class="service-icon"><i class="fas fa-users"></i></div>
+              <h3>Seleksi Penerimaan Non PNS</h3>
+              <p>Informasi rekrutmen tenaga kontrak</p>
+              <a href="#" class="service-link">Lihat Pengumuman →</a>
+            </div>
+
           </div>
 
         </div>
@@ -658,30 +614,8 @@
     <div id="footer-placeholder">Loading footer...</div>
   </div>
 
-  <!-- JavaScript Accordion + Aksesibilitas -->
+  <!-- Script aksesibilitas & header/footer -->
   <script>
-    // Accordion
-    document.querySelectorAll('.accordion-header').forEach(header => {
-      header.addEventListener('click', () => {
-        const body = header.nextElementSibling;
-        const icon = header.querySelector('i');
-        const isOpen = body.classList.contains('open');
-
-        // Tutup semua dulu (opsional, bisa dihapus jika mau multiple open)
-        document.querySelectorAll('.accordion-body').forEach(b => {
-          b.classList.remove('open');
-          b.previousElementSibling.classList.remove('active');
-          b.previousElementSibling.querySelector('i').style.transform = 'rotate(0)';
-        });
-
-        if (!isOpen) {
-          body.classList.add('open');
-          header.classList.add('active');
-          icon.style.transform = 'rotate(180deg)';
-        }
-      });
-    });
-
     // Accessibility Panel Script
     const btn = document.getElementById('accessibility-btn');
     const panel = document.getElementById('accessibility-panel');
